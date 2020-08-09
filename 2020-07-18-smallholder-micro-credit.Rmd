@@ -1,0 +1,26 @@
+---
+title: Smallholder micro-credit
+author: Ben Schiek
+date: '2020-07-18'
+slug: smallholder-micro-credit
+categories:
+  - Resilient smallholder communities
+tags: []
+bibliography: Smallholder microcredit post.bib
+---
+
+<style>
+p.caption {
+  font-size: 0.7em;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+```
+
+
+Bateman argues for targeting [@bateman2013financing]. Lianto says targeting bad [@lianto1988rural], pointing to the Masagana 99 experience.
+

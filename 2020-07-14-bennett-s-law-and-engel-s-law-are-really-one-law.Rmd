@@ -1,0 +1,34 @@
+---
+title: Bennett's Law and Engel's Law - Same law?
+author: Ben Schiek
+date: '2020-07-14'
+slug: bennett-s-law-and-engel-s-law-are-really-one-law
+categories:
+  - Empirical laws
+  - Methodology
+tags: []
+bibliography: How to crowdsource a covariance matrix.bib
+---
+
+<style>
+p.caption {
+  font-size: 0.7em;
+}
+</style>
+
+# Two laws, or two manifestations of the same law?
+
+This is essentially a "production side" analogue of the time honored, empirical consumer side observation going back to Bernoulli (and perhaps as far back as Aristotle [@kauder1953genesis]) that _"in the absence of the unusual, the utility resulting from any small increase in wealth will be inversely proportionate to the quantity of goods previously possessed"_ [@bernoulli1954exposition].
+
+Formalization of such statements depends upon how one interprets, mathematically, the notion of change expressed in words like "additional return" and "small increase". If these are interpreted as percentage changes, then the production side statement can be formalized as follows.
+
+\begin{equation}
+\frac{\partial \ln(R)}{\partial \ln(w_i)} \sim \frac{1}{w_i}
+\label{eq:dimRetDefine}
+\end{equation}
+
+Where, to be clear, the term $\frac{\partial \ln(R)}{\partial \ln(w_i)}$ is the portfolio return elasticity with respect to investment in the $i^{th}$ portfolio item. In other words, this indicates the percentage increase in portfolio return given a $1$ percent increase in investment in the $i^{th}$ portfolio item. The subsequent portion of the equation, "$\sim 1 / w_i$", then means "inversely proportionate to the quantity of funds already invested".
+
+Bernoulli [@...] law of diminishing returns to marginal increments... graph of utility curve... This implies that whether a good is inferior or superior depends on the quantity held.
+
+As far as expenditures go, food stands to luxury goods as starchy foods stand to protein and vitamin rich foods.

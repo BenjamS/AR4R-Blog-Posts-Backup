@@ -1,0 +1,332 @@
+---
+title: Philippines rice per capita 1909-2018
+author: Ben Schiek
+date: '2020-07-09'
+slug: philippines-rice-per-capita
+categories: [AR4D, green revolution]
+tags: []
+bibliography: Philippines rice graphic post.bib
+---
+<style>
+p.caption {
+  font-size: 0.7em;
+}
+</style>
+
+While conducting research for the paper, I noticed a graph of Phillipine rice yield, area, and production going back almost to the beginning of the 20th century. This was surprising to me, as I am accustomed to working with the FAO data, which extend back no further than 1961. If earlier data were available, then surely FAO would have it, I assumed. I soon came to realize that this assumption was wrong.
+
+[@pingali2012green]
+
+"It took almost 10,000 years for food grain production to reach 1 billion tons, in 1960, and only 40 years to reach 2 billion tons, in 2000" [@khush2001green].
+
+"The 1960s was a decade of despair with regard to the world's ability to cope with the food-population balance, particularly in developing countries. Most of the lands suitable for agriculture in Asian countries had been cultivated while population growth rates were accelerating" [@khush2001green]. To support this perception, he cites Paddock's book "Famine 1975!", which is ironic since Paddock was perhaps the first critic of the Green Revolution [@paddock1970green]. ...the green revolution extends a period of increasing 
+
+
+
+The graph I saw was in ...[@Mangahas:287593].
+
+...required some sleuthing across three continents. https://ageconsearch.umn.edu/record/287593
+Special thanks to Linda Eells and Frances Homans at the University of Minnesota for helping me track down this time series. Gopi.
+...can also get corn data from IRRI
+...cavan to metric tons 44 / 1000
+...actually a data point in 1903
+...Figure \@ref(fig:riceYdAreaProd)
+
+
+25 IR varieties released between 1966 and 1985 [@plucknett2014gene].
+
+89% of irrigated lands and 77% of rainfed lands in the country were planted with these modern rice varieties by 1980 [@herdt1983adoption].
+
+Masagana 99 effective years 1973-1977 [@smith1989palay].
+
+>"In July 1972, just after the main rice crop had been transplanted in
+the paddies, Central Luzon -- the "Rice-bowl" production area which primarily
+serves the needs of Metropolitan Manila -- was inundated by one ofthe worst
+floods in the country's history. A typhoon moved in over the island and
+stayed, bringing continuous torrential rains for an apocalyptic forty days and nights. The flood waters rose to unprecedented levels, bursting the mainflood
+dikes of the Central Luzon watershed and silting the river mouths,
+overflowing some 200,000 hectares of riceland and destroying the rice in the
+fields.
+
+>"After the rains stopped, the accumulated flood waters took a further two
+weeks to subside and run off in most areas. The devastation revealed by the
+receding water was enormous. Roads, bridges and buildings were damaged
+and/or destroyed; some rivers changed their courses through former rice
+paddies, while many rice fields were buried up to several feet in silt, rendering them untillable" [@smith1989palay].
+
+The government stepped in to help farmers replant, but those farmers who managed to do so saw their new seedbeds washed away by a second wave of torrential rainfall in August. Meanwhile, drought ravaged the crop to the south [@smith1989palay].
+
+
+Intended to reach smallholders, but ended up in the hands mostly of large smallholders. Also, middlemen etc. seemed most to benefit.
+
+There is anecdotal evidence of individual farmers here an there (who followed the 16 step Makabagong Paraan program) reaching or surpassing the goal of 99 cavans/ha. (4.4 mt), and the official numbers indicate that average yields reached as high as 84.3 cavans/ha (3.7 mt) at the peak of the program [@smith1989palay]. Writing this post some 43 years after the fact, with the benefit of hindsight, and the FAO data, which suggest that average yields were more in the neighborhood of 47 cavans/ha (2 mt), up from a baseline of roughly 35 (1.5 mt). Still a substantial increase, and a stunning comeback from the cataclysmic harvests of 1972.
+
+M99 a massive credit program with dubious results [@esguerra1981some]. [@lianto1988rural].
+
+...[@hanisch1984reaching]
+
+The term "masagana", which translates to "bountiful", had gained currency among Philippine rural communities a couple decades earlier as a new rice planting technique [@covar1960masagana]. The "99" referred to the number of cavans, up from an average of 40.
+
+[@abarientos1977cooperatives]
+
+"Success of Masagana 99 all in Imee's head"
+https://www.philstar.com/headlines/2020/05/24/2016215/success-masagana-99-all-imees-head-researchers
+During a May 20, 2020 senate hearing, Ferdinand Marcos' daughter, Senator Imee Marcos, proposed a reboot of Masagana 99, was cut off by Duerte's Secretary of Finance, Carlos Dominguez III, "I was the Secretary of Agriculture that cleaned up the mess that was left by Masagana 99. There were about 800 rural banks that were bankrupted by that program and we had to rescue them." (Dominguez sec. ag. under Corazon Aquino) ...mixed legacy
+
+Philippines president Duterte talked about bringing back Masagana 99 early in his tenure, but faced stiff resistance from farmer organizations, who say it only benefited larger farmers and destroyed the environment.
+https://news.abs-cbn.com/video/news/10/26/16/farmers-oppose-revival-of-marcos-masagana-99
+
+Smith found that the increase in production was mostly due to an increase in planted area, not an increase in yield [-@smith1989palay].
+
+Senator and Vice-Presidential candidate Ferdinand "Bongbong" Marcos recently asked: "Will I say sorry for the agricultural policy that brought us to self sufficiency in rice?" https://www.manilatimes.net/2016/02/22/opinion/columnists/marcos-green-revolution/246377/
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+#library(plyr)
+library(tidyverse)
+library(patchwork)
+#library(ggrepel)
+#library(kableExtra)
+#https://ageconsearch.umn.edu/record/287593
+# Special thanks to Linda Eells and Frances Homans at the University of Minnesota for helping me track down this time series.
+#===========================================================================
+shift_legend2 <- function(p) {
+  # ...
+  # to grob
+  gp <- ggplotGrob(p)
+  facet.panels <- grep("^panel", gp[["layout"]][["name"]])
+  empty.facet.panels <- sapply(facet.panels, function(i) "zeroGrob" %in% class(gp[["grobs"]][[i]]))
+  empty.facet.panels <- facet.panels[empty.facet.panels]
+  
+  # establish name of empty panels
+  empty.facet.panels <- gp[["layout"]][empty.facet.panels, ]
+  names <- empty.facet.panels$name
+  # example of names:
+  #[1] "panel-3-2" "panel-3-3"
+  
+  # now we just need a simple call to reposition the legend
+  #lemon::reposition_legend(p, 'center', panel=names)
+  p_out <- lemon::reposition_legend(p, 'center', panel=names)
+  #class(lemon::reposition_legend(p, 'center', panel=names))
+  return(p_out)
+}
+
+```
+
+```{r riceYdAreaProd, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="Rice yield, area, and production in the Philippines, 1909-2018. The 1964-2018 data can be readily downloaded from FAOSTAT. The 1909-1963 series come from IRRI Technical Bulletin No. 9 (1970). This data has to be manually entered into a data file for processing (as I did here).", echo = FALSE}
+
+this_folder <- "Data/Philippines rice data/"
+this_filepath <- paste0(this_folder, "Philippines rice data_1961-2018_FAO.csv")
+df_rice_FAO_raw <- read.csv(this_filepath, stringsAsFactors = F)
+df_rice_FAO_raw <- df_rice_FAO_raw[, c("Year", "Element", "Unit", "Value")]
+df_rice_FAO <- df_rice_FAO_raw
+df_rice_FAO$Unit <- NULL
+df_rice_FAO <- df_rice_FAO %>% spread(Element, Value)
+df_rice_FAO$Yield <- 10^-4 * df_rice_FAO$Yield
+
+this_filepath <- paste0(this_folder, "Philippines rice data 1909-1963.csv")
+df_rice_early <- read.csv(this_filepath, stringsAsFactors = F)
+colnames(df_rice_early)[3:5] <- c("Production", "Area", "Yield")
+cavan_to_MT <- 44 / 1000
+df_rice_early$Production <- cavan_to_MT * df_rice_early$Production
+df_rice_early$Yield <- cavan_to_MT * df_rice_early$Yield
+df_rice_early$Year.raw <- NULL
+df_rice_early <- df_rice_early[, c("Year", "Area", "Production", "Yield")]
+colnames(df_rice_early)[2] <- "Area harvested"
+df_rice_early <- subset(df_rice_early, Year %in% c(1909:1963))
+df_rice_FAO <- subset(df_rice_FAO, Year > 1963)
+df_rice_early$Type <- "IRRI"
+df_rice_FAO$Type <- "FAO"
+df_rice <- rbind(df_rice_early, df_rice_FAO)
+
+df_rice$Production <- df_rice$Production / 1000
+df_rice$`Area harvested` <- df_rice$`Area harvested` / 1000
+colnames(df_rice)[2:4] <- c("Area harvested ('000 hectares)",
+                            "Production ('000 metric tons)",
+                            "Yield (metric tons)")
+n <- 2
+bag_of_colors <- randomcoloR::distinctColorPalette(k = 2 * n)
+color_vec <- sample(bag_of_colors, n)
+
+df_plot <- df_rice %>% gather(Var, Value, `Area harvested ('000 hectares)`:`Yield (metric tons)`)
+
+gg <- ggplot(df_plot, aes(x = Year, y = Value, group = Type, color = Type))
+gg <- gg + geom_line(lwd = 1)
+gg <- gg + scale_x_continuous(breaks = seq(1908, 2018, length.out = 6))
+gg <- gg + scale_color_manual(values = color_vec)
+gg <- gg + facet_wrap(~Var, ncol = 2, scales = "free_y")
+gg <- gg + theme(axis.title = element_blank(),
+                 legend.title = element_blank(),
+                 legend.position = "top",
+                 legend.spacing.x = unit(0.5, 'cm'),
+                 strip.background = element_rect(fill="white"))
+gg <- gg + labs(title = "Rice in the Philippines 1909-2018")
+gg <- shift_legend2(gg)
+gg <- ggplotify::as.ggplot(gg)
+
+
+```
+
+But I want to get production per capita.
+...Population data only goes back to 1950. Need a way to "hindcast"
+...logistic function
+
+$$
+\text{Pop.} \approx \frac{a}{1 + e^{-(t - m) / s}}
+$$
+
+...Figure \@ref(fig:poptest)
+
+```{r poptest, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="The logistic model provides a pretty tight fit to the population data.", echo = FALSE}
+
+this_filepath <- paste0(this_folder, "Philippines population_1950-2018_FAO.csv")
+df_pop <- read.csv(this_filepath, stringsAsFactors = F)
+df_pop <- df_pop[, c("Year", "Unit", "Value")]
+colnames(df_pop)[3] <- "Population"
+df_pop$Population <- df_pop$Population * 1000
+df_pop$Unit <- NULL
+#---------------------------------------------------------------------------
+t_start <- -(nrow(subset(df_rice_early, Year %in% c(1909:1949))) - 1)
+t_seq_before <- seq(t_start, 0)
+#t_seq <- seq(5, 4 + nrow(df_pop)) * 0.1
+t_seq <- seq(1, nrow(df_pop)) * 1
+df_pop$t <- t_seq
+#---------------------------------------------------------------------------
+df_mod <- df_pop
+df_mod$lPop <- log(df_mod$Population)
+mod <- nls(lPop ~ a - log(1 + exp(-(t - m) / s)),
+           df_mod,
+           start = list(a = 100, m = 100, s = 10))
+#summary(mod)
+lPophat <- predict(mod, df_mod$lPop, type = "response")
+#---------------------------------------------------------------------------
+df_pop$Modeled <- exp(lPophat)
+colnames(df_pop)[2] <- "FAO"
+#df_pop <- df_pop[, c("Year", "Unit", "reg_term", "lValue", "t", "Value", "yhat")]
+#---------------------------------------------------------------------------
+# Check
+gathercols <- c("FAO", "Modeled")
+df_plot <- df_pop %>% gather_("Type", "Population", gathercols)
+gg <- ggplot(df_plot, aes(x = Year, y = Population, group = Type, color = Type))
+gg <- gg + geom_line()
+gg1 <- gg + theme(axis.title.x = element_blank(),
+                 axis.text.x = element_blank(),
+                 legend.title = element_blank())
+df_plot <- df_pop
+df_plot$Difference <- exp(lPophat) - df_pop$FAO
+gg <- ggplot(df_plot, aes(x = Year, y = Difference))
+gg <- gg + geom_line(lwd = 1)
+gg <- gg + geom_hline(yintercept = 0, lwd = 1)
+gg2 <- gg + theme(axis.title.x = element_blank())
+gg1 + gg2 + plot_layout(ncol = 1, heights = c(2, 1))
+#---------------------------------------------------------------------------
+```
+
+
+...Figure \@ref(fig:pop)
+
+```{r pop, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
+
+logistic_fn <- function(t, a, m, s){a / (1 + exp(-(t - m) / s))}
+coefs <- coef(mod)
+a <- exp(coefs["a"])
+m <- coefs["m"]
+s <- coefs["s"]
+pop_hindcast <- logistic_fn(t_seq_before, a, m, s)
+df_pop_hindcast <- data.frame(Year = c(1909:1949), t = t_seq_before, FAO = NA, Modeled = pop_hindcast)
+df_pop$Modeled <- NA
+df_pop <- df_pop[, c("Year", "t", "FAO", "Modeled")]
+df_pop <- rbind(df_pop_hindcast, df_pop)
+#---------------------------------------------------------------------------
+# Check
+df_plot <- df_pop %>% gather(Type, Population, FAO:Modeled)
+df_plot$Population <- df_plot$Population / 10^6
+colnames(df_plot)[4] <- "Population in the Philippines (millions)"
+gg <- ggplot(df_plot, aes(x = Year, y = `Population in the Philippines (millions)`, group = Type, color = Type))
+gg <- gg + geom_line(lwd = 1)
+gg <- gg + scale_x_continuous(breaks = seq(1908, 2018, 10))
+gg <- gg + theme(axis.title.x = element_blank(),
+                 legend.position = "bottom",
+                 legend.title = element_blank(),
+                 legend.spacing.x = unit(0.5, 'cm'))
+gg
+
+```
+
+
+...Figure \@ref(fig:ricPcapFull)
+
+
+```{r ricPcapFull, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
+
+df_pop$Population <- df_pop$Modeled
+df_pop$Population[which(is.na(df_pop$Population))] <- df_pop$FAO[which(is.na(df_pop$Population))]
+
+df_plot <- merge(df_rice, df_pop, by = "Year")
+df_plot$`Production ('000 metric tons)` <- 1000 * df_plot$`Production ('000 metric tons)` /
+  df_plot$Population
+colnames(df_plot)[3] <- "Production / capita (metric tons)"
+
+gg <- ggplot(df_plot, aes(x = Year, y = `Production / capita (metric tons)`))
+gg <- gg + geom_line(lwd = 1)
+gg <- gg + theme(axis.title.x = element_blank())
+gg
+
+```
+
+
+...Figure \@ref(fig:ricePcapPostWar)
+
+```{r ricePcapPostWar, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
+
+df_plot <- subset(df_plot, Year >= 1945)
+ind_GRstart <- which(df_plot$Year == 1966)
+x_GRstart <- df_plot$Year[ind_GRstart]
+y_GRstart <- df_plot$`Production / capita (metric tons)`[ind_GRstart]
+ind_GR89pct <- which(df_plot$Year == 1980)
+x_GR89pct <- df_plot$Year[ind_GR89pct]
+y_GR89pct <- df_plot$`Production / capita (metric tons)`[ind_GR89pct]
+ind_IR64 <- which(df_plot$Year == 1985)
+x_IR64 <- df_plot$Year[ind_IR64]
+y_IR64 <- df_plot$`Production / capita (metric tons)`[ind_IR64]
+ind_M99start <- which(df_plot$Year == 1972) #or 1973?
+ind_M99end <- which(df_plot$Year == 1977)
+x_M99start <- df_plot$Year[ind_M99start]
+x_M99end <- df_plot$Year[ind_M99end]
+y_M99start <- df_plot$`Production / capita (metric tons)`[ind_M99start]
+#---------------------------------------------------------------------------
+this_linetype <- "dashed"
+this_lwd <- 1
+#---------------------------------------------------------------------------
+gg <- ggplot(df_plot, aes(x = Year, y = `Production / capita (metric tons)`))
+gg <- gg + geom_smooth(method = "lm", se = FALSE)
+gg <- gg + geom_line(lwd = 1)
+gg <- gg + scale_x_continuous(breaks = seq(1945, 2018, 8))
+gg <- gg + annotate("rect", fill = "green", alpha = 0.4, 
+                    xmin = x_M99start, xmax = x_M99end,
+                    ymin = -Inf, ymax = Inf)
+gg <- gg + annotate("text", x = x_M99start, y = y_M99start,
+                    label = "Masagana 99",
+                    vjust = 1.95, hjust = 1, angle = 90)
+gg <- gg + geom_vline(xintercept = x_GRstart, color = "black"
+                      , linetype = this_linetype, lwd = this_lwd)
+gg <- gg + annotate("text", x = x_GRstart, y = y_GRstart,
+                    label = "Release of IR8",
+                    vjust = -0.5, hjust = -1.25, angle = 90)
+gg <- gg + geom_vline(xintercept = x_GR89pct, color = "black",
+                      linetype = this_linetype, lwd = this_lwd)
+gg <- gg + annotate("text", x = x_GR89pct, y = y_GR89pct, label = "89% adoption on irrigated fields\n77% adoption on rainfed fields",
+                    vjust = 0.5, hjust = 1.15, angle = 90)
+gg <- gg + geom_vline(xintercept = x_IR64, color = "black",
+                      linetype = this_linetype, lwd = this_lwd)
+gg <- gg + annotate("text", x = x_IR64, y = y_IR64, label = "Release of IR64",
+                    vjust = -0.5, hjust = 0, angle = 90)
+gg <- gg + theme(axis.title.x = element_blank())
+gg
+
+```
+
+References

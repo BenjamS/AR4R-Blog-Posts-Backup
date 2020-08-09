@@ -1,0 +1,52 @@
+---
+title: A closer look at "Borlaug's hypothesis"
+author: Ben Schiek
+date: '2020-07-14'
+slug: a-closer-look-at-borlaug-s-hypothesis
+categories:
+  - Green revolution
+  - AR4D
+tags: []
+bibliography: A closer look at Borlaug hypothesis.bib
+---
+
+<style>
+p.caption {
+  font-size: 0.7em;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+
+#setwd("C:/Users/bensc/OneDrive/Documents/Blog - Test")
+
+#this_folder <- "post images/"
+
+```
+
+
+>"Had the global cereal yields of 1950 still prevailed in 1999, we would have needed nearly 1.8 billion ha of additional land of the same quality--instead of the 600 million that was used--to equal the current global harvest" [@borlaug2002green].
+
+...Figure \@ref(fig:borlaugHypoth)
+
+```{r borlaugHypoth, fig.show = 'hold', out.width="7cm", fig.cap="From Borlaug (2002).", fig.align='center'}
+knitr::include_graphics("post images/Borlaug hypothesis.png")
+```
+
+```{r}
+
+
+
+648 * 10^6 * 1.3
+
+(2 * 10^9) / 1.3 
+
+```
+green revolution spared 18 to 27 million hectares [@stevenson2013green]. (works out to about 3%)
+
+Evenson and gollin found that the absence of a green revolution would have meant just 5% less land use [@evenson2003assessing].
+
+References

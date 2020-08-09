@@ -1,0 +1,201 @@
+---
+title: A "new" empirical law?
+author: Ben Schiek
+date: '2020-07-14'
+slug: a-new-empirical-law
+categories:
+  - Empirical laws
+tags: []
+---
+
+<style>
+p.caption {
+  font-size: 0.7em;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+#devtools::install_github("thomasp85/patchwork")
+library(plyr)
+library(tidyverse)
+library(zoo)
+library(tidyquant)
+library(patchwork)
+library(ggrepel)
+#library(kableExtra)
+setwd("C:/Users/bensc/OneDrive/Documents/Blog - Test/content/post/")
+this_folder <- "Data/New empirical law data/"
+#===========================================================================
+# Define function
+shift_legend2 <- function(p) {
+  # ...
+  # to grob
+  gp <- ggplotGrob(p)
+  facet.panels <- grep("^panel", gp[["layout"]][["name"]])
+  empty.facet.panels <- sapply(facet.panels, function(i) "zeroGrob" %in% class(gp[["grobs"]][[i]]))
+  empty.facet.panels <- facet.panels[empty.facet.panels]
+  
+  # establish name of empty panels
+  empty.facet.panels <- gp[["layout"]][empty.facet.panels, ]
+  names <- empty.facet.panels$name
+  # example of names:
+  #[1] "panel-3-2" "panel-3-3"
+  
+  # now we just need a simple call to reposition the legend
+  #lemon::reposition_legend(p, 'center', panel=names)
+  p_out <- lemon::reposition_legend(p, 'center', panel=names)
+  #class(lemon::reposition_legend(p, 'center', panel=names))
+  return(p_out)
+}
+#===========================================================================
+
+```
+
+...Figure \@ref(fig:priceSeries). It seems that the higher the price, the more volatile it is... The phenomenon can be observed across a wide range of food and non-food agricultural commodities. It can also be seen to occur with both raw and processed versions of the commodities. The relation appears to persist across a wide range of food price epochs, from the oil driven spike of the 1970s through to the more recent 2007-2008 crisis. Plotting the mean price against its standard deviation offers striking confirmation... \@ref(fig:riskReward)
+
+```{r priceSeries, fig.show = "hold", fig.width = 6, fig.height=4, fig.align="center", fig.cap="The higher the price, the more volatile. FAO data 1972-2017.", echo = FALSE}
+this_file <- "FAO export data world.csv"
+this_filepath <- paste0(this_folder, this_file)
+df_export_world <- read.csv(this_filepath, stringsAsFactors = F)
+df_export_world$X <- NULL
+colnames(df_export_world)[4:6] <- c("Export Quantity", "Export Value",
+                                    "World Export Price (USD / metric ton)")
+#=============================================================================
+plot_these <- c("Maize", "Apples", "Cocoa, beans", "Cocoa, butter")
+df_plot <- subset(df_export_world, Item %in% plot_these &
+                    Year >= 1972)
+yr_1 <- unique(df_plot$Year)[1]
+yr_n <- max(unique(df_plot$Year))
+gg <- ggplot(df_plot, aes(x = Year, y = `World Export Price (USD / metric ton)`, group = Item, color = Item)) + geom_line(lwd = 1)
+gg <- gg + scale_x_continuous(breaks = seq(yr_1, yr_n, length.out = 6))
+#gg <- gg + scale_y_log10()
+gg <- gg + theme(axis.title.x = element_blank(),
+                 legend.title = element_blank(),
+                 legend.position = "top")
+gg
+
+```
+
+...Figure \@ref(fig:riskReward)
+
+```{r riskReward, fig.show = "hold", fig.width = 6, fig.height=6, fig.align="center", fig.cap="Logged expected price plotted against logged standard deviation. 'Export price' here equals FAO's Export Value series divided by its Export Quantity series, downloaded from FAOSTAT.", echo = FALSE}
+
+df_riskReward <- df_export_world %>% group_by(Item) %>%
+  summarise(`Mean World Export Price (USD / metric ton)` = mean(`World Export Price (USD / metric ton)`, na.rm = T),
+            `Stand. Dev. World Export Price (USD / metric ton)` = sd(`World Export Price (USD / metric ton)`, na.rm = T),
+            `Mean Export Qty.` = mean(`Export Quantity`, na.rm = T), 
+            `Mean Export Value ('000 USD)` = mean(`Export Value`, na.rm = T))
+
+df_riskReward$`Mean World Export Price (USD / metric ton), logged` <-
+  log(df_riskReward$`Mean World Export Price (USD / metric ton)`)
+df_riskReward$`Stand. Dev. World Export Price (USD / metric ton), logged` <-
+  log(df_riskReward$`Stand. Dev. World Export Price (USD / metric ton)`)
+#--
+df_riskReward <- df_riskReward[which(!is.na(df_riskReward$`Stand. Dev. World Export Price (USD / metric ton), logged`)), ]
+#nrow(df_riskReward)
+#----------------------------------------------------------------------------
+df_mod <- df_riskReward[, c("Mean World Export Price (USD / metric ton), logged", "Stand. Dev. World Export Price (USD / metric ton), logged")]
+#nrow(df_mod)
+row.names(df_mod) <- df_riskReward$Item
+mod <- lm(`Mean World Export Price (USD / metric ton), logged` ~., df_mod)
+#summary(mod)
+b <- round(mod$coefficients[1], 2)
+m <- round(mod$coefficients[2], 2)
+#---
+# gg <- ggplot(data.frame(Item = row.names(df_mod), yhat = mod$fitted.values,
+#                         resid = mod$residuals),
+#              aes(x = yhat, y = resid, label = Item))
+# gg <- gg + geom_point() + geom_text()
+# gg <- gg + geom_hline(yintercept = c(-1, 1), color = "red")
+# gg
+#---
+ind_outlier <- which(abs(as.numeric(mod$residuals)) >= 0.75)
+excluded_items <- row.names(df_mod)[ind_outlier]
+pct_removed <- 100 * length(ind_outlier) / nrow(df_riskReward)
+row_names <- row.names(df_mod)[-ind_outlier]
+df_mod <- df_mod[-ind_outlier, ]
+row.names(df_mod) <- row_names
+mod <- lm(`Mean World Export Price (USD / metric ton), logged` ~., df_mod)
+#summary(mod)
+b <- round(mod$coefficients[1], 2)
+m <- round(mod$coefficients[2], 2)
+#plot(mod$fitted.values, mod$residuals)
+#----------------------------------------------------------------------------
+#df_riskReward$Item[ind_outlier]
+df_plot <- df_riskReward[-ind_outlier, c("Item", "Mean World Export Price (USD / metric ton), logged", "Stand. Dev. World Export Price (USD / metric ton), logged",
+                             "Mean Export Value ('000 USD)")]
+
+df_plot$`Mean Export Value\n(million USD)` <- df_plot$`Mean Export Value ('000 USD)` / 1000
+
+labelItems <- c("Maize", "Cassava dried", "Flour, wheat", "Starch, cassava",
+              "Coffee, green", "Coffee, roasted", "Wheat", "Bananas",
+              "Plantains", "Potatoes", "Cassava Equivalent", "Cocoa, beans",
+              "Wool, greasy", "Beans, dry", "Cotton lint", "Silk", "Apples",
+              "Soybeans", "Oil, soybean", "Rubber, natural", "Rice",
+              "Cocoa, butter")
+
+df_plot$label_these <- NA
+u <- df_plot$Item
+df_plot$label_these[which(u %in% labelItems)] <- u[which(u %in% labelItems)]
+
+label_size <- 4
+gg <- ggplot(df_plot, aes(x = `Stand. Dev. World Export Price (USD / metric ton), logged`,
+                          y = `Mean World Export Price (USD / metric ton), logged`))
+gg <- gg + geom_smooth(method = lm, se = F)
+gg <- gg + geom_point(aes(size = `Mean Export Value\n(million USD)`),
+                      fill = "khaki1", pch=21, color="Black")
+gg <- gg + geom_text_repel(aes(label = label_these), size = label_size)
+gg <- gg + labs(title = "The risk-return frontier", subtitle = paste0("Slope = ", m, "  Y intercept = ", b))
+gg <- gg + theme(legend.position = "bottom")
+gg <- gg + labs(title = "The ag commodity risk-return frontier",
+                caption = "Source: Author's creation using FAOSTAT export value and quantity series 1961-2017.")
+gg
+#ggsave("risk reward frontier.pdf")
+```
+
+...Figure \@ref(fig:riskRewardByRegion)
+
+```{r riskRewardByRegion, fig.show = "hold", fig.width = 7, fig.height=6, fig.align="center", fig.cap="Logged expected price plotted against logged standard deviation, by region.", echo = FALSE}
+this_file <- "FAO export data regions.csv"
+this_filepath <- paste0(this_folder, this_file)
+df_export_regions <- read.csv(this_filepath, stringsAsFactors = F)
+df_export_regions$X <- NULL
+colnames(df_export_regions)[4:6] <- c("Export Quantity", "Export Value",
+                                    "Region Export Price (USD / metric ton)")
+#============================================================================
+#colnames(df_export_regions)
+df_riskReward_regions <- df_export_regions %>% group_by(Region, Item) %>%
+  summarise(`Mean Region Export Price (USD / metric ton)` = mean(`Region Export Price (USD / metric ton)`, na.rm = T),
+            `Stand. Dev. Region Export Price (USD / metric ton)` = sd(`Region Export Price (USD / metric ton)`, na.rm = T),
+            `Mean Export Qty.` = mean(`Export Quantity`, na.rm = T), 
+            `Mean Export Value ('000 USD)` = mean(`Export Value`, na.rm = T))
+
+df_riskReward_regions$`Mean Region Export Price (USD / metric ton), logged` <-
+  log(df_riskReward_regions$`Mean Region Export Price (USD / metric ton)`)
+df_riskReward_regions$`Stand. Dev. Region Export Price (USD / metric ton), logged` <-
+  log(df_riskReward_regions$`Stand. Dev. Region Export Price (USD / metric ton)`)
+df_riskReward_regions$`Mean Export Value\n(million USD)` <-
+  df_riskReward_regions$`Mean Export Value ('000 USD)` / 1000
+#--
+df_riskReward_regions <- df_riskReward_regions[which(!is.na(df_riskReward_regions$`Stand. Dev. Region Export Price (USD / metric ton), logged`)), ]
+ind_rm <- which(is.infinite(df_riskReward_regions$`Stand. Dev. Region Export Price (USD / metric ton), logged`))
+#df_riskReward_regions$Item[ind_rm] #look
+df_riskReward_regions <- df_riskReward_regions[-ind_rm, ]
+#nrow(df_riskReward_regions)
+#----------------------------------------------------------------------------
+df_plot <- df_riskReward_regions
+gg <- ggplot(df_plot, aes(x = `Stand. Dev. Region Export Price (USD / metric ton), logged`,
+                          y = `Mean Region Export Price (USD / metric ton), logged`))
+#gg <- gg + geom_smooth(method = lm, se = F)
+gg <- gg + geom_point(aes(size = `Mean Export Value\n(million USD)`),
+                      fill = "khaki1", pch=21, color="Black")
+#gg <- gg + geom_text_repel(aes(label = label_these), size = label_size)
+gg <- gg + facet_wrap(~Region)
+gg <- gg + labs(title = "The ag commodity risk-return frontier, by region",
+                caption = "Source: Author's creation using FAOSTAT export value and quantity series 1961-2017.")
+gg <- shift_legend2(gg)
+gg <- ggplotify::as.ggplot(gg)
+```

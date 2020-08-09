@@ -1,0 +1,1412 @@
+---
+title: Green Revolution Caricature and Reality
+author: Ben Schiek
+date: '2020-07-07'
+slug: agricultural-innovation-and-the-enabling-environment
+categories:
+  - Green revolution
+tags:
+  - AR4D
+  - agricultural research for development
+  - agricultural innovation systems
+  - resilient food systems
+  - social capital
+  - enabling environment
+  - policy and institutions
+bibliography: Research and the enabling environment.bib
+---
+
+<style>
+p.caption {
+  font-size: 0.7em;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+
+library(tidyverse)
+library(xkcd)
+library(extrafont)
+library(patchwork)
+#setwd("C:/Users/bensc/OneDrive/Documents/Blog - Test")
+
+this_folder <- "Data/"
+#===========================================================================
+# Define functions
+shift_legend2 <- function(p) {
+  # ...
+  # to grob
+  gp <- ggplotGrob(p)
+  facet.panels <- grep("^panel", gp[["layout"]][["name"]])
+  empty.facet.panels <- sapply(facet.panels, function(i) "zeroGrob" %in% class(gp[["grobs"]][[i]]))
+  empty.facet.panels <- facet.panels[empty.facet.panels]
+  
+  # establish name of empty panels
+  empty.facet.panels <- gp[["layout"]][empty.facet.panels, ]
+  names <- empty.facet.panels$name
+  # example of names:
+  #[1] "panel-3-2" "panel-3-3"
+  
+  # now we just need a simple call to reposition the legend
+  #lemon::reposition_legend(p, 'center', panel=names)
+  p_out <- lemon::reposition_legend(p, 'center', panel=names)
+  #class(lemon::reposition_legend(p, 'center', panel=names))
+  return(p_out)
+}
+#===========================================================================
+
+```
+
+<!-- alternate title: The green revolution vs. the data -->
+
+## Introduction or In search of the green revolution
+
+I am tempted to conclude that the scientists are fundamentally unaware of the difference between test plots and farm plots, between biophysical and economic yields.... But they demonstrate clearly in their writings that they are well aware of this distinction [Alston Attribution problem papers; Pingali CIMMYT yield gap paper "Farmer's maximize profit, not yields."; Leeuwis Klerx paper]. However, this is then still more problematic since it implies a double standard whereby the scientists claim an oversimplistic direct line between research and impacts when applying for funding, but then switch to the "it's complicated; there is no direct line" argument when donors ask them how they plan to repeat this success in the future. (xkcd attribution problem comic -- one pane showing the scientist taking all the credit for past success, then the next pane showing the scientist explaining how in the future "it's complicated")
+
+
+Johnson and the cold war motive for food aid...Public Law 480 passed in 1954, subsequently morphed into the Food for Peace Program, championed in particular by Kennedy and Johnson [@ahlberg2007machiavelli].
+
+The 1966 Bihar famine of food crisis disputed [@brass1986political; @cullather2010hungry; @dyson1992bihar]. The one fact is that there was a severe drought which resulted in lower staple grain production. Maharashtra drought of 1970-1973 70,000 excess deaths, while none in Bihar according to [@dyson1992bihar]. Cullather: "My project was soon complicated by recorded observations and experiences that refused to conform to this story" [@@cullather2010hungry].
+
+* By "enabling environment" I mean the term of art appearing in the AR4D literature---synonymous with other catch phrases such as "the policy and institutional framework" or "policies, institutions, and markets". This refers broadly to the social, economic, institutional, financial, and political context in which a new agricultural technology (improved seed, techniques, tools, etc.) is released. / The "enabling environment" follows a peculiar trajectory through the AR4D discourse. On the one hand, there is a tendency to ignore it or to assume that it is trivially given. High level narratives of the green revolution, for example, typically attribute increases in cereal yields since 1961 to improvements in germplasm [@pingali2012green; @khush2001green].
+
+* (Motive of this article: within donor community, research institutions have earned a reputation for pursuing research projects that are of interest to the research community, but of limited relevance to smallholder.... If they insist on a false narrative, rather than recognizing the reality, they run the risk losing funding. In order to make a decision to invest in AR4D, donors must have a clear idea of what return they can expect. What did donors get out of their investments in AR4D? In order to have good foresight, we must have good hindsight.)
+
+## The green revolution narrative
+
+It may be of limited usefulness to talk of a single, monolithic green revolution narrative. Friends and critics alike have long acknowledged its shortcomings and weaknesses, albeit in varying degrees. An important and underappreciated part of the story of the green revolution has been its response to criticism, particularly as regards its pro-poorness.
+
+Nonetheless, most tellings of the green revolution consistently revolve around three central assertions or plot points:
+
+1) In 1960, the world was on the brink of a global Malthusian catastrophe.
+
+2) There was a dramatic increase in the production of key staple crops which averted said catastrophe.
+
+3) The dramatic increase in production of key staple crops is mostly attributable to crop genetic improvement.
+
+(Implies a fourth:  4) The green revolution was the "big bang" of crop genetic improvements.)
+
+In Khush's telling [@khush2001green], for example, we are told that 
+
+>"The 1960s was a decade of despair with regard to the world's ability to cope with the food-population balance, particularly in developing countries. Most of the lands suitable for agriculture in Asian countries had been cultivated while population growth rates were accelerating".
+
+Khush cites Paddock's Malthusian diatribe in support of this view:
+
+>"Ten years from now, parts of the underdeveloped world will be suffering from famine. In 15 years, the famines will be catastrophic, and revolutions and social turmoil and economic upheavals will sweep areas of Asia, Africa and Latin America" [Paddock (1967) in @khush2001green].
+
+Moving on to assertions 2 and 3, Khush then says:
+
+>"Fortunately, large-scale famines, and social and economic upheavals, were averted, thanks to the marked increase in cereal-grain yields in many developing countries that began in the late 1960s. This phenomenon---known as the 'green revolution'---was due largely to the widespread adoption of technology that was developed to generate genetically  improved  varieties  of crops with increased yields" [@khush2001green].
+
+This peer reviewed version of the story is then reflected in popular media versions. A 2016 BBC article entitled "IR8: The miracle rice that saved millions of lives", for example, tells us that
+
+>"It is thought that IR8 saved many millions of lives and transformed the lives of hundreds of millions of people.
+
+>"Back in the 1950s it was obvious that Asia, home to half the world's population, faced an impending food crisis.
+
+>"[Y]ou only needed to plot population growth against rice production to see that, within a few years, there would not be enough to go around.
+
+>"IR8 was so much better than traditional rice varieties that its use spread rapidly throughout Asia and output soared. Famine was averted.
+
+>"Most farmers benefited from the increases in productivity and the vast increases in output drove down prices, which benefited consumers" BBC News Dec. 1, 2016. https://www.bbc.com/news/world-asia-india-38156350
+
+Another media account:
+Monkombu Sambasivan Swaminathan
+"In 1968, Swaminathan’s work caused the country’s wheat harvest to soar from 12 to 17 million tons". http://webarchive.loc.gov/all/20101013131843/http://fullcomment.nationalpost.com/2010/10/13/dan-gardner-the-nation-killing-famine-that-never-was/#ixzz6U9q3QwPR
+
+
+This is the caricature they paint in our minds:
+
+```{r greenRevExpected, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
+
+#"xkcd" %in% fonts()
+# system("mkdir ~/.fonts")
+# system("cp xkcd.ttf  ~/.fonts")
+#font_import(paths = getwd(), pattern="[H/h]umor", prompt = F)
+#font_import(paths = "~/.fonts", pattern="Humor-Sans")
+#font_import(paths = getwd(), pattern="Humor Sans")
+#---
+# download.file("http://simonsoftware.se/other/xkcd.ttf", dest="xkcd.ttf", mode="wb")
+#---
+# system("mkdir ~/.fonts")
+# system("cp xkcd.ttf  ~/.fonts")
+# font_import(paths = getwd(), pattern = "[X/x]kcd", prompt=FALSE)
+# fonts()
+# fonttable()
+# if(.Platform$OS.type != "unix"){
+#   ## Register fonts for Windows bitmap output
+#   loadfonts(device="win")
+# }else{
+#     loadfonts()
+# }
+#---
+first_yr <- 1950
+last_yr <- 1990
+year_vec <- c(first_yr:last_yr)
+prodPcap_pre_GRev <- seq(100, 60, length.out = length(first_yr:1967))
+prodPcap_post_GRev <- seq(61, 150, length.out = length(1968:last_yr))
+prodPcap_GRev <- c(prodPcap_pre_GRev, prodPcap_post_GRev)
+prodPcap_GRev <- prodPcap_GRev + 10 * rnorm(length(prodPcap_GRev))
+df_plot <- data.frame(Year = year_vec, prodPcap_GRev)
+colnames(df_plot)[2] <- "Food Production per capita"
+
+
+# p <-  ggplot() + geom_point(aes(x=mpg, y=wt), data=mtcars) + theme(text = element_text(size = 16, family = "xkcd"))
+
+rect1_xmin <- year_vec[10]
+rect1_ymin <- prodPcap_GRev[length(prodPcap_GRev) - 3]
+# rect1_xmax <- rect1_xmin + 8 #year_vec[8 + 5]
+# rect1_ymax <- rect1_ymin + 40
+rect2_xmin <- year_vec[26]
+rect2_ymin <- rect1_ymin
+
+
+gg <- ggplot(df_plot, aes(x = Year, y = `Food Production per capita`))
+ind_gr <- which(year_vec == 1967)
+gg <- gg + geom_line(position = "jitter")
+gg <- gg + geom_vline(xintercept = 1968)
+gg <- gg + xkcdaxis(range(year_vec), range(prodPcap_GRev))
+# gg <- gg + xkcdrect(aes(xmin = rect1_xmin, 
+#                     ymin = rect1_ymin,
+#                     xmax = rect1_xmax,
+#                     ymax = rect1_ymax), df_plot, fill = NA)
+gg <- gg + annotate("text", x = rect1_xmin, y = rect1_ymin,
+                    label = "Before Green\nRevolution", family="xkcd")
+gg <- gg + annotate("text", x = rect2_xmin, y = rect2_ymin,
+                    label = "After Green\nRevolution", family="xkcd")
+gg <- gg + labs(title = "Food production per capita")
+gg <- gg + theme(axis.text.y = element_blank(),
+                 axis.ticks.y = element_blank(),
+                 axis.title = element_blank(),
+                 plot.title = element_text(size = 13),
+                 text = element_text(family = "xkcd"))
+gg_xkcd_prod <- gg
+
+#--------------------------------------------------------------------------
+
+areaCult_pre_GRev <- seq(60, 120, length.out = length(first_yr:1967))
+areaCult_post_GRev <- rep(101, length(1968:last_yr))
+areaCult_GRev <- c(areaCult_pre_GRev, areaCult_post_GRev)
+areaCult_GRev <- areaCult_GRev + 5 * rnorm(length(areaCult_GRev))
+df_plot <- data.frame(Year = year_vec, areaCult_GRev)
+colnames(df_plot)[2] <- "Area cultivated"
+
+gg <- ggplot(df_plot, aes(x = Year, y = `Area cultivated`))
+ind_gr <- which(year_vec == 1967)
+gg <- gg + geom_line(position = "jitter")
+gg <- gg + geom_vline(xintercept = 1968)
+gg <- gg + labs(title = "Area cultivated")
+gg <- gg + xkcdaxis(range(year_vec), range(prodPcap_GRev))
+# gg <- gg + xkcdrect(aes(xmin = rect1_xmin, 
+#                     ymin = rect1_ymin,
+#                     xmax = rect1_xmax,
+#                     ymax = rect1_ymax), df_plot, fill = NA)
+gg <- gg + annotate("text", x = rect1_xmin, y = rect1_ymin,
+                    label = "B.G.", family="xkcd")
+gg <- gg + annotate("text", x = rect2_xmin, y = rect2_ymin,
+                    label = "A.G.", family="xkcd")
+gg <- gg + theme(axis.text.y = element_blank(),
+                 axis.ticks.y = element_blank(),
+                 axis.title = element_blank(),
+                 plot.title = element_text(size = 11),
+                 text = element_text(family = "xkcd"))
+gg_xkcd_area <- gg
+
+#--------------------------------------------------------------------------
+
+foodStocks_pre_GRev <- seq(100, 60, length.out = length(first_yr:1967))
+foodStocks_post_GRev <- seq(61, 150, length.out = length(1968:last_yr))
+foodStocks_GRev <- c(foodStocks_pre_GRev, foodStocks_post_GRev)
+foodStocks_GRev <- foodStocks_GRev + 10 * rnorm(length(foodStocks_GRev))
+df_plot <- data.frame(Year = year_vec, foodStocks_GRev)
+colnames(df_plot)[2] <- "Food stocks"
+
+gg <- ggplot(df_plot, aes(x = Year, y = `Food stocks`))
+ind_gr <- which(year_vec == 1967)
+gg <- gg + geom_line(position = "jitter")
+gg <- gg + geom_vline(xintercept = 1968)
+gg <- gg + labs(title = "Food stocks")
+gg <- gg + xkcdaxis(range(year_vec), range(prodPcap_GRev))
+# gg <- gg + xkcdrect(aes(xmin = rect1_xmin, 
+#                     ymin = rect1_ymin,
+#                     xmax = rect1_xmax,
+#                     ymax = rect1_ymax), df_plot, fill = NA)
+gg <- gg + annotate("text", x = rect1_xmin, y = rect1_ymin,
+                    label = "B.G.", family="xkcd")
+gg <- gg + annotate("text", x = rect2_xmin, y = rect2_ymin,
+                    label = "A.G.", family="xkcd")
+gg <- gg + theme(axis.text.y = element_blank(),
+                 axis.text.x = element_blank(),
+                 axis.ticks.x = element_blank(),
+                 axis.ticks.y = element_blank(),
+                 axis.title = element_blank(),
+                 plot.title = element_text(size = 11),
+                 text = element_text(family = "xkcd"))
+gg_xkcd_stocks <- gg
+
+
+#--------------------------------------------------------------------------
+
+gg_xkcd_prod + (gg_xkcd_stocks / gg_xkcd_area) + plot_layout(widths = c(1.5, 1))
+# gg_xkcd
+#gg_xkcd <- ggplotify::as.grob(gg_xkcd)   #as.ggplot(gg_xkcd)
+
+```
+
+
+
+
+
+
+```{r greenRevCartoon, fig.show = "hold", fig.width = 7, fig.height=4, fig.align = "center", fig.cap = "...", echo = FALSE}
+
+
+
+ratioxy <- 0.75#diff(xrange) / diff(yrange)
+mapping <- aes(x, y, scale, ratioxy, angleofspine, anglerighthumerus,
+               anglelefthumerus, anglerightradius, angleleftradius,
+               anglerightleg, angleleftleg, angleofneck,
+               color = type)
+dataman <- data.frame(x = c(1, 3), y = c(3, 3),
+                      scale = c(0.5, 0.5), ratioxy = ratioxy,
+                      angleofspine = -pi / 2,
+                      anglerighthumerus = c(-pi / 6, -pi / 6),
+                      anglelefthumerus = c(pi + pi / 6, pi + pi / 6),
+                      anglerightradius = c(pi / 3, pi + pi / 3),
+                      angleleftradius = c(-pi / 3, pi + pi / 3),
+                      anglerightleg = 3 * pi / 2 - pi / 12,
+                      angleleftleg = 3 * pi / 2 + pi / 12,
+                      angleofneck = runif(1, 3*pi/2-pi/10, 3*pi/2+pi/10),
+                      type = c("Scientist", "Donor"))
+
+
+
+n <- length(unique(dataman$type))
+bag_of_colors <- randomcoloR::distinctColorPalette(k = 4 * n)
+color_vec <- sample(bag_of_colors, n)
+
+gg <- ggplot()
+gg <- gg + annotation_custom(ggplotGrob(gg_xkcd_prod),
+                          xmin = 1.25, xmax = 2.75, 
+                          ymin = 2, ymax = 3.25)
+gg <- gg + xkcdman(mapping, dataman)
+gg <- gg + scale_color_manual(values = color_vec)
+gg <- gg + theme_bw()
+gg <- gg + theme(axis.title = element_blank(),
+                 axis.text = element_blank(),
+                 axis.ticks = element_blank(),
+                 panel.grid = element_blank(),
+                 legend.title = element_blank())
+gg
+
+
+```
+
+
+early appraisals of the GR, good awareness of the equally as important role of the enabling environment: [@falcon1970green; @wharton1969green; @borlaug1969green; @pinstrup1985impact; @sen1970opportunities; @dalrymple1975measuring]
+
+GR didn't spread so fast in Latin America because of the semi-feudal land tenure system offered no incentives for the farmer to invest in their land [@jones1977green].
+
+unknown 1975 precursor to the Byerlee new agricultural paradigm paper, the ag sector as an engine of participative, equitable growth: [@singh1975factor] -- addresses the perils of mechanization, labor vs. capital intensive, as does Lipton 35 yrs later.
+
+Plan Puebla, issues of labor intensiveness vs. mechanization [@redclift1983production; @thiesenhusen1972green]
+
+IFPRI cheerleading report on GR [@pinstrup1985impact].
+
+
+
+
+
+
+Is this true?
+
+* On Claim 1 -The Malthusian pall- Per capita production rose steadily from 1945 to 1960, leading to record surplus stocks in the most developed countries [@fao1960stateFoodAg]. Nonetheless, a leveling off of per capita production from 1960 to 1964 prompted FAO Director General Binay Ranjan Sen to raise the spectre of "Malthusian correctives" entering into play if governments did not act to restore production to the 1945-1960 trendline [@fao1965stateFoodAg]. Bad weather led to disastrous harvests in 1965 and 1966,...and depletion of the grain surpluses...further exacerbated the picture....However, good weather returned in 1967 with a record harvest [@fao1968stateFoodAg].   don't want to spend a lot of time on this but...There is also the narrative of...not til British rule in 1860, introduction of commercial incentives, displacement of food crops...thereafter some 40 million deaths due to famine, often in the midst of abundance. [@sen1982poverty; @bhatia1967famines; @davis2002late]
+
+The Neo-Malthusian alarmists, the "Jeremiahs of geography, sociology, and economics" [Hanson (1949) in @desrochers2009post] ultimately built upon suspect extrapolations and outright errors..."errors, prejudices, mys-
+ticism and reckless appeals to emotion" [Anonymous "Time" reviewer (1948) in @desrochers2009post].
+
+>"The time may come, to be sure, when the Malthusian theory will be revived, but it is not in our day, nor will it be in our century, for scientific thought almost completely overturned the theory and has relieved it of its strength in exciting the fears of economists or of philosophers that the world was 
+gradually but surely coming to that position where it could not supply its population with food, and that some method of checking population must 
+be the resort. The broadening of the area of supply through discovery and the taking up of vast tracts of land were the immediate means of depriving the 
+doctrine of its force, but later on intensive agriculture and the discoveries of science succeeded in relegating the theory to the past" [Wright (1904) in @desrochers2009post].
+
+Humanity could certainly heave a sigh of relief to know that the biophysical limit on our ability to feed ourselves is 2-5 times (more lax) than traditional varieties.
+
+Graphic of BBC calculation -- is it true that population growth was on track to outpace food production? If it were true, then we should see a steady decline in cereal production per capita. Do we see this? (India cereals graphic.)
+
+1955-1964
+
+A caption explains that the graphic "shows clearly how since about the middle of the decade there have been no further gains in production in relation to population, and thus no margin for better levels of living" [@fao1965stateFoodAg].
+
+<!-- "This graph compares the increase in agricultural, fishery and forest production intheworld,excluding China (Mainland), withthe growth of population duringthe secondpostwar decade.The combined production indexfor agriculture, fisheries and forestry is a newfeature of this year's report.It shows clearlyhow since about the middle of the decade therellave been no further gains in production inrelation to population, and thus no margin forbetter levels of living". -->
+
+```{r FAOreport1965cover, fig.show = 'hold', out.width="7cm", fig.cap="From FAO (1965).", fig.align='center'}
+knitr::include_graphics("post images/FAO_stateOfFoodAndAg1965_cover.png")
+```
+
+
+olden days FAOSTAT query 2004
+https://web.archive.org/web/20040202052701/http://apps.fao.org/default.htm
+https://web.archive.org/web/20040202055417/http://apps.fao.org/page/collections?subset=agriculture
+
+
+
+```{r faoGraph1965_revisted, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...world excluding mainland China", echo = FALSE}
+
+setwd("C:/Users/bensc/OneDrive/Documents")
+
+area_vec <- c("World", "Western Asia", "Southern Asia",
+              "South-eastern Asia", "Eastern Asia",
+              "South America", "Caribbean", "Central America",
+              "Northern America", "Europe", "Australia and New Zealand",
+              "China, mainland", "Western Africa", "Eastern Africa",
+              "Southern Africa", "Middle Africa", "Northern Africa",
+              "Africa")
+
+df_raw <- read.csv("Data/FAO Data/Production_Crops_E_All_Data.csv", stringsAsFactors = F)
+df_raw <- subset(df_raw, Item.Code != 2928)
+df_raw$Area.Code <- NULL
+df_raw$Item.Code <- NULL
+df_raw$Element.Code <-NULL
+#df_raw$Unit <- NULL
+u <- colnames(df_raw)
+df_raw <- df_raw[, -grep("F", u)]
+u <- colnames(df_raw)
+df_raw <- df_raw[, -grep("N", u)]
+last_yr <- (1961 + ncol(df_raw) - 5)
+colnames(df_raw)[5:ncol(df_raw)] <- as.character(c(1961:last_yr))
+gathercols <- colnames(df_raw)[5:ncol(df_raw)]
+df_raw <- gather_(df_raw, "Year", "Value", gathercols)
+#------------------------------
+#unique(df_raw$Item)
+#unique(df_raw$Item)[grep("oilcrops", unique(df_raw$Item), ignore.case = T)]
+item_vec <- c("Fruit Primary", "Cereals, Total", "Pulses, Total",
+              "Roots and Tubers, Total", "Oilcrops")
+element_vec <- c("Production", "Area harvested")
+df_crop <- df_raw
+#df_crop$Unit <- NULL
+df_crop$Year <- as.integer(df_crop$Year)
+df_crop <- subset(df_crop, Item %in% item_vec &
+                    Area %in% area_vec &
+                    Element %in% element_vec)
+df_crop$Unit <- NULL
+#---------------------------------------------------------------------------
+# Get production, area harvested data for world excluding mainland China
+# (To be consistent with the FAO graphic)
+df_crop_worldExclChina <- subset(df_crop, Area %in% c("China, mainland",
+                                                      "World"))
+df_crop_worldExclChina <- df_crop_worldExclChina %>% spread(Area, Value)
+df_crop_worldExclChina$`World excluding\nmainland China` <- df_crop_worldExclChina$World - df_crop_worldExclChina$`China, mainland`
+df_crop_worldExclChina$`China, mainland` <- NULL
+df_crop_worldExclChina$World <- NULL
+colnames(df_crop_worldExclChina)[ncol(df_crop_worldExclChina)] <- "Value"
+df_crop_worldExclChina$Area <- "World excluding\nmainland China"
+df_crop_worldExclChina <- df_crop_worldExclChina[, c("Area",
+                                                     "Item",
+                                                     "Element",
+                                                     "Year", "Value")]
+df_crop <- rbind(df_crop, df_crop_worldExclChina)
+#---------------------------------------------------------------------------
+# Get Production dataset
+df_cropProd <- subset(df_crop, Element == "Production")
+df_cropProd$Element <- NULL
+colnames(df_cropProd)[ncol(df_cropProd)] <- "Production"
+#---------------------------------------------------------------------------
+# Get Area harvested dataset
+df_cropArea <- subset(df_crop, Element == "Area harvested")
+df_cropArea$Element <- NULL
+colnames(df_cropArea)[ncol(df_cropArea)] <- "Area harvested"
+#---------------------------------------------------------------------------
+# Now for animal products
+setwd("C:/Users/bensc/OneDrive/Documents")
+df_raw <- read.csv("Data/FAO Data/Production_LivestockPrimary_E_All_Data.csv", stringsAsFactors = F)
+#df_raw <- subset(df_raw, Item.Code != 2928)
+df_raw$Area.Code <- NULL
+df_raw$Item.Code <- NULL
+df_raw$Element.Code <- NULL
+#df_raw$Unit <- NULL
+u <- colnames(df_raw)
+df_raw <- df_raw[, -grep("F", u)]
+last_yr <- (1961 + ncol(df_raw) - 5)
+colnames(df_raw)[5:ncol(df_raw)] <- as.character(c(1961:last_yr))
+gathercols <- colnames(df_raw)[5:ncol(df_raw)]
+df_raw <- gather_(df_raw, "Year", "Value", gathercols)
+#------------------------------
+#unique(df_raw$Item)
+#unique(df_raw$Item)[grep("milk", unique(df_raw$Item), ignore.case = T)]
+df_raw$Area[grep("South-Eastern Asia", df_raw$Area)] <- "South-eastern Asia"
+item_vec <- c("Meat, Poultry", "Milk, Total")
+df_animal <- subset(df_raw, Item %in% item_vec &
+                    Area %in% area_vec &
+                    Element == "Production")
+df_animal$Element <- NULL
+colnames(df_animal)[ncol(df_animal)] <- "Production"
+df_animal$Year <- as.integer(df_animal$Year)
+df_animal$Unit <- NULL
+#---------------------------------------------------------------------------
+# Get animal production data for world excluding mainland China
+# (To be consistent with the FAO graphic)
+df_animal_worldExclChina <- subset(df_animal, Area %in% c("China, mainland",
+                                                      "World"))
+df_animal_worldExclChina <- df_animal_worldExclChina %>% spread(Area, Production)
+df_animal_worldExclChina$`World excluding\nmainland China` <- df_animal_worldExclChina$World - df_animal_worldExclChina$`China, mainland`
+df_animal_worldExclChina$`China, mainland` <- NULL
+df_animal_worldExclChina$World <- NULL
+colnames(df_animal_worldExclChina)[ncol(df_animal_worldExclChina)] <- "Production"
+df_animal_worldExclChina$Area <- "World excluding\nmainland China"
+df_animal_worldExclChina <- df_animal_worldExclChina[, c("Area",
+                                                     "Item",
+                                                     "Year", "Production")]
+df_animal <- rbind(df_animal, df_animal_worldExclChina)
+#---------------------------------------------------------------------------
+df_prod <- rbind(df_cropProd, df_animal)
+df_prodAll <- df_prod %>% group_by(Area, Year) %>%
+  summarise(Production = sum(Production, na.rm = T)) %>%
+  as.data.frame()
+df_prodAll$Item <- "Food"
+df_prodAll <- df_prodAll[, c("Area", "Item", "Year", "Production")]
+df_prod <- rbind(df_prod, df_prodAll)
+#---------------------------------------------------------------------------
+setwd("C:/Users/bensc/OneDrive/Documents")
+df_raw <- read.csv("Data/FAO Data/FAO_pop_all_regions.csv", stringsAsFactors = F)
+#colnames(df_raw)
+df_raw <- df_raw[, c("Area", "Year", "Element", "Unit", "Value")]
+#unique(df_raw$Element)
+df_pop <- subset(df_raw, Element == "Total Population - Both sexes" &
+                   Area %in% area_vec)
+colnames(df_pop)[ncol(df_pop)] <- "Population"
+df_pop$Population <- df_pop$Population * 1000
+df_pop <- df_pop[, c("Area", "Year", "Population")]
+df_pop_worldExclChina <- subset(df_pop, Area %in% c("China, mainland",
+                                                        "World"))
+#-----------------------------------------------------------------------------
+# Get pop. for world excluding mainland China
+df_pop_worldExclChina <- df_pop_worldExclChina %>% spread(Area, Population)
+
+df_pop_worldExclChina$`World exclud. mainland China` <- df_pop_worldExclChina$World - df_pop_worldExclChina$`China, mainland`
+df_pop_worldExclChina$`China, mainland` <- NULL
+df_pop_worldExclChina$World <- NULL
+colnames(df_pop_worldExclChina)[2] <- "Population"
+df_pop_worldExclChina$Area <- "World excluding\nmainland China"
+df_pop_worldExclChina <- df_pop_worldExclChina[, c("Area", "Year", "Population")]
+df_pop <- rbind(df_pop, df_pop_worldExclChina)
+#-----------------------------------------------------------------------------
+df_prodPcap <- merge(df_prod, df_pop, by = c("Area", "Year"))
+df_prodPcap$`Production / capita (metric tons)` <- df_prodPcap$`Production` / df_prodPcap$Population
+#-----------------------------------------------------------------------------
+df_plot <- df_prodPcap
+df_plot$Unit <- NULL
+
+df_plot <- df_plot %>% gather(Element, Value, Production:`Production / capita (metric tons)`)
+
+last_yr <- 1971
+
+df_plot <- subset(df_plot, Item == "Food" &
+                    Area %in% c("World excluding\nmainland China") &
+                    Year %in% c(1961:last_yr))
+
+# df_plot <- df_plot %>% group_by(Area, Item, Element) %>%
+#   mutate(Value = Value / Value[1] * 100) %>% as.data.frame()
+df_plot <- df_plot %>% group_by(Item, Element) %>%
+  mutate(Value = Value / Value[1] * 100) %>% as.data.frame()
+
+colnames(df_plot)[ncol(df_plot)] <- "Index (1961 = 100)"
+
+n <- length(unique(df_plot$Element))
+bag_of_colors <- randomcoloR::distinctColorPalette(k = 2 * n)
+color_vec <- sample(bag_of_colors, n)
+
+
+gg <- ggplot(df_plot, aes(x = Year, y = `Index (1961 = 100)`,
+                              group = Element, color = Element))
+gg <- gg + geom_line(lwd = 3)
+gg <- gg + geom_point(color = "white", size = 2)
+#gg <- gg + facet_wrap(~Area, scales = "free_y")
+gg <- gg + scale_color_manual(values = color_vec)
+gg <- gg + scale_x_continuous(breaks = seq(1961, last_yr, 1))
+gg <- gg + theme(legend.position = "top",
+                 legend.title = element_blank(),
+                 legend.spacing.x = unit(0.5, 'cm'),
+                 axis.title.x = element_blank())
+gg
+
+
+```
+
+
+
+```{r faoGraph1965_extended, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...world excluding mainland China", echo = FALSE}
+
+df_plot <- df_prodPcap
+df_plot$Unit <- NULL
+
+df_plot <- df_plot %>% gather(Element, Value, Production:`Production / capita (metric tons)`)
+
+
+last_yr <- 2017
+df_plot <- subset(df_plot, Item == "Food" &
+                    Area %in% c("World excluding\nmainland China") &
+                    Year %in% c(1961:last_yr))
+
+# df_plot <- df_plot %>% group_by(Area, Item, Element) %>%
+#   mutate(Value = Value / Value[1] * 100) %>% as.data.frame()
+df_plot <- df_plot %>% group_by(Item, Element) %>%
+  mutate(Value = Value / Value[1] * 100) %>% as.data.frame()
+
+colnames(df_plot)[ncol(df_plot)] <- "Index (1961 = 100)"
+
+n <- length(unique(df_plot$Element))
+bag_of_colors <- randomcoloR::distinctColorPalette(k = 2 * n)
+color_vec <- sample(bag_of_colors, n)
+last_yr <- unique(df_plot$Year)[length(unique(df_plot$Year))]
+
+gg <- ggplot(df_plot, aes(x = Year, y = `Index (1961 = 100)`,
+                              group = Element, color = Element))
+gg <- gg + geom_line(lwd = 3)
+gg <- gg + geom_point(color = "white", size = 2)
+#gg <- gg + facet_wrap(~Area, scales = "free_y")
+gg <- gg + scale_color_manual(values = color_vec)
+#gg <- gg + scale_x_continuous(breaks = seq(1961, last_yr, 1))
+gg <- gg + theme(legend.position = "top",
+                 legend.title = element_blank(),
+                 legend.spacing.x = unit(0.5, 'cm'),
+                 axis.title.x = element_blank(),
+                 axis.text.x = element_text(angle = 60, hjust = 1))
+gg
+
+```
+
+
+
+
+It is kind of pointless to include population and production curves if looking at production per capita...looking at cereals explicitly...
+
+```{r faoGraph1965_cereals, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...world excluding mainland China", echo = FALSE}
+
+df_plot <- df_prodPcap
+df_plot$Unit <- NULL
+
+df_plot <- df_plot %>% gather(Element, Value, Production:`Production / capita (metric tons)`)
+
+last_yr <- 2000
+area_vec <- c("Southern Asia", "South-eastern Asia", "South America", "Central America", "World")
+df_plot <- subset(df_plot, Item %in% c("Food", "Cereals, Total") &
+                    #Area %in% c("World", "China, mainland") &
+                    Area %in% area_vec &
+                    Year %in% c(1961:last_yr) &
+                    Element == "Production / capita (metric tons)")
+#df_plot <- df_plot %>% spread(Area, Value)
+#df_plot$Value <- df_plot$World - df_plot$`China, mainland`
+#df_plot$`China, mainland` <- NULL
+#df_plot$World <- NULL
+
+df_plot <- df_plot %>% group_by(Area, Item, Element) %>%
+  mutate(Value = Value / Value[1] * 100) %>% as.data.frame()
+
+colnames(df_plot)[ncol(df_plot)] <- "Index (1961 = 100)"
+
+n <- length(unique(df_plot$Area))
+bag_of_colors <- randomcoloR::distinctColorPalette(k = 2 * n)
+color_vec <- sample(bag_of_colors, n)
+last_yr <- unique(df_plot$Year)[length(unique(df_plot$Year))]
+
+gg <- ggplot(df_plot, aes(x = Year, y = `Index (1961 = 100)`,
+                              group = Item, color = Item))
+gg <- gg + geom_line(lwd = 1.5)
+#gg <- gg + geom_point(color = "white", size = 2)
+gg <- gg + facet_wrap(~Area, scales = "free_y")
+gg <- gg + scale_color_manual(values = color_vec)
+#gg <- gg + scale_x_continuous(breaks = seq(1961, last_yr, 1))
+gg <- gg + theme(legend.title = element_blank(),
+                 legend.spacing.x = unit(0.5, 'cm'),
+                 axis.title.x = element_blank(),
+                 axis.text.x = element_text(angle = 60, hjust = 1))
+gg <- shift_legend2(gg)
+gg <- ggplotify::as.ggplot(gg)
+
+
+```
+
+
+The FAO has since developed better ways to examine such trends, in particular the food balance sheets... as weight per capita is mixing apples and organges...kcal / capita
+
+Definite increase, but not clear that there was ever really a decrease since 1961. To get a better sense, we would need to examine more years leading up to the green revolution harvests.
+
+```{r FAOCerealsKcalPcap, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
+
+this_file <- "Green revolution food supply.csv"
+this_filepath <- paste0(this_folder, this_file)
+df_fbs <- read.csv(this_filepath, stringsAsFactors = F, header = F)
+df_fbs$V1 <- NULL
+colnames(df_fbs) <- df_fbs[1, ]
+df_fbs <- df_fbs[-1, ]
+df_fbs$Unit <- NULL
+df_fbs$Item[grep("Cereal", df_fbs$Item)] <- "Cereals"
+df_fbs$Item[grep("Grand Total", df_fbs$Item)] <- "Food"
+df_fbs$Value <- as.numeric(df_fbs$Value)
+df_fbs$Area[grep("South-Eastern Asia", df_fbs$Area)] <- "South-eastern Asia"
+#---
+# df_pop <- subset(df, Item == "Population")
+# df_pop$Item <- NULL
+# df_pop$Element <- NULL
+# colnames(df_pop)[ncol(df_pop)] <- "Population"
+# df_pop$Population <- 1000 * df_pop$Population
+#--------------------------------------------------------------------------
+# df_plot <- subset(df_fbs, Item != "Population")
+# df_plot <- df_plot %>% spread(Element, Value)
+# df_plot <- merge(df_plot, df_pop, by = c("Area", "Year"))
+# df_plot$`Food supply quantity (kg/capita/yr)` <- NULL
+# colnames(df_plot)[4] <- "kcal / capita / day"
+# df_plot$`kcal / day` <- df_plot$`kcal / capita / day` * df_plot$Population
+
+# df_plot <- df_plot %>% gather(Element, Value, `kcal / capita / day`:`kcal / day`)
+#---
+item_vec <- c("Cereals", "Food")
+last_yr <- 2017
+df_plot <- subset(df_fbs, Area %in% area_vec &
+                    Item %in% item_vec &
+                    Element == "Food supply (kcal/capita/day)" &
+                    Year %in% c(1961:last_yr))
+
+df_plot <- df_plot %>% group_by(Area, Item) %>%
+  mutate(Value = Value / Value[1] * 100) %>% as.data.frame()
+
+colnames(df_plot)[ncol(df_plot)] <- "Kcal / capita supply index (1961 = 100)"
+
+n <- length(unique(df_plot$Item))
+bag_of_colors <- randomcoloR::distinctColorPalette(k = 2 * n)
+color_vec <- sample(bag_of_colors, n)
+df_plot$Year <- as.integer(df_plot$Year)
+
+
+gg <- ggplot(df_plot, aes(x = Year, y = `Kcal / capita supply index (1961 = 100)`,
+                              group = Item, color = Item))
+gg <- gg + geom_line(lwd = 1.5)
+#gg <- gg + geom_point(color = "white", size = 2)
+gg <- gg + facet_wrap(~Area)
+gg <- gg + scale_color_manual(values = color_vec)
+#gg <- gg + scale_x_continuous(breaks = seq(1961, last_yr, 1))
+gg <- gg + theme(legend.title = element_blank(),
+                 legend.spacing.x = unit(0.5, 'cm'),
+                 axis.title.x = element_blank(),
+                 axis.text.x = element_text(angle = 60, hjust = 1))
+gg <- shift_legend2(gg)
+gg <- ggplotify::as.ggplot(gg)
+
+
+#df_plot$Population <- NULL
+#df_plot <- df_plot %>% spread(Item, `Food supply (kcal/capita/day)`)
+#df_plot$`Other food` <- df_plot$Food - df_plot$Cereals
+#df_plot$Food <- NULL
+#df_plot <- df_plot %>% gather(Category, `kcal/capita/day`, Cereals:`Other food`)
+#df_plot <- subset(df_plot, Item == "Cereals")
+
+#gg <- ggplot(df_plot, aes(x = Year, y = `Food supply (kcal/capita/day)`,
+#                          group = Area, color = Area))
+# gg <- ggplot(df_plot, aes(x = Year, y = `kcal/capita/day`, fill = Category))
+# gg <- gg + geom_area(position = "stack")
+# gg <- gg + facet_wrap(~Area, ncol = 2, scales = "free_y")
+# gg <- gg + theme(axis.title.x = element_blank(),
+#                  legend.title = element_blank())
+# gg
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+```{r IndiaCereals, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
+
+#crop_vec <- c("Wheat", "Maize", "Rice", "Foodgrain", "Course Cereals")
+this_folder <- "C:/Users/bensc/OneDrive/Documents/Data/India Dept Ag Data/"
+setwd(this_folder)
+file_vec <- list.files(this_folder)
+list_df <- lapply(file_vec, read.csv, stringsAsFactors = F, header = F)
+
+this_df <- list_df[[1]]
+data_source <- this_df[nrow(this_df), 1]
+
+#this_df <- list_df[[4]]
+process_India_cerealData <- function(this_df){
+this_crop <- stringr::str_replace(this_df[1, 1], '.+Yield of (.+)', '\\1')
+ind_first <- grep("1950", this_df[, 1])
+ind_last <- grep("2010", this_df[, 1])
+ind_rm_top <- c(1:(ind_first - 1))
+ind_rm_bottom <- c((ind_last + 1):nrow(this_df))
+ind_rm <- c(ind_rm_top, ind_rm_bottom)
+this_df <- this_df[-ind_rm, c(1:5)]
+this_df[, 1] <- as.integer(gsub("-.*", "", this_df[, 1]))
+#this_df[, 1] <- this_df[, 1] + 1
+this_df <- as.data.frame(apply(this_df, 2, as.numeric))
+#colnames(this_df) <- this_df[1, ]
+colnames(this_df) <- c("Year", "Area (million hectares)", "Production (million metric tons)", "Yield (kg. / ha.)", "Area under irrigation (%)")
+this_df$Item <- this_crop
+this_df$`Production (million metric tons)` <- this_df$`Production (million metric tons)` * 10^6
+colnames(this_df)[3] <- "Production (metric tons)"
+return(this_df)
+}
+
+#df_test <- process_India_cerealData(list_df[[2]])
+list_df <- lapply(list_df, process_India_cerealData)
+#head(list_df[[1]])
+df_IndiaCereal <- as.data.frame(do.call(rbind, list_df))
+df_IndiaCereal$Item[grep("Rice", df_IndiaCereal$Item)] <- "Rice"
+df_IndiaCereal$Item <- gsub(" ", "", df_IndiaCereal$Item)
+df_IndiaCereal$Item[grep("Coarse", df_IndiaCereal$Item)] <- "Coarse cereals"
+df_IndiaCereal_prod <- df_IndiaCereal[, c("Year", "Production (metric tons)",
+                                          "Item")]
+
+#df_IndiaCereal_prod <- subset(df_IndiaCereal_prod, Item != "Foodgrains")
+
+df_IndiaCereal_prod <- df_IndiaCereal_prod %>% spread(Item, `Production (metric tons)`)
+df_IndiaCereal_prod$temp_sum <- rowSums(df_IndiaCereal_prod[, -c(1, 3)])
+df_IndiaCereal_prod$`Other food grains` <- df_IndiaCereal_prod$Foodgrains -
+  df_IndiaCereal_prod$temp_sum
+df_IndiaCereal_prod$temp_sum <- NULL
+colnames(df_IndiaCereal_prod)[3] <- "Total"
+df_IndiaCereal_prod <- df_IndiaCereal_prod %>% gather(Item, `Production (metric tons)`, `Coarse cereals`:`Other food grains`)
+
+
+
+this_folder <- "C:/Users/bensc/OneDrive/Documents/Data/FAO Data/"
+this_file <- "FAO_pop_all.csv"
+this_filepath <- paste0(this_folder, this_file)
+df_raw <- read.csv(this_filepath, stringsAsFactors = F)
+df_raw <- df_raw[, c("Area", "Year", "Element", "Unit", "Value")]
+#unique(df_raw$Element)
+df_pop <- subset(df_raw, Element == "Total Population - Both sexes" &
+                   Area == "India")
+colnames(df_pop)[ncol(df_pop)] <- "Population"
+df_pop$Population <- df_pop$Population * 1000
+df_pop <- df_pop[, c("Year", "Population")]
+df_IndiaCereal_prodPcap <- merge(df_IndiaCereal_prod, df_pop, by = "Year")
+df_IndiaCereal_prodPcap$`Production / capita (metric tons)` <- df_IndiaCereal_prodPcap$`Production (metric tons)` / df_IndiaCereal_prodPcap$Population
+
+last_yr <- 1990
+df_plot <- subset(df_IndiaCereal_prodPcap, Item != "Total" &
+                    Year <= last_yr)
+df_plotTrend <- subset(df_IndiaCereal_prodPcap, Item == "Total" &
+                    Year <= last_yr)
+df_mod <- df_plotTrend[, c("Year", "Production / capita (metric tons)")]
+mod <- lm(`Production / capita (metric tons)` ~., df_mod)
+#summary(mod)
+b <- mod$coefficients[1]
+m <- mod$coefficients[2]
+
+n <- length(unique(df_plot$Item))
+bag_of_colors <- randomcoloR::distinctColorPalette(k = 2 * n)
+color_vec <- sample(bag_of_colors, n)
+
+data_source <- "Source: Author's creation using data from the Directorate of Economics and Statistics, India Department of Agriculture and Cooperation."
+
+gg <- ggplot()
+gg <- gg + geom_area(data = df_plot, aes(x = Year, y = `Production / capita (metric tons)`, fill = Item), position = "stack")
+#gg <- gg + geom_line(position = "stack")
+gg <- gg + scale_fill_manual(values = color_vec)
+gg <- gg + geom_line(data = df_plotTrend, aes(x = Year, y = `Production / capita (metric tons)`), lwd = 1.3)
+gg <- gg + geom_vline(xintercept = 1967, lwd = 1.3, color = "green")
+gg <- gg + geom_abline(slope = m, intercept = b, lwd = 2, linetype = "dashed")
+gg <- gg + labs(title = "India grain production per capita, 1950-1990", caption = data_source)
+gg <- gg + theme(axis.title.x = element_blank(),
+                 legend.position = "bottom",
+                 legend.title = element_blank())
+gg
+#Green line represents the first green revolution harvest of wheat and rice (1967)
+
+
+# df_plot <- df_IndiaCereal_prodPcap
+# df_plot <- df_plot %>% group_by(Item) %>%
+#   mutate(`Production / capita index (1951 = 100)` = `Production / capita (metric tons)` / `Production / capita (metric tons)`[1] * 100) %>% as.data.frame()
+# 
+# colnames(df_plot)[ncol(df_plot)] <- "Production / capita index (1951 = 100)"
+# 
+# n <- length(unique(df_plot$Item))
+# bag_of_colors <- randomcoloR::distinctColorPalette(k = 2 * n)
+# color_vec <- sample(bag_of_colors, n)
+
+# df_plot <- subset(df_plot, Item == "Foodgrains")
+# gg <- ggplot(df_plot, aes(x = Year,
+#                           y = `Production / capita index (1951 = 100)`,
+#                           group = Item, color = Item))
+# gg <- gg + geom_line(lwd = 1.5)
+# #gg <- gg + scale_color_manual(values = color_vec)
+# gg <- gg + theme(axis.title.x = element_blank(),
+#                  legend.position = "top",
+#                  legend.title = element_blank())
+# gg
+
+```
+
+Another piece of the story that is sometimes mentioned is that world wheat stocks were rapidly dwindling.
+
+
+```{r IndiaCereals, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
+
+
+```
+
+
+
+
+
+
+* On Claim 2: Was there a dramatic increase in production? Production is always increasing simply because the population, and hence the number of farmers, is always increasing. Unfortunately, this rather obvious consideration does not prevent proponents of the green revolution from taking credit for this secular growth. The abstract of Khush's paper cited above reads:
+
+>"It took almost 10,000 years for food grain production to reach 1 billion tons, in 1960, and only 40 years to reach 2 billion tons, in 2000. This unprecedented increase, which has been named the 'green revolution', resulted from the creation of genetically improved crop varieties, combined with the application of improved agronomic practices" [@khush2001green].
+
+For any informed person, such a statement smacks of snake oil salesmanship, not scholarship. Agricultural production has always increased proportional to the number of hands farming and mouths to feed, i.e., the size of the population. Over the same period mentioned by Khush, the world's population also doubled (from about 3 billion to 6 billion). The corresponding doubling of agricultural output is thus, prima facie, no more "unprecedented" than agriculture itself. Proponents of the green revolution must demonstrate the extent to which the increase in production can be attributed to research, and what portion must be attributed to the increased number of farmers and of cultivated hectares. They may not simply lay claim to the whole thing without justification.
+
+A number of authors do attempt to support their claims with figures. However, these numbers have varied widely over the years, and do not square well with current FAO data. May et al. [-@may2007theoretical] remark that "the Green Revolution...has doubled global food production on only 10% additional land area over the past 30 years or so [i.e., 1977-2007]".
+
+
+
+
+
+The data show that cereal production has kept pace with or outpaced population growth. Contrary to the BBC, in Southern Asia (India and Pakistan) we do not see any evidence of 
+
+(first insert graphic of what we should expect to see given the gr claims)
+
+
+
+The other claim gr proponents make is that the switch to high yielding varieties has spared millions, if not billions, of hectares. This was a key tenet of the response to environmental critics.
+
+```{r areaGraphic, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
+
+
+```
+
+
+
+Pingali revises this upward [-@pingali2012green] says 30% increase in area under cereal cultivation in developing countries between 1962 and 2012.
+
+Borlaug once remarked that the green revolution had saved 1.8 billion hectares     FAOSTAT in fact shows nearly a 100% increase.---possibly due in part to a redefinition at FAO of "developing countries" between now and the time Pingali wrote his paper (8 years ago).
+
+"Had the global cereal yields of 1950 still prevailed in 1999, we would have needed nearly 1.8 billion ha of additional land of the same quality – instead of the 600 million that was used – to equal the current global harvest" [@borlaug2002green]. He then revised this downward to 1.2 billion vs. 600 million [@borlaug2007feeding].
+
+17.9 to 26.7 million hectares more [@stevenson2013green]
+
+
+Gollin says only a 3%-5% increase in cropland under the No-green revolution counterfactual [@evenson2003assessing].
+
+
+
+>"[The] Green Revolution...has doubled global food production on only 10% additional land area over the past 30 years or so" [@may2007theoretical].
+
+>"Although populations had more than doubled [in developing countries from 1962 to 2012], the production of cereal crops tripled during this period, with only a 30% increase in land area cultivated" [@pingali2012green].
+
+
+
+
+(99757069 - 50490961) / 50490961
+
+"Between 1960 and 2000, yields for all de-veloping countries rose 208% for wheat,109% for rice, 157% for maize, 78% forpotatoes, and 36% for cassava", says Pingali [-@pingali2012green], citing a 2003-2004 FAO annual report [@fao2003stateFoodAg]. The "Developing Countries" category is no longer maintained by FAO, but a query for the "Least Developed Countries" indicates that...
+
+
+Philippines rice per capita... Subramanian notes that overall cereal production did not change above pre-existing trendline, just that wheat and rice displaced other coarse grains [Subramanian (2015) in @stone2019commentary]. (here also examine the big bang theory of research.)
+
+* On Claim 3: Was the increase in production due mostly to AR4D?
+
+* By its own accounting, the Green Revolution contributed to just 17% of the "famine averting" increase in production in the developing world from 1961-1980 [@evenson2003assessing]. (Moreover,) Expansion of the agricultural frontier accounted for another 20% of the increase. This means that 63% of the increase must be explained by other factors. This study which Green Revolution subscribers enlist as part of "the very strong record of positive impact attributable to crop genetic improvement" [@renkow2010impacts].
+
+
+
+
+
+--------------
+Claims to examine in the fao data:
+
+>"Between 1966 and 2000, the population of densely populated low-income countries almost doubled, but food production increased by more than 125%" [@khush2001green].
+
+>"Estimated System-wide benefits ranged from nearly $14 billion to over $120 billion in net present value. The benefit-cost ratios suggest that investments in the CGIAR have paid for themselves by a wide margin. Even by the most conservative criterion, overall benefits attributable to CGIAR research were roughly double the costs of total investment in the System" [@renkow2010impacts].
+
+>"The overall benefits of CGIAR contributions to crop genetic improvement are estimated in billions of dollars—mostly because of the benefits from the improved three main staples [wheat, rice, and maize]" [@pingali2012green].
+
+-------------
+
+
+>"Between 1966 and 2000, the population of densely populated low-income countries almost doubled, but food production increased by more than 125%" [@khush2001green].
+
+value of ag production has trebled over 1961-2008 [@wik2008global].
+
+intensification-induced decline in cereal crop productivity, and small yield gap in the high potential areas (particularly for rice and wheat) [@pingali2001cereal].
+
+
+Title: "The Green Revolution Arrives in Africa"
+From the abstract:
+>"The Green Revolution that brought advances in crop genetics to Asia and Latin America completely bypassed the African continent. Africa's smallholder farmers finally joined the movement in 2006, when the Bill and Melinda Gates Foundation joined the Rockefeller Foundation to create the Alliance for a Green Revolution in Africa" [@blaustein2008green].
+
+Oh really? Well, in fact there was a green revolution in Africa prior to the revolutions in Asia and Latin America [@eicher1995zimbabwe].
+
+"For Africa,... the limiting factor...is not the genetic yield potential of the crops currently being grown. The problem is that so little of their genetic yield potential is realized due to poor soils and crop losses" [@blaustein2008green].
+
+
+
+
+
+The Malthusian outlook implies a _noblesse oblige_ mindset.... What are we going to do with all these additional people? But additional human beings are assets, not liabilities. Additional human beings means more brains and brawn, more teachers, more human capital, more partners... We must look at our new companions as assets, not liabilities. as partners in our project to live sustainably on planet Earth.
+
+
+
+
+
+Twelve years later, a more qualified version: "Much of the success was caused by the combination of high rates of investment in crop research, infrastructure, and market development and appropriate policy support that took place during the...Green Revolution" [@pingali2012green].
+
+"In many developing countries of Asia and Latin America, the genetic improvement of staple food crops, combined with complementary agronomic practices, supportive policies, and strengthened institutions, enabled overall food production to keep pace with population growth while both more than doubled" [@toenniessen2008building].
+
+So now in this version a certain lip service is paid to the enabling environment, but the authors of this narrative clearly intend to leave the reader with the impression that the breeding science is the single driving force behind this increase. The hundreds of AR4D impact assessments conducted since the 1960s likewise attribute any improvement in farmer livelihoods to breakthroughs in the breeding science [@alston2000meta].
+
+
+
+
+
+
+
+
+
+
+
+
+inherent in these are three claims:
+
+Claim 1: In 1960, the world was on the brink of a global Malthusian catastrophe.
+
+Claim 2: There was a dramatic increase in the production of key staple crops which averted said catastrophe.
+
+Claim 3: The dramatic increase in production of key staple crops is entirely attributable to crop genetic improvement.
+
+Khush quote + the BBC article...
+
+
+
+The problem is that hindsight prefigures foresight.
+
+This narrative prefigures discussion away from enabling environment, prefigures the problem as a purely technical one, purely within the realm of science to solve and take credit for. ("ritual avoidance of the obvious")
+
+>"(i) the IARC should take aleading role in developing improved varieties such as the MV1 and MV2 types;(ii) the varietal research collaboration between IARC and NARS should be strengthenedand intensified; (iii) the NARS should play an active role in developing location-specificvarieties such as the MV3; and (iv) the application of fertilizer, be it chemical ororganic, must be increased to realize yield potential of MV" [@otsuka2006rice]. 
+
+
+This is not a hit job on the green revolution. From a purely scientific standpoint, these are ingenious achievements--prevention of lodging by crossing semi-dwarf and high yielding varieties, thus resulting in double the yield (Khush has said 10 times the yield under optimal circumstances), also the shorter cropping cycle, allowing two cycles in a single season, etc. and to continue improving in terms of taste, pest and disease resistance, nutrient content, etc. Collective forgetting of some of the key ingredients that made it a success  The argument here is that there is a sustained effort, conscious or unconscious, to  by continuing to ignore the enabling environment (or by addressing it only when it is convenient to do so), the AR4D community is only hurting itself. Whatever the incentives have been for scientists to engage in and perpetuate such distortions in the past, they have long expired--And such distortions can now only work against them (in terms of securing funding) ...will continue to dwindle funding, etc. Especially true as we look forward to new incarnations/waves of the green revolution (A "doubly green revolution", the "green revolution in africa"), precluding any discussion of the key ingredients that made the first gr a success, is setting these efforts up for failure. We need to embrace the holistic view that cuts across disciplines, that is seeping into the discussion. This is not an attack on the green revolution, or a political position of any kind. If there is any position underpinning the discussion here, it is one of wanting to see the resource poor smallholder elevated, their children fed... Axiomatically, a narrative that systematically avoids, deflects, minimizes, or otherwise precludes any discussion of the key conditions of its success can only end in failure.
+
+This is advice from a friend. The achievements of the green revolution stand on their own, and do not need embellishment. The embellished narrative works against the goals of the gr. AR4D funding continues to dwindle. Donors have grown weary of the outlandish claims; they have simply stopped believing the impact assessments [@hurley2014re; @nin2018revisiting]. Donor-research relations at an all time low [@leeuwis2018reforming]. It is time to look in the mirror. Arguments and bickering of this nature are characterized by straw man portrayals of the other side. [mccalla quote here?] To the extent that these straw men approximate reality, they should be redressed. But the  As Byerlee says, crop genetic research is the "bread and butter" of the CGIAR [], and they should not be asked to expand into areas where their expertise does not have a comparative advantage.  should not be asked to spend inordinate amounts of time on tasks that make poor use of their talents. But they Their decisions must be informed and driven by a solid understanding of the economic incentives that, in turn, drive farmer decisions. There is a mechanistic conception of research translating directly into agronomic and welfare impacts is "more wrong than right" [@lipton2010policy]. [@collins2011reengineering; @moriarty2008reclaiming; @petsko2011herding]. Part of the "genius" of research institutions is said to be their cunning ability to attract donor funds without ever giving the "aid bureaucrats and politicians" oversight or control over the research agenda [@mccalla2013cgiar]. Mandatory foresight exercises (TOC) imposed by donors are thus viewed as an intrusion, and are performed in a passive, post hoc way to fulfill a requirement [@birner2016synthesis]. It is true to some extent that greater care can be taken to design foresight exercises that better engage the interests of scientists, and that do not burden them with bureaucratic tasks that make poor use of their valuable time and skills. On the other hand, donors have other places they can invest their money. AR4D centers have a lot to lose by doubling down on technocratic aloofness, and much to gain by proactively engaging in tactical foresight.
+[We need not turn to critics] In his call for a "Doubly Green Revolution", then President of the Rockefeller Foundation, Sir Gordon Richard Conway, said
+
+>"The first Green Revolution started with the biological challenge inherent in producing new high-yielding food crops and then looked at how the benefits could reach the poor. But...[the next] revolution has to reverse the chain of logic, starting with the socioeconomic demands of poor households and then seeking to identify the appropriate research priorities. Biologists will have to listen as well as instruct" [@conway1999food].
+
+[@moriarty2008reclaiming]
+
+This requires that [the scientists understand their responsibility as extending beyond the lab and field trials into the socioeconomic environment; that it enter into their purview]. If a new variety successfully expresses some desired trait but costs four times as much to grow as the baseline (as in the case of IR8 rice), the scientists must have a plan to make adoption of the new variety economically appealing to farmers. This is not asking a lot. This is just to say that the scientists must have a clear and cogent idea of the impact pathway. And this includes, obviously, a clear idea of the relevant institutions and mechanisms, public and private, at international, national, and local levels, and of the type of partnerships that they must build among these entities in order to achieve impacts at scale. Including potential rent seeking
+<!-- The scientist must be aware that such varieties were viable in the past because USAID covered the additional cost to the farmer. And the scientist must be aware that those days are gone. This in turn requires partnering with institutions and producer organizations who can make . [In a sense, the scientist is asked to grow up and take responsibility.] The USAID handouts of the 1970s and 1980s must be replaced by intelligent use of social capital. Scientists, in partnership with government and non-government organizations, must cultivate a knowledge of social capital networks that can be leveraged. MSP is an example of this [or prototype of this] in action. -->
+
+The aim of research is multi-dimensional. Genetic gain (i.e. yield growth) cannot be the "holy grail" of research, as it has been and continues to be. Conway proposes four dimensions: Productivity (genetic gain), Stability ("the degree to which productivity remains constant in spite of normal, small-scale fluctuations in environment variables, such as climate, or in the economic conditions of the market."), Resilience ("the ability of a system to maintain its productivity when subject to stressor shock.") [@conway2007doubly].
+
+Asking scientists to expand their purview beyond the lab and field trials is just to say: (is consistent with emerging holistic views on agricultural innovation as a system)
+>"[P]roduction and exchange of (technical) knowledge are not the only prerequisites for innovation. Several additional factors play a key role, such as policy, legislation, infrastructure, funding, and market developments" [@klerkx2012evolution].
+
+>"[A]gricultural innovation is not an inherently good and value free process, but normatively laden and driven by different worldviews and visions. Correspondingly, different development directions exist, each with its own winners and losers" [@klerkx2012evolution].
+
+For example, big capital intensive farm or small labor intensive farm? Consumer or producer support? These fall roughly into two camps, SAI AEI [@mockshell2018beyond]. We have examples of both in places like Brazil [@rada2019agricultural; @rocha2012small]. These tradeoffs are never discussed in AR4D communities....SDGs, IFPRI 2020 Vision, PRSPs, etc. A shift in attitude that places smallholder livelihoods at the center (cue the Gates AGRA quote); a “new agricultural paradigm” (Byerlee 2009) arising from the ashes of the anti-poor Reagan-Thatcherite "Structural Adjustment" nihilism of the 1980s and 1990s [@easterly2000effect;@easterly2005national;@eicher1998international].
+
+[@morris2007fertilizer; @lipton2005family; @lipton2010policy]
+
+>"[L]arge increases in staple food productivity would do little to cut mass dollar poverty if they were confined to large-scale farms, using tractors and combines but few workers, and selling at government-boosted prices that the underemployed and near-landless poor cannot afford.
+
+>"The Green Revolution not only increased the supply of locally available staples but also the demand for farm labor, wage-rates, and thus the work-based income of the dollar-poor. The lesson for future crop science policy is clear. When choosing among research paths, a high employment share in extra science-induced farm income should normally be seen as a gain. For countries where the dollar-poor lose out if the demand for farm labor declines, aid-backed farm research should not support better combines, herbicides, mechanical transplanters-or varieties whose advantages depend on these-unless the results can beshown to be cost-effective ways to cut poverty" [@lipton2005family].
+
+Confusion on this point: "When food production rises through...increases in land and labor productivity, the rural poor gain" [@toenniessen2008building]. (AGRA launch paper)
+
+>"Underlying all this is the need to reverse the recent downgrading of economic analysis in some CG institutions (and, even more important, to remedy its near absence from some key ones in NARSs) and to redirect such skills away from ex post complaining about research results toward direct involvement, alongside natural scientists, in research-planning choices" [@lipton2010policy].
+
+Leeuwis says don't hold us accountable, no direct line between research and impacts.
+
+>"It is evident that science and technology can have major impact in society, but one cannot usefully draw a straight line between conducting strategic research today, and having a development impact tomorrow. Studies on how research in???uences developments in society show that such impacts may occur at later moments, in di???erent settings, in unanticipated manners, and/or over longer time horizons, and that such impact is contingent on many actors and factors outside the control of research organisations" [@leeuwis2018reforming].
+
+>"[W]e feel that the discussion is a???ected by a fundamental misunderstanding about the kinds of impacts that one may expect from strategic research. Strategic research does not directly lead to the kinds of development outcomes formulated in the SRF, but impacts indirectly through the formation of new networks, visions, societal discourses, initiatives, coalitions for change and necessary lessons from failure that currently remain largely invisible in the prevailing reporting and accountability systems" [@leeuwis2018reforming].
+
+>"While donors legitimately ask research organisations to position their research within plausible 'theories of change', the donor community itself is applying a flawed meta-theory when assuming a straight line between research activity and development impact. No matter how broadly researchers conceptualise their role, such impacts usually remain outside their sphere of influence" [@leeuwis2018reforming].
+
+Problem with this argument is that countless assessments and reassessments of the Green Revolution have drawn precisely this "straight line" between CG research and societal impacts. When it comes time to talk about the achievements of the Green Revolution, all the mitigating, complex nuance regarding the "many actors and factors outside the control or research organizations", or the "new networks, visions, societal discourses, initiatives, coalitions for change", and so forth, somehow vanishes. When it comes time to write an annual report, the mitigating complex nuance suddenly comes flooding back in.
+
+legitimate gripes: short budget time horizons and reporting space (200 words or less, etc.), donors cannot expect impacts on a short timeframe, researchers being forced to make unrealistic promises about the eventual impacts they will receive.
+
+On the other hand, Leeuwis is not asking to be absolved of accountability for impacts.
+
+>"[W]e should get out of the current illusionary accountability system in which researchers are essentially forced to make unrealistic quantitative promises about the eventual impacts they will achieve. Instead, we need to strengthen the ex-ante assessment and periodic monitoring of research in terms of criteria such as scientificc quality, strategic relevance, linkages with national policy and demands, strength of partnerships involved, capacity to adapt to changing conditions, and the plausibility and underpinning of proposed 'theories of change' and investment decisions. This implies a shift in assessment policy towards decisional accountability and true scientific dialogue rather than performative accountability measured in terms of development impact (Van Woerkum and Aarts, 2012). In other words, the CGIAR and its donors should optimize the chances that research can lead to societal impact, and not impose
+evaluation criteria over which researchers have no control" [@leeuwis2018reforming].
+
+And he acknowledges as valid the criticism of the pre-reform CGIAR as being detached from the socio-economic reality of the smallholder. 
+
+>"[O]ur conviction is that CGIAR researchers have indeed a genuine commitment to achieving development impact, and that they are seriously looking for ways to address critiques that the pre-reform CGIAR operated in an isolated and unaccountable manner (see the left column of Table 1) and largely ignored the social and political dimensions of agricultural development" [@leeuwis2018reforming].
+
+Solution: just state the general aim of the research and be transparent about assumptions and information as it comes in. (Assumption could be for example that farmers are able to access credit necessary to offset the increased cost involved in adopting the research product.)
+
+
+enabling environment green revolution in africa [@eicher1995zimbabwe].The delivery mechanisms can look very different...There is a temptation, when reviewing the output of such modeling, to fall under the spell of formulaic, prescriptive thinking; but macro-level simulation results must not be confused with specific outcomes or policy recommendations at local scales. The particular form that such outcomes may take in terms of social, economic, and ecological realities at local scales varies immensely depending upon the local policy and institutional context. For example, higher grain productivity and corresponding welfare impacts in 1970s Rhodesia [@eicher1995zimbabwe] meant something very different from that which occurred in the Philippines in roughly the same period [@smith1989palay]. Even within a single country—Brazil, for example—the abstract market incentives modeled by IMPACT translate into two very different sets of social, economic, and environmental realities at local scales: a public sector driven, smallholder model, and a private sector driven, large farm model [@rada2019agricultural; @rocha2012small]. Meanwhile, macro level modeling makes no distinction between these.
+
+Efforts were made from within the AR4D community to point out the attribution problem and call out potential abuses [@alston2001attribution; @alston2000reassessing].
+
+
+Always conclude more money for more crop genetic improvement research (the "bread and butter" of the CGIAR) [@renkow2010impacts].[@jayne2010principal; @lipton2005family; pardey2013public]
+
+
+The pushback against a more holistic or systems view approach (the pushback against expanding the scientific purview) ("recent downgrading of economic analysis in some CG institutions" [@lipton2010policy]):
+
+"[W]e believe it is reasonable to conclude that while NRM and policy research in the CGIAR remains under-evaluated, CGI research has nonetheless produced substantially larger net benefits. Given these uncertainties and the very strong record of positive impact attributable to CGI, it would appear that the CGIAR's port-folio of research allocations has become overly skewed toward NRM and policy research over time. Thus, a move toward restoring somewhat the share of resources allocated to CGI would seem warranted. In fact, this seems to be happening as the Bill and Melinda Gates Foundation have sharply stepped up their funding of CGIAR research, mostly in the area of CGI" [@renkow2010impacts].
+
+The key phrase here is "the very strong record of positive impact attributable to CGI". As noted above, there are grounds for serious doubt as to how much impact can be attributed to improved germplasm alone [@alston2001attribution]. And the studies are now increasingly regarded as implausible. There is strong evidence, at any rate, that donors have simply ceased to believe in these assessments [@hurley2014re;@nin2018revisiting]. The single most rigorous study on the impacts of the green revolution [@evenson2003assessing] found that just 17% of the increase in production in the developing world from 1961-1980 could be attributed to improved germplasm. (Moreover,) Expansion of the agricultural frontier accounted for another 20% of the increase. This means that 63% of the increase must be explained by other factors. The authors of the study presume that inputs account for the residual. A strong case could be made that the residual 63% is attributable to the enabling environment, in particular the subsidies without which farmers would not have voluntarily adopted the higher yielding varieties.  (Ironically, Renkow et al. enlist this finding in support of their seed-centric thesis.)
+
+
+
+Addressed weaknesses and shortcomings:
+
+* That the applicable area of miracle wheat was comparable to a postage stamp  "the land where this new technology, this Green Revolution, applies is a postage stamp on the face of the earth" (Hardin,  1969) in Paddock 1970
+
+* Bad taste, resistance to pests and disease
+
+* Applicable to resource poor farmers
+
+* Environmental concerns
+
+* In its very earliest days, in Mexico, the green revolution was unabashedly oriented towards relatively wealthy, commercial farms. This quickly changed in the 60s and 70s. Scientists developed varieties oriented towards relatively poor farms.
+
+* Biofortification (vit. A defficiency, malnutrition, stunting, these are pro-poor issues), diabetes
+
+It involves taking up positions on a range of hotly debated issues. Does good policy mean public sector involvement? For which income percentiles? Does it come with trade liberalization? Does it mean removing safety nets? Is there a role for indigenous cooperative mechanisms and other forms of social capital? What is the relation between economic growth and poverty? The "correct" answers to these questions, to paraphrase Foucault, are "a thing of this world" ().
+
+
+
+>"When a farmer chooses to adopt a new variety to replace an older variety, it reflects the farmer’s judgment that the new variety offers some net benefit or advantage. For most crops, in most regions, MV adoption occurred soon after MVs were released" [@evenson2003assessing].
+
+Evenson and Gollin go on to attribute the lack of adoption in Africa to a failure to adequately adapt MVs from Asia and Latin America to the more varied conditions encountered in Africa. No mention of the enabling environment, the massive subsidies, etc., without which farmers in Asia and Latin America would have seen no net benefit in adopting the MVs.
+
+It is as Paarlberger said. We can create a surplus of anything if the incentives are in place. South Vietnam achieved record levels of rice production in the very midst of war and rampant corruption thanks to artificially high producer prices set by the government and underwritten by USAID [@logan1971deep]. Fertilizer use doubled, tractors, irrigation pumps and gasoline engines and gasoline all on government credit. Even the Viet Cong allowed U.S. Army personnel free passage through the Mekong Delta so long as they were bringing IR8 seed to the farmers [http://books.irri.org/RT_Supplement-IR8.pdf].^[Thomas Hargrove, later worked at CIAT in Colombia, kidnapped by the FARC, etc.] Honda rice.
+
+
+
+the Philippine Government asked the United States for an advance of $100 million on its 1970 payments (due it for our use of military bases) in order to "stave off the emergency" arising from threatened bankruptcy [@paddock1970green].
+
+### Was the green revolution the big bang of yield growth?
+
+In the Philippines, breeding programs had made steady progress raising productivity since 1907 (Flores-Moya, Evenson, & Hayami, 1978). An empirical study conducted just prior to release of IR8 found that farmers in the Philippines acted as rational economic agents, expanding or contracting production as a function of prices (Recto, 1966). Other contemporaneous studies confirmed the same for India, Pakistan, and Indonesia (Falcon, 1964; Hussain, 1964; Krishna, 1963; Mubyarto, 1972). Supply elasticities are higher where production is more commercialized, but even subsistence farms respond to shifts in price via indirect means.
+
+Graphs of Philippines rice per capita and mention also India . x makes a similar observation for India cereal data.
+
+<!-- “The World Bank has been consistently surprised by cases in which people do not respond to incentives in the predicted manner, when an understanding of local institutions would reveal these responses to be quite consistent with local culture and habits.” (Wolfensohn) -->
+
+gr in africa
+
+criticism, Gates quote [@dawson2016green].
+
+There's the AGRA launch paper, and then from the BMGF AGRA website:
+
+>"For the past 50 years, these farmers have been struggling to grow more and healthier food for their families and earn more income from their farms. They face significant challenges that have led to lower yields, including climate change, outdated seeds that are not adapted to withstand today’s pests and tough growing conditions, and a lack of access to new technologies and crop information. These farmers also lack access to finance, and because they live in rural areas, they have trouble getting modern seeds and fertilizers that are usually sold in the cities".
+
+https://www.gatesfoundation.org/Where-We-Work/Africa-Office/AGRA#{5A0565E0-2E48-472F-9DA6-8658B4B2FB93}
+
+Again, the problem is construed primarily as one of access to technology. (Access is about finance, infrastructure...)
+
+At some point: dead capital (soto), and this could fit nicely with the "devolution revolution" unfolding in some parts of Africa.
+
+In India starting in 1965 (World Bank program) tube wells, also gov loans, subsidies, and rural electrification; adoption hinged on whether or not farmers had tube wells ...the wells freed the farmers from the monsoon cycle. "by 1969 there were almost a quarter of a million private tube wells in operation and the state had spent Rs 5.5 billion on minor irrigation and rural electrification" [@stone2019commentary]. (Indian rice boom was in the mid 1970s)
+
+“success stories in smallholder competitiveness in high value activities typically depend on membership in effective producer associations that can address economies of scale in marketing and processing” (Byerlee 2009)
+
+
+
+Well, Evenson and Gollin found that:
+
+>"For all developing countries, MVs accounted for 21% of the growth in yields and about 17% of production growth in the early Green Revolution period [1961-1980]. Area expansion accounted for about 20% of the increases in production; the rest came from intensification of input use" [@evenson2003assessing]. Clarify that input use is actually the residual. Everson and Golling interpret it as input use, but it may also stand for the enabling environment. Input use itself is arguably a proxy for the enabling environment, given the hundreds of millions of dollars in subsidies that made their acquisition by farmers possible. 
+
+"MV contribution to yield growthwas higher in the late Green Revolution periodthan in early Green Revolution period, accounting for almost 50% of yield growth and 40% ofproduction growth for all developing countries" [@evenson2003assessing].
+
+
+
+The narrative starts on a note of doom and gloom.
+
+
+On the other hand, the father of the green revolution, Norman Borlaug, called the enabling environment "equally as important as" the scientific breakthroughs. Here is the full statement, from his 1970 Nobel Prize acceptance speech:
+
+>"[E]qually as important as the transfer of the new seed and new technology...was the introduction...of a crop-production campaign strategy. This strategy harnessed the high grain-yield potential of the new seed and new technology to sound governmental economic policy which would assure the farmer a fair price for his grain, the availability of the necessary inputs---seed, fertilizers, insecticides, weed killers, and machinery---and the credit with which to buy them. Collectively these inputs and strategy became the base from which the green revolution evolved" [@borlaug1972norman].
+
+Such things are not often heard today, and may even be considered controversial by some. But they were obvious to the key actors in the early days of the green revolution. USDA Chief Economist Don Paarlberg, in 1963:
+
+>"This is the inescapable fact---that a price artificially held above the competitive level will stimulate production, retard consumption and create a surplus.... It is the product of human institutions, not simply a consequence of rapid, technological advance. It may or may not be accompanied by a scientific revolution. We could create a surplus of diamonds or uranium or of avocadoes or rutabagas simply by setting the price above where the market would have it and foregoing [sic] cost production control. A surplus is not so much a result of technology as it is a result of intervention in the market." (Paarlberg 1963 [in @paddock1970green]).
+
+In hearings on the Foreign Assistance Act of 1968, USAID Director William Gaud---the man who coined the term "green revolution"---was likewise at pains to assert the fundamental importance of the economic and institutional context:
+
+>"[W]e have to keep in mind, I think, that it is impossible for the agricultural sector of any country's economy to grow, unless the entire economy is growing. The farmers can't buy fertilizer, they can't buy pesticides, they can't buy herbicides, they can't buy new seeds, unless the economy of the country is strong enough, or unless they have the resources to import these inputs.
+
+>"At the same time, if the farmer produces more food, as we hope he will, there has to be an effective demand for that food at prices which are profitable for the farmer. By effective demand, I mean not that the people in a country must need more food, but that they must have the money to buy it. Their incomes must be high enough to buy it, and that means a healthy economy.
+
+>"By the same token, if you expect a farmer to grow more food, he has got to have something on which to spend the money he makes for growing and selling it. He has got to be able to buy consumer goods. He has got to be able to buy things he did not have before. He has got to have an incentive to increase his income, and this again means a healthy economy, across the board" [@HearingOnFAAct1968].
+
+The Chair of the Foregin Affairs Committee, Representative Thomas Morgan (D-PA), then engaged Gaud on this issue:
+
+>"In the past, members of this committee have found that there were cases where assistance was applied to agriculture under the foreign assistance program, but the operation was frustrated because the farmers in that particular country were discouraged by price structure, or by a system of taxation, or by the system of collecting the rents.
+
+>"These farmers really had no inducement to adopt improved methods, because they derived very little from their increased production.
+
+>"Now we are financing this year the construction of fertilizer plants, and we plan to finance the shipment of millions of dollars worth of fertilizer. What measures do we take to determine in particular countries...whether these farmers will be ready to increase production?
+
+>"Can you cite any cases where reforms in price structure or tax structure have actually occurred in any particular country where we have financed major programs?" [@HearingOnFAAct1968]
+
+To which Gaud responded:
+
+>"Yes, sir; I can cite several cases offhand. The Philipines, for example. I think it is generally agreed that one of the most important factors in the Philippines was a change in price policies in favor of the farmer.... All observers of the Philippine situation gave this change primary credit for providing the incentive to the Philippine farmer to grow more rice.
+
+>"In Chile, there is a somewhat comparable situation. You have got problems of land tenure, and you have problems of pricing. We are making loans, agricultural sector loans to Chile, to help the Chilean Government achieve reforms which will give the farmer a greater incentive.
+
+>"In India, we have been using our Public Law 480 and our fertilizer loans, and also giving technical assistance, in an effort to achieve changes in agricultural policy. One, the allocation of greater resources to the Government to agriculture rather than to industry. Two, a change in the pricing system, so that a greater incentive is provided to the producer. Three, agricultural credit, so that the farmer will be able to buy the fertilizer..." [@HearingOnFAAct1968].
+
+A few days after his congressional testimony, Gaud gave the famous speech wherein he coined the term "green revolution"; and wherein he affirmed once more:
+
+>"To the farmer, the new seeds and fertilizer represent an untried and expensive investment. The high yields of IR-8 [rice] depend on a combination of intensive labor and materials which makes it four times as costly to grow as ordinary rice. Only when the farmer sees that the added investment will increase his profit will he give them a try....
+
+>"The higher investments required by the new agriculture also make farm credit essential. In the Philippines, many of the IR-8 rice kits have been distributed on credit extended by private rural banks receiving A.I.D. support. Similarly, Turkish farmers now get high-yield seed on credit. And to get seed on credit, they must also take the necessary amount of fertilizer on credit.
+
+>"Farmers are responding to these new opportunities. In Pakistan where they have never before paid a premium for seeds, they are now doing so. They want the high-yield varieties. There have been reports of seed riots in India. At times the demand for fertilizer in India has been strong enough to create a black market" [@gaud1968green].
+
+
+All of this---including the "enabling environment"---can be summed up by just saying that the farmer must have an economic incentive to adopt new varieties and practices. And by economic incentive I just mean he must see that the benefit of doing so outweighs the costs, including the opportunity cost of forgoing whatever he was doing before.
+
+
+
+
+
+>"The first Green Revolution started with the biological challenge inherent in producing new high-yielding food crops and then looked at how the benefits could reach the poor. But this new revolution has to reverse the chain of logic, starting with the socioeconomic demands of poor households and then seeking to identify the appropriate research priorities. Biologists will have to listen as well as instruct" [@conway1999food].
+
+
+* , and that AR4D are not the "inherently good and value free process[es]" presupposed by technocratic narratives, but are rather "normatively laden and driven by different worldviews and visions. Correspondingly, different development directions exist, each with its own winners and losers" [@klerkx2012evolution]. AR4D is increasingly viewed holistically, as part of a system of policies and institutions.
+
+
+
+
+
+And so, early proponents of the green revolution were well aware that its success, where other ag assistance programs had failed, rested upon the hundreds of millions of dollars in loans, subsidies, and price controls that made it profitable for farmers to adopt the new technology.
+
+In the Philippines, where the 
+In some cases, the financial assistance effectively amounted to paying farmers to adopt. In the Philippines, where the assistance program was called Masagana 99, loan repayment rates 
+
+[Ingrid Palmer 1972, United Nations Research Institute for Social Development (UNRISD) Report No. 5.; UNRISD studies on the "green revolution" No. 72.9.]
+
+Within a few years of Gaud's speech, the loan programs would turn out to be dole outs, as repayment rates sank... There is a very real sense in which 
+
+
+
+Another key plot point in the green revoution narrative is that the breeding science pulled the developing world, particularly India, from the jaws of famine.
+
+
+
+
+...there is also an issue with the data... ...that local national agricultural research systems (NARS) are inefficient...and that International research systems (the CGIAR) are required to fill in this gap...  In India, displaced traditional coarse grain production and pulses, not increasing above the trendline that already existed.
+
+
+
+...Malthusian pall
+...
+...this is advice from a friend.
+
+
+Rational audiences come to the literature ready to hear what role the green revolution played in all of this; but we are turned away by such disingenuous attempts to lay claim to the whole thing.
+
+
+
+
+
+* Such a narrative invariably prefigures policy recommendations towards "more funding for more research for more productivity" (as in for eg. [@jayne2010principal; @lipton2005family; pardey2013public]. Low adoption rates and yield gaps, meanwhile, are prefigured as a sort of mystery that is outside the purview of scientific responsibility to explain—and/or evidence of the need for more funding for more genetic gain ().
+
+
+
+* Strategic ambiguity
+An increasing number of authors call attention to the importance of "good policy and institutions", "getting the policy right" etc. (); but, like the models, few venture to articulate what this means in concrete terms. Why the hesitation?
+
+.	It may be that some of these writers consider the meaning of "good policy and institutions" to be self-evident. Most, however, are probably aware that, as Rodrik (2016) says, "the function that good institutions fulfil (about which we have a fairly good idea) do not map into unique forms (about which we know a lot less)". The task of envisioning how abstract, coarse-grained market forces-like those modeled in IMPACT-map to unique, concrete socioeconomic and environmental realities at local scales, is a non-trivial one fraught with life altering consequences for broad sections of society. It involves taking up positions on a range of hotly debated issues. Does good policy mean public sector involvement? For which income percentiles? Does it come with trade liberalization? Does it mean removing safety nets? Is there a role for indigenous cooperative mechanisms and other forms of social capital? What is the relation between economic growth and poverty? The "correct" answers to these questions, to paraphrase Foucault, are "a thing of this world" ().
+
+
+
+.	Recent studies confirm that labor intensive, inclusive growth is much more sustainable than capital intensive forms of growth (based, for eg., on natural resource rents); i.e. pro-poor and pro-growth are "two sides of the same coin" (Berg & Ostry, 2011; Berg, Ostry, & Zettelmeyer, 2012; Dabla-norris & Kochhar, 2015; Ostry, Berg, & Tsangarides, 2014). Agri-food systems are naturally labor-intensive sectors with high participation from lower income centiles, and thus uniquely suited to drive such pro-poor, sustainable growth.
+.	After a long period of "agricultural pessimism" and  "urban bias" which has viewed agriculture as the "handmaiden of industrialization", there is now talk of a "new agricultural paradigm" of sustainable, equitable growth (Byerlee, de Janvry, & Sadoulet, 2009; Byerlee, Diao, & Jackson, 2005; Lipton, 2006; von Braun, 2009).
+
+
+growing appreciation of the importance of social capital and cooperativism making its way into the "neoliberal" literature (Bebbington, Guggenheim, Olson, & Woolcock, 2004) / a letting go of tired old misconceptualizations of social capital and common property (Krishna, 2002; Ostrom et al., 2002; Pretty, 2013; Putnam, 1993).
+
+An initiative of the International Food  Policy  Research  Institute  (IFPRI)  in  the  early  2000s  called  "A  2020  Vision  for  Food,  Agriculture,  and  the  Environment"  was  instrumental  in  focusing  research  and  development  policy  attention  on  a  broad  approach  to  the  three  critical  issues  of  securing  future  world  food  needs,  reducing  hunger  and  poverty,  and  protecting  the  environment. It aimed at developing a shared vision and a consensus for taking action. The summary of an international consultation process identifies five priority areas for action:  i)  focus  on  inclusive  growth;  ii)  improve  access  to  assets  and  markets;  iii)  phase  in  social  protection;  iv)  accelerate  investments  in  health  and  nutrition  pro-grammes;  and  v)  include  the  excluded  (VON BRAUN  and  PANDYA-LORCH,  2007)
+
+the  Poverty  Reduction  Strategy  Papers  (PRSP)  can  be  seen  as  the  repackaged form of an SAP, with modifications in social content and emphasis on the issues  of  national  ownership  and  consultation.
+
+
+
+
+
+
+
+(In Philippines masagana 99) Smith found that the increase in production was mostly due to an increase in planted area, not an increase in yield [-@smith1989palay].
+
+
+
+
+* First of all, there is often talk of the quantity. This is particularly vexing since surely the authors are aware that increased production could very well be due to the increasing number of farmers and expanding agricultural frontier.
+
+* x% increase in per capita production from 1970 to 2000 etc. Ok, but there was a y% increase from 1950 to 1970. (I.e. it is hard to distinguish the green revolution from an ongoing upward trend that began long before the green revolution) In India The introduction of green revolution varieties of wheat and rice displaced coarse grain production, but did not increase total cereal production above the trend that already existed (Subramanian in [@stone2019commentary])
+
+* (Another important piece of the legend:) As Stone points out [@stone2019commentary], It is about the developing world waking up to bold new ways of thinking about crop breeding, as though the history of breeding began with the gr. However, recent reexaminations show that breeding programs were alive and well prior to the arrival of the Rockefeller Foundation etc. in some cases extending back to colonial times. Earlier attempts to distribute new technologies had met with failure because they were uncomplemented by a microfinancing scheme, or price guarantees, etc., i.e. an enabling environment.
+
+and a failure to understand the role of productivity.... genetic gain, the "Holy Grail" of research, BMGF driven. [@lipton2005family; @lipton2010policy]
+
+Finally, there is, almost by design, considerable vaguery surrounding the  Rodrik observed that "the function that good institutions fulfil (about which we have a fairly good idea) do not map into unique forms (about which we know a lot less)" ...strategic ambiguity? AIS quote about normative....
+
+There is also the narrative of...not til Brittish rule in 1860, introduction oc commercial incentives, displacement of food crops...thereafter some 40 million deaths due to famine, often in the midst of abundance. [@sen1982poverty; @bhatia1967famines; @davis2002late]
+
+
+.	If the last green revolution is any indication, the translation of scientific research investments into socioeconomic welfare impacts is a nuanced matter once you move beyond test plots and village level experiments. The benefit is often assumed to be "proven" in statements like "rice production in Indonesia increased by 275% between 1966 and 2000" [@khush2003green; @conway1999food; @toenniessen2008building] (Khush 2003, conway doubly green revolution, AGRA launch) (Patel, 2013) [such statements were heard, for example, at the launch of the "doubly green revolution" in 1994 and in AGRA launch]. Or a comparable statement that can be made of total cereal production in India, which increased by 100% over the same period. However, when you look at the actual data, it is often difficult to distinguish green revolution gains from a pre-existing trend of increasing production. Indian cereal production had also increased by 100% over the 14 years prior to the green revolution (graphic below). The introduction of green revolution varieties of wheat and rice displaced coarse grain production, but did not increase total cereal production above the trend that already existed (Subramanian in (Stone, 2019))
+
+
+
+
+"By the year 2020, there will be about an extra 1.5 billion mouths to feed. If the proportion of the population of the developing countries deprived of an adequate diet remains the same, the number undernourished 20 years from now could be well over one billion" [@conway1999food]. In fact it is at 820 million, down about 30 million from the 2000 level.
+
+[Pet 2: During the green revolution in Asia, "good policy and institutions" meant, evidently, a) massive government credit, subsidy, and price control programs, b) an eagerness to achieve self-sufficiency in rice production as a matter of national security, c) a dictatorial legal environment in which governments could easily assert their will over the objections of private sector actors (fertilizer companies) who lost out, and d) a fledgling USAID under congressional pressure to do something spectacular or lose funding, and hence eager to underwrite the otherwise fiscally unsustainable public programs. In today’s prevailing intellectual winds, of course, (a)-(d) are very nearly the exact hallmarks of bad policy and institutions. They were attractive at the time because they resonated with a conventional wisdom in which cold war fears of communist insurrection featured prominently, together with a Keynesian appetite for heavy-handed government intervention in the marketplace.
+
+# On the systematic exclusion of enabling environments
+
+* The investment scenarios modeled in this special issue offer a broad-brushed indication of how different investment plans may influence the interplay of abstract market incentives over time, under a certain set of assumptions regarding demographic, climatic, and GHG mitigation policy assumptions.  
+
+* The macro-level model provides a strategic panorama of plausible futures useful for orienting high-level policy discussions; but in abstracting from the fine-textured complexity it effectively assumes that the seed systems, infrastructure, micro-financing, extension services, etc.—what may be collectively termed the delivery mechanisms—required to achieve the modeled output are trivially given in all places. There is nothing inherently wrong with such strategic abstractions; and we must always be careful not to ask of models more than they were designed to do. But we must be even more careful not to let the abstract rendering of scenarios prefigure policy discussions at more tactical levels in directions that overlook the importance of the mediating policy and institutional context, or that generate naïve assumptions that the mediating context will somehow naturally fall into place in an optimal way. In reality, there is no such automatic translation of research products into field level impacts. Delivery mechanisms are highly conditioned by local policy, institutions, culture, and socioeconomic relations, including pathological, rent-seeking relations; and hence vary immensely from place to place. In order to proceed from high level discussions to impact pathway design, then, the strategic perspective must be complemented by a tactical (or translational) perspective of the delivery mechanisms (and their underlying policies and institutions) that mediate research impacts. [Cloudy arrow graphic – first arrow is labeled "Adoption", second arrow should be labeled "Spillovers"]
+
+* When a tactical perspective is lacking from the policy discussion, the result is a technocratic narrative of the impact pathway that prefigures thinking in the direction of top-down, expert-driven technical solutions that overlook important nuance regarding economic agency, productivity, and normative issues of how equitably impacts are distributed (are they pro-poor or not). Impacts are thus measured on a Pareto optimal basis that obscures the pro-poorness of the outcome. Yield gaps and low adoption rates, meanwhile, are construed as mysteries or due to policy/institutional failures.
+
+* An influential group within the AR4D community has argued that this is perfectly fine— equitability is better achieved through other channels besides agriculture [@alston1995science]. Insofar as this is representative of the views of research institutions, troubled times are ahead as donors restrict funds to programs that cannot demonstrate a pro-poor mandate. Fortunately, for many of these institutions, Alston and Norton’s assessment is inconsistent with a long history of responding to the needs of resource-poor farmers (IR20, cassava, beans, etc., smallholder focus), and, more recently with new research perspectives that cast agriculture as a potential engine of pro-poor growth [@byerlee2009agriculture], and with studies showing that economic growth and equitability are two sides of the same coin [@berg2017inequality; @ostry2014redistribution; @berg2012makes].
+
+# The usefulness and limits of strategic/macro level foresight modeling [What strategic/macro level modeling can tell us (AND):]
+
+* At a strategic level of planning, it is expedient to abstract from the specific contexts of local political and institutional delivery mechanisms. In this way you can examine general trends, impacts in the aggregate, to orient policy discussions. [Stressors text from original goes here]
+
+* Can look at evolution of comparative advantage under different sets of assumptions regarding population and GDP growth, emissions, research, climate change, mitigation, and adaptation.
+
+* Example workflow with graphic. Different investment scenarios: RMM, NARS only vs. NARS + IRC (to examine issues of complementarity/competition between IRC and NARS?).
+
+# [What strategic/macro level modeling can’t tell us (BUT):]
+
+* The strategic perspective effectively assumes that the prerequisite delivery mechanisms are in place and functioning well. This is a strong assumption that must be vetted by subsequent tactical analysis. Including rent-seeking behavior.
+
+* No treatment of how price and weather risk (increasingly compounded by CC) influence farm level decision making, requiring risk mitigating instruments [price risk graphic].
+
+* There is no indication of the distribution of impacts. The strategic perspective is limited to impacts in the aggregate, which can be achieved in any number of modalities which may or may not be pro-poor (as pointed out in the Brazil, Philippines, Rhodesia examples). Also, overlook and may perhaps even undermine many of the native strengths of agriculture, such as risk-mitigating cooperative mechanisms and other forms of social capital (Bali water temples, etc,).
+
+* Modeled research-induced increases in yield do not distinguish whether increased labor, land, or total factor productivity is behind the increase. Adoption rates and the extent and distribution of impacts (whether or not the outcome is pro-poor) hinge critically on this question, which in turn involves complex questions of factor markets, policy, and public/private institutional support [@lipton2010policy; @rada2019new].
+[Hence (THEREFORE):]
+
+* A tactical level of planning is needed to complement the strategic perspective.
+
+# Strategic abstraction to the point of tactical (translational) mystification(?)
+
+* When a tactical perspective of the impact pathway is lacking or deficient from the planning process, stakeholders are effectively setting themselves up for a series of unpleasant surprises as the real complexity of local policy and institutional contexts inevitably asserts itself during implementation.
+
+* But more problematically still, a strategic perspective uncomplemented by a tactical (translational) perspective effectively sets up a mechanistic narrative of the impact pathway in which research products are perceived to translate directly into agronomic and welfare benefits, virtually unmediated by local policy and institutional conditions. In this narrative, the enabling environment of local policies and institutions is taken as trivially given—except, on occasion, when it is singled out for blame in cases where outcomes fall below expectations ().
+
+* Such a view could be called "technocratic" in the sense that it construes every development problem as a purely technical problem—increasing genetic gain, accelerating the breeding pipeline, etc. The EIB program, for example, construes the problem of low productivity as a purely technical matter of enhancing the mechanical processes of the breeding pipeline. The enabling environment that stands between the research and the farmer, how impacts are to be distributed, and other highly political/normative issues, are, by construction (and in line with Alston et al.’s opinion), immaterial to the conversation. The inherent, unambiguously beneficial impact of the research is beyond dispute.
+
+* Such a narrative invariably prefigures policy recommendations towards "more funding for more research for more productivity" (as in for eg. [@jayne2010principal; @lipton2005family; pardey2013public]. Low adoption rates and yield gaps, meanwhile, are prefigured as a sort of mystery that is outside the purview of scientific responsibility to explain—and/or evidence of the need for more funding for more genetic gain ().
+
+* The narrative is propelled forward by hundreds of impact assessments finding improvements of 40%-60% or more [@alston2000meta]. Or are these impact assessments propelled forward by the narrative? The cited meta-analysis finds that the attribution problem is a common thread running through all of them. I.e. all benefits occurring after release of the research product are attributed to the research product—the post hoc ergo procter hoc fallacy.
+
+* A more careful study [@evenson2003assessing] controlled for inputs and found that Green Revolution gains are far more attributable to input use than to the improved varieties themselves (by 1.5-3 times). Considering the massive public subsidy, credit, and price support programs that sustained the Green Revolution, "input use" in this study could, arguably, be interpreted as a proxy for the policy and institutional environment that made farmers’ widespread acquisition of inputs possible in the first place. The authors of the study did not propose this interpretation—which might very well sound controversial today—but it would have sounded natural to many of the key actors at the time. [illustrating quotes: 1) Thomas Morgan, chair of Foreign Affairs Committee questioning USAID Director Gaud in 1968 [in @patel2013long], 2) Don Paarlberg, USDA Chief Economist 1963 [in @paddock1970green], 3) Technical report on pre-GR AR4D failures due to lack of policy/institutional support [@iglesias1977philippines], 4) Borlaug (Nobel speech 1970) [@borlaug1972norman]– also Philippine rice per capita graphic. (pet 1)]
+
+# Tactical (translational) demystification of technocratic foresight
+
+* The formulaic, facile oversimplifications of the impact pathway generated by mechanistic/technocratic AR4D foresight narratives has drawn increasing resistance.
+
+* Arguably, the hard work of foresight begins at the tactical/translational level, where the expedient assumptions made at the strategic level must be probed and dissected, and where technical and normative problems meld together. It is all well and good to talk about "policies and institutions" in the abstract, but what does this actually mean in concrete terms? Rodrik observed that "the function that good institutions fulfil (about which we have a fairly good idea) do not map into unique forms (about which we know a lot less)" [-@rodrik2018african]. [Eg.: The functions that a good seed system must fulfill are well known and invariant from place to place; but the particular forms that a well functioning seed system can take are less understood and vary as snowflakes—they are highly conditioned by local context.] At a strategic level of planning there is broad consensus as reflected in the SDGs, but tactical planning involves commitment to specific forms of intervention involving specific partners, stakeholders, etc., and, implicitly, commitment to this or that philosophy or position in a range of hotly contested debates (SAI/AEI). [Illustrative argument about Masagana 99 in the Philippines.—prevailing notions of what constitutes good policy and institutions change with time. (pet 2)]
+
+* So, tactical foresight is a slog, and it’s no wonder that it is missing from policy discussions. However, by omitting the translational perspective one effectively reaffirms the status quo policy and institutional context, the delivery mechanisms—which may not be pro-poor, or otherwise in need of an overhaul. In the long run, then, it is even more of a slog to ignore the local context. Past experience with Multi-Stakeholder Platforms () offer some indication of how research centers might proceed in this regard.
+
+# Discussion/Conclusion
+
+* The debate is not merely academic. Donors are growing impatient with technocratic narratives, and the research community has responded to this impatience with indignation, resulting in an atmosphere of "ever-growing mistrust" [@leeuwis2018reforming] (Part of a broader trend across multiple fields 
+
+
+[Pet 2: During the green revolution in Asia, "good policy and institutions" meant, evidently, a) massive government credit, subsidy, and price control programs, b) an eagerness to achieve self-sufficiency in rice production as a matter of national security, c) a dictatorial legal environment in which governments could easily assert their will over the objections of private sector actors (fertilizer companies) who lost out, and d) a fledgling USAID under congressional pressure to do something spectacular or lose funding, and hence eager to underwrite the otherwise fiscally unsustainable public programs. In today’s prevailing intellectual winds, of course, (a)-(d) are very nearly the exact hallmarks of bad policy and institutions. They were attractive at the time because they resonated with a conventional wisdom in which cold war fears of communist insurrection featured prominently, together with a Keynesian appetite for heavy-handed government intervention in the marketplace.]
+
+Orphans:
+Agriculture research for development considers a number of different approaches, ranging from research to increase crop yield, increased productivity due to improved agronomic practice, or improved tolerance (e.g., to heat). Other research might focus on seed delivery or on institutional capacity building. Quantitative strategic foresight tends to focus on the former, the more "technical" solutions, as the outcome and impact associated with the solution tends to be measurable and replicable in controlled conditions. In quantitative strategic foresight, we link to the more normative types of intervention, but only through basic assumptions (e.g., adoption rates for a specific technology) that only loosely consider the broad set of contexts in which an agricultural technology might exist. / For these reasons, we argue that foresight offers very useful perspective on what is possible given "technocratic" solutions, but also should be looked at as a door to asking what is needed for the technocratic solution to be implemented. Alternatively, and more informed foresight approach might also allow us to understand when the technology oriented solution may not be the best fit and thus attention should be paid to more normative-oriented approaches.
+
+"[T]he median IRR estimate suggests the benefits attributable to just public agriculturalR&D investments by the United States in2000 would be more than 1,400 times theprojected world GDP in 2050" [@hurley2014re].
+
+"Agricultural  R&D  spending  by  the  United  States Department  of  Agriculture  and  state  agricultural experiment stations was $4.1 billion in 2000. With an annual rate of return equal to the average internal rate of return of 59.5 percent, such an investment would be worth $56.3 quintillion ($56.3 x 1018) in 2050—a value that is more than 2.3 million times the projected size of the global gross domestic product in 2050 (Foure et al. 2012). Using the median internal rate of return (37.3 percent per year), the implied 2050 value of a year 2000 R&D investment of $4.1 billion is $31.4 quadrillion, or 1,300  times  the  projected  2050  size  of  the  world economy.  In  both  cases  these  are  astronomical implications, and it is not difficult to see how policy makers may question the credibility of such evidence" [@hurley2016returns].
+
+6% return on investment in agricultural R&D [@nin2018revisiting].
+
+
+
+GR proponents recognizing the importance of profit maximization: [@pingali1999global; @pingali2001cereal; @herdt1988increasing]
+
+Pingali et al. [@pingali2001cereal] observe that it will be difficult to achieve higher rice yields in the highest yielding regions of the world (Punjab, Luzon, Nueva Ecija). (same for wheat, less so for maize)
+
+The pinch: Diminishing resource base on one hand and diminishing yield growth on the other [@pingali2001cereal].
+
+"Biological research has the function of raising potenti a 1 techni ca 1 productivity, extension has the function of increasing farmers' knowledge, the marketing system has the function of supplying inputs and demanding products, and ''society" or government has the function of providing the physi ca 1 infrastructure and policy environment that enable farmers and the marketing system to meet the demands of consumers for food and other agricultural products" [@herdt1988increasing].
+
+
+
+<!-- UN discussion in the 1990s on gender etc.Bebbington, A., Guggenheim, S., Olson, E., & Woolcock, M. (2004). Exploring social capital debates at the World Bank. Journal of Development Studies, 40(5), 33-64. https://doi.org/10.1080/0022038042000218134 -->
+<!-- Berg, A., & Ostry, J. (2011). Inequality and Unsustainable Growth: Two Sides of the Same Coin? International Monetary Fund Staff Discussion Note, 1-21. https://doi.org/10.1017/CBO9781107415324.004 -->
+<!-- Berg, A., Ostry, J. D., & Zettelmeyer, J. (2012). What makes growth sustained? Journal of Development Economics, 98(2), 149-166. https://doi.org/10.1016/j.jdeveco.2011.08.002 -->
+<!-- Byerlee, D., de Janvry, A., & Sadoulet, E. (2009). Agriculture for Development: Toward a New Paradigm. Annual Review of Resource Economics, 1(1), 15-31. https://doi.org/10.1146/annurev.resource.050708.144239 -->
+<!-- Byerlee, D., Diao, X., & Jackson, C. (2005). Agriculture , Rural Development , and Pro-poor Growth. Agriculture, 21, 1-15. https://doi.org/10.1146/annurev.resource.050708.144239 -->
+<!-- Dabla-norris, E., & Kochhar, K. (2015). Causes and Consequences of Income Inequality???: A Global Perspective. IMF Staff Discussion Note. https://doi.org/DOI: -->
+<!-- Graeub, B. E., Chappell, M. J., Wittman, H., Ledermann, S., Kerr, R. B., & Gemmill-Herren, B. (2016). The State of Family Farms in the World. World Development, 87, 1-15. https://doi.org/http://dx.doi.org/10.1016/j.worlddev.2015.05.012 -->
+<!-- Heidhues, F., & Obare, G. (2011). Lessons from Structural Adjustment Programs and their effects in Africa. Quarterly Journal of International Agriculture, 50(1), 55-64. Retrieved from https://ageconsearch.umn.edu/record/155490/ -->
+<!-- Krishna, A. (2002). Active Social Capital: Tracing the Roots of Development and Democracy. Columbia University Press. https://doi.org/10.2307/4030025 -->
+<!-- Lipton, M. (2006). Can small farmers survive, prosper, or be the key channel to cut mass poverty. Electronic Journal of Agricultural and Development Economics, 3(1), 58-85. -->
+<!-- Ostrom, E., Dietz, T., Dolsak, N., Stern, P. C., Stonich, S., & Weber, E. U. (2002). The Drama of the Commons. National Academy Press. Retrieved from http://psycnet.apa.org/record/2004-15858-000 -->
+<!-- Ostry, J. D., Berg, A., & Tsangarides, C. G. (2014). Redistribution, Inequality, and Growth. IMF Staff Discussion Note, 1-30. https://doi.org/10.5089/9781484352076.006 -->
+<!-- Pretty, J. (2013). Agri-Culture: Reconnecting people, land and nature. London: Routledge. https://doi.org/10.1016/S0959-6526(03)00106-9 -->
+<!-- Putnam, R. (1993). Making Democracy Work: Civic Traditions in Modern Italy. Princeton University Press. -->
+<!-- von Braun, J. (2009). Addressing the food crisis: governance, market functioning, and investment in public goods. Food Security, 1(1), 9-15. https://doi.org/10.1007/s12571-008-0001-z -->
+
+FAO 1955 assessment of the recovery of agriculture in the first 10 years after WWII.  Echoes precisely the distinction that Borlaug later made in 1970--in particular guaranteeing the farmer a market in which to sell their surpluses at a good price. Precisely the key ingredients so conspicuously absent from current agricultural development programs. 
+
+Chapter III-THE MOBILIZATION OF RESOURCES FORAGRICLLTURAL DEVELOPMENTThe postwar recovery and expansion of agri-culture had two main aspects, on the one handtechnical and on the other economic and social.On the technical si.de, the improved meth.ods of:farming opened up by advances in agriculturalscience and engineering were put into practice ona scale never before attempted.In the more indus-trialized countries, the increased agricultural out-put resulted primarily ftom the greater productiv-ity per man and per hectare made possible inthis way, and only to a limited degree from anextensionof theareacultivated.Substantialprogress was also made in many of the less devel-oped regions in introducing and extendingim-proved methods, nota,bly by the better use ofwater resources.-Unless economic and social conditions had beenfavorable, however, such rapid technical progresswould have been impossible.Government action\vas concerned, therefore, not only to make avail-able the necessary supplies of agricultural ma-chinery, fertilizers and other requisites, but alsoto provide the necessary conditions for their use.A considerable degree of planning became neces-sary in order to make the best use of the limitedresources available, to achieve a :reasonable bal-Mice between agriculture and otherindustriesand to steer agricultural production into the di-rectionsnecessitated by the generaleconomiccircumstances of each country.:Larger suppliesof capital had to be provided for investment inagriculture, and often in transport and oth.er an-cillaryservices as well.Agricultural expansionimplied also the removal of such obstacles to in-creased production as antiquated systems of landtenure or inequitable forms of land taxation.Ahighly important factor, especially in countrieswhere farmers still had vivid recollections of thedepression and unsaleable surpluses of the nine-teen-thirties, wa,s the assurance of outlets at re-munerative, prices for the additional quantitiesthey produced.The provisionof strengthened29extension services was also important, not onlyto pass on .to farmers the practical teachings ofagricultural research, but also to point out thedirections in which further efforts were neededand advise them of the requirements of th.e market [@fao1955stateFoodAg].
+
+
+Here the general aim is to encourtage and aid farmers to expand production by est ablishing suitableecotiomic and othercoriditions and especiallyby maintaining their incomes relative to the restof the population.The measures employed arevery wide in scope, not only the specific measuresof price and income supports, subsidies, marketingreforms, provision of farm requisites at, low prices,taxation relief, (.;redit, research and time dissemina-tion of its results, discussedin later sections cdthis report, but also measures of wider impactto .maintain domestic economic activity and de-mand for agricultural products.Adjustments :inproduction in these countries are generally se-cured through. the price mechanism [@fao1955stateFoodAg].
+
+
+And then in the 1965 FAO decadal review, again echoes of Borlaug:
+
+
+(FAO Director-General Binay Ranjan Sen:)
+[In 1957] I emphasized also two trends which I foresaw would be inevitable if FAO was to playits full part in the struggle for freedotn from hunger for all mankind, and which in fact havematerialized and become more marked in each succeeding year.First, that the Organiza-tion must evolve from studies and advisory work to direct involvement in development opera-tions.Second, that ****technical measures to improve the agriculture of the developing coun-tries, vital though they were, by themselves were not enough.To become fully effectivethey must be supplemented by the provision of investment funds and credit to facilitate theiradoption, and by the establishment of an agrarian structure which would give farmers indeveloping countries the will and the incentive as well as the financial means and the know-how to embark 017 more productive forms of agriculture.**** [@fao1965stateFoodAg].
+
+From the 1960 annual report (B.R. Sen):
+
+[A]ll too frequently extreme rural poverty and lack of credit, except at usurious rates of interest, prevent the great majority of farmers from adopting improved prac-tices, even if they are aware of them. Insecurity of tenure often leaves them no real inducementto improve. their holdings, while in many cases the conditions of tenure aresuch that the farmer
+himself can count on only a fraction of any additional return from an increase in output. Moreover, inadequate and sometimes inequitable marketing systems, together with uncertain and sharply fluctuating farm prices, often make it hazardous for a farmer to increase his production for sale. Until these disabilities are remedied, or at least alleviated, it seems clear that the teachings of the agricultural research and extension services are likely to go largely unheeded, and that government investment in agricultural development will seldom yield its full potential return [@fao1960stateFoodAg].
+
+Agricultural programing islittle more than an academic exercise unless there are goodprospects that the plans can be translated into reality within something like the period coveredby the plan.The establishment of targets, the allocation of investment resources, or even timeworking out of detailed schemes for land reclamation, .for irrigation, or for the provision (fincreased supplies of improved planting material, fertilizers and other aids to increased produc-tion, are essential, but by themselves they are not enough.They will have only a fraction oftheir potential effect unless means are found of enlisting the co-operation of thousands, oftenmillions, of farmers.This in turn implies building up an effective administrative apparatus,oficial and nonofficial, reaching down to the farmers themselves, fui' the proper implementa-tion of projects of extension,.farm credit, marketing and so fiwth [@fao1960stateFoodAg].
+
+FAO studies, cited in the pages that follow, indicatethat the total food supplies of the developing countries will have to be increased foinfoldin the next 35 years, to give their vastly increased populations ami adequate, though innosense a lavish diet [@fao1965stateFoodAg].
+
+FAO's studies during the past decade make it abundantly clearthat the greatest single obstacle to increased farm production, probably even greater thanignorance of modern methods of agriculture, is the lack of any real incentives to cultivatorsin many countries to increase their production for the market, especially their productionof basic foodstuffs [@fao1965stateFoodAg].
+
+It is abundantly elear that the next 35 years to the end of the century will be a mostcritical period in hunian history.... I earnestly hope that in this next phase of FAO's history more and more attention will be given to thehuman factor in economic and social progress, since the ultimate goal of our endeavor aswell as the instrument for achieving it is [Hu]Man [@fao1965stateFoodAg].
+
+The more closely the situation is examined, the more one is impressed by the odds againstthe cultivator in many lessdeveloped countries.Handicapped by ignorance, poverty, anddebt, he must face great fluctuations of price, and because of his lack of resources must usuallysell immediately after the harvest when prices are lowest.If he improves his methods offarming, much of the benefit of his increased output may go to the merchant or landlord totvhom he is indebted.Often he has so little security of tenure that he has no real inducementto improve his holding. When all is considered, thc wonder is that agricultural production hasincreased as much as it has.Until these disabilities are reduced it seems inevitable that muchof the teachings of the farm advisory services will fall upon stony ground [@fao1959stateFoodAg].
+
+
+The key issue is that, ever since the green revolution, low yields and ag development in general have been treated as purely biophysical problems. There is no appreciation whatsoever of the economic incentives that ultimately determine farm output.
+
+
+
+
+References

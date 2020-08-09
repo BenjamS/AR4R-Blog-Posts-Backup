@@ -1,0 +1,27 @@
+---
+title: The moshavim and smallholder resilience
+author: Ben Schiek
+date: '2020-07-18'
+slug: the-moshavim-and-smallholder-resilience
+categories:
+  - Resilient smallholder communities
+tags: []
+bibliography: The moshavim and smallholder resilience.bib
+---
+
+<style>
+p.caption {
+  font-size: 0.7em;
+}
+</style>
+
+Gorbachev quote..."This is what we were trying to do all along!"
+
+I first became aware of the existence of kibbutzim at the age of 22 in Cartagena, Colombia, from my future father-in-law Carlos Giraldo, self described bourgeois par excellence, mentioned the kibbutzim... on a trip to Western Asia in the 1950s during his presidency at FEDEARROZ. ...desribed how waiters could then serve in important decisionmaking roles...similar to Marx's famous caricature "fish in the morning, make shoes in the afternoon, etc."...the only thing approaching a functional, real-world example of Marxism in action.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+
+```
