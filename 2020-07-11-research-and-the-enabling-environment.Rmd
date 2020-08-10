@@ -186,6 +186,30 @@ gg <- gg + theme(axis.text.y = element_blank(),
 gg_xkcd_prod <- gg
 
 #--------------------------------------------------------------------------
+# Simpler, for the comic
+gg <- ggplot(df_plot, aes(x = Year, y = `Food Production per capita`))
+ind_gr <- which(year_vec == 1967)
+gg <- gg + geom_line(position = "jitter")
+gg <- gg + geom_vline(xintercept = 1968)
+gg <- gg + xkcdaxis(range(year_vec), range(prodPcap_GRev))
+# gg <- gg + xkcdrect(aes(xmin = rect1_xmin, 
+#                     ymin = rect1_ymin,
+#                     xmax = rect1_xmax,
+#                     ymax = rect1_ymax), df_plot, fill = NA)
+gg <- gg + annotate("text", x = rect1_xmin, y = rect1_ymin,
+                    label = "Before\nResearch", family="xkcd", size = 3)
+gg <- gg + annotate("text", x = rect2_xmin, y = rect2_ymin,
+                    label = "After\nResearch", family="xkcd", size = 3)
+gg <- gg + labs(title = "Good stuff per capita", x = "Time")
+gg <- gg + theme(axis.text = element_blank(),
+                 axis.ticks = element_blank(),
+                 axis.title.y = element_blank(),
+                 axis.title.x = element_text(size = 10),
+                 plot.title = element_text(size = 11),
+                 text = element_text(family = "xkcd"))
+gg_xkcd_prod_comic <- gg
+
+#--------------------------------------------------------------------------
 
 areaCult_pre_GRev <- seq(60, 120, length.out = length(first_yr:1967))
 areaCult_post_GRev <- rep(101, length(1968:last_yr))
@@ -261,17 +285,20 @@ gg_xkcd_prod + (gg_xkcd_stocks / gg_xkcd_area) + plot_layout(widths = c(1.5, 1))
 
 
 
-```{r greenRevCartoon, fig.show = "hold", fig.width = 7, fig.height=4, fig.align = "center", fig.cap = "...", echo = FALSE}
+```{r greenRevCartoon, fig.show = "hold", fig.width = 11, fig.height=3, fig.align = "center", fig.cap = "...", echo = FALSE}
 
+# Comic strip
 
-
-ratioxy <- 0.75#diff(xrange) / diff(yrange)
 mapping <- aes(x, y, scale, ratioxy, angleofspine, anglerighthumerus,
                anglelefthumerus, anglerightradius, angleleftradius,
                anglerightleg, angleleftleg, angleofneck,
-               color = type)
-dataman <- data.frame(x = c(1, 3), y = c(3, 3),
-                      scale = c(0.5, 0.5), ratioxy = ratioxy,
+               color = Legend)
+#---------------------------------------------------------------------------
+# Panel 1
+ratioxy <- sqrt(2) * 1 / 2#diff(xrange) / diff(yrange)
+dataman <- data.frame(x = c(0.15, sqrt(2) - 0.15), y = c(0.5, 0.6),
+                      scale = c(0.1, 0.2),
+                      ratioxy = ratioxy,
                       angleofspine = -pi / 2,
                       anglerighthumerus = c(-pi / 6, -pi / 6),
                       anglelefthumerus = c(pi + pi / 6, pi + pi / 6),
@@ -280,27 +307,151 @@ dataman <- data.frame(x = c(1, 3), y = c(3, 3),
                       anglerightleg = 3 * pi / 2 - pi / 12,
                       angleleftleg = 3 * pi / 2 + pi / 12,
                       angleofneck = runif(1, 3*pi/2-pi/10, 3*pi/2+pi/10),
-                      type = c("Scientist", "Donor"))
+                      Legend = c("Cartoon Scientist", "Cartoon Donor"))
+
+datalines <- data.frame(xbegin = c(0.15, sqrt(2) - 0.2),
+                        ybegin = c(0.57, 0.7),
+                        xend = c(0.15, sqrt(2) - 0.3),
+                        yend = c(0.62, 0.75))
 
 
-
-n <- length(unique(dataman$type))
+n <- length(unique(dataman$Legend))
 bag_of_colors <- randomcoloR::distinctColorPalette(k = 4 * n)
 color_vec <- sample(bag_of_colors, n)
 
+ymax <- 1
+#xmax <- ymax * ratioxy
+xmax <- ymax * sqrt(2)
 gg <- ggplot()
-gg <- gg + annotation_custom(ggplotGrob(gg_xkcd_prod),
-                          xmin = 1.25, xmax = 2.75, 
-                          ymin = 2, ymax = 3.25)
+gg <- gg + xlim(c(0, xmax)) + ylim(0, ymax)
+gg <- gg + annotation_custom(ggplotGrob(gg_xkcd_prod_comic),
+                          xmin = 0.4, xmax = 0.96, 
+                          ymin = 0.45, ymax = 1)
 gg <- gg + xkcdman(mapping, dataman)
+gg <- gg + annotate("text", x = 0.15, y = 0.8,
+                    label = "Our research\nhas saved\nmillions of lives.",
+                    family = "xkcd")
+gg <- gg + xkcdline(aes(x = xbegin,
+                        y = ybegin,
+                        xend = xend,
+                        yend = yend), datalines, xjitteramount = 0.12)
+gg <- gg + annotate("text", x = 1.15, y = 0.85,
+                    label = "Wow!\nFunding approved.",
+                    family = "xkcd")
 gg <- gg + scale_color_manual(values = color_vec)
+gg <- gg + labs(title = "The Metamorphosis of the Researcher",
+                x = "In funding renewal season: The Technocratic Determinist",
+                color = "Legend")
 gg <- gg + theme_bw()
-gg <- gg + theme(axis.title = element_blank(),
+gg <- gg + theme(axis.title.y = element_blank(),
                  axis.text = element_blank(),
                  axis.ticks = element_blank(),
                  panel.grid = element_blank(),
-                 legend.title = element_blank())
+                 legend.position = "none",
+                 text = element_text(family = "xkcd"))
 gg
+gg_comic_pane1 <- gg
+
+#---------------------------------------------------------------------------
+# Panel 2
+# Get lorenz attractor graphic
+parameters <- c(s = 10, b = 8/3)
+#r <- seq(0, 30, by = 0.05)
+r = 30
+state <- c(X = 0, Y = 1, Z = 1)
+times <- seq(0, 50, by = 0.01)
+library(deSolve)
+Lorenz <- function(t, state, parameters) {
+  with(as.list(c(state, parameters)), {
+    dX <- s * (Y - X)
+    dY <- X * (r - Z) - Y
+    dZ <- X * Y - b * Z
+    list(c(dX, dY, dZ))
+  })
+}
+
+out <- lapply(r,
+              function(x){
+                ode(y = state,
+                    times = times,
+                    func = Lorenz,
+                    parms = c(r = x, parameters),
+                    method = "euler")
+                }
+              )
+
+gg <- ggplot(data.frame(out[[1]]))
+gg <- gg + geom_path(aes(x = X, y = Z, colour = Y))
+#gg <- gg + ggtitle(paste0('Lorenz attractor r = ', r[1]))
+gg <- gg + ggtitle(paste0("Lorenz attractor"))
+gg <- gg + theme_bw()
+gg <- gg + theme(axis.text = element_blank(),
+                 axis.title = element_blank(),
+                 axis.ticks = element_blank(),
+                 panel.grid = element_blank(),
+                 plot.title = element_text(size = 8),
+                 text = element_text(family = "xkcd"),
+                 legend.position = "none")
+gg_chaos <- gg
+
+ratioxy <- sqrt(2) * 1 / 2
+dataman <- data.frame(x = c(0.15, sqrt(2) - 0.15), y = c(0.5, 0.6),
+                      scale = c(0.1, 0.2),
+                      ratioxy = ratioxy,
+                      angleofspine = -pi / 2,
+                      anglerighthumerus = c(-pi / 6, -pi / 6),
+                      anglelefthumerus = c(pi + pi / 6, pi + pi / 6),
+                      anglerightradius = c(pi / 3, pi + pi / 3),
+                      angleleftradius = c(-pi / 3, pi + pi / 3),
+                      anglerightleg = 3 * pi / 2 - pi / 12,
+                      angleleftleg = 3 * pi / 2 + pi / 12,
+                      angleofneck = runif(1, 3*pi/2-pi/10, 3*pi/2+pi/10),
+                      Legend = c("Cartoon Scientist", "Cartoon Donor"))
+
+datalines <- data.frame(xbegin = c(0.15, 0.25, sqrt(2) - 0.2),
+                        ybegin = c(0.57, 0.4, 0.7),
+                        xend = c(0.15, 0.3, sqrt(2) - 0.3),
+                        yend = c(0.62, 0.35, 0.75))
+
+
+
+ymax <- 1
+#xmax <- ymax * ratioxy
+xmax <- ymax * sqrt(2)
+gg <- ggplot()
+gg <- gg + xlim(c(0, xmax)) + ylim(0, ymax)
+gg <- gg + annotation_custom(ggplotGrob(gg_chaos),
+                          xmin = 0.42, xmax = 0.96, 
+                          ymin = 0.45, ymax = 1)
+gg <- gg + xkcdman(mapping, dataman)
+gg <- gg + annotate("text", x = 0.21, y = 0.8,
+                    label = "It's naive to presume\na direct line between\nresearch and impacts.\nWhat is 'research' anyway?",
+                    family = "xkcd")
+gg <- gg + xkcdline(aes(x = xbegin,
+                        y = ybegin,
+                        xend = xend,
+                        yend = yend), datalines, xjitteramount = 0.12)
+gg <- gg + annotate("text", x = 0.6, y = 0.3,
+                    label = "...Whose truth?\n...Extenuating circumstances...\n...Butterfly effect...\n...Habermas...Foucault...",
+                    family = "xkcd")
+
+gg <- gg + annotate("text", x = 1.15, y = 0.85,
+                    label = "Ahhh!",
+                    family = "xkcd")
+gg <- gg + scale_color_manual(values = color_vec)
+gg <- gg + labs(x = "In impact evaluation season: The Relativist Philosopher",
+                color = "Legend")
+gg <- gg + theme_bw()
+gg <- gg + theme(axis.title.y = element_blank(),
+                 axis.text = element_blank(),
+                 axis.ticks = element_blank(),
+                 panel.grid = element_blank(),
+                 text = element_text(family = "xkcd"))
+gg
+gg_comic_pane2 <- gg
+#---------------------------------------------------------------------------
+
+gg_comic_pane1 | gg_comic_pane2
 
 
 ```
