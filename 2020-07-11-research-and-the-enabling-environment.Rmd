@@ -1,5 +1,5 @@
 ---
-title: Green Revolution Caricature and Reality
+title: The Green Revolution in Caricature and Reality
 author: Ben Schiek
 date: '2020-07-07'
 slug: agricultural-innovation-and-the-enabling-environment
@@ -62,32 +62,20 @@ shift_legend2 <- function(p) {
 
 <!-- alternate title: The green revolution vs. the data -->
 
-## Introduction or In search of the green revolution
+## In search of the green revolution
 
-I am tempted to conclude that the scientists are fundamentally unaware of the difference between test plots and farm plots, between biophysical and economic yields.... But they demonstrate clearly in their writings that they are well aware of this distinction [Alston Attribution problem papers; Pingali CIMMYT yield gap paper "Farmer's maximize profit, not yields."; Leeuwis Klerx paper]. However, this is then still more problematic since it implies a double standard whereby the scientists claim an oversimplistic direct line between research and impacts when applying for funding, but then switch to the "it's complicated; there is no direct line" argument when donors ask them how they plan to repeat this success in the future. (xkcd attribution problem comic -- one pane showing the scientist taking all the credit for past success, then the next pane showing the scientist explaining how in the future "it's complicated")
+Most tellings of the green revolution consistently revolve around three central claims or plot points:
 
-
-Johnson and the cold war motive for food aid...Public Law 480 passed in 1954, subsequently morphed into the Food for Peace Program, championed in particular by Kennedy and Johnson [@ahlberg2007machiavelli].
-
-The 1966 Bihar famine of food crisis disputed [@brass1986political; @cullather2010hungry; @dyson1992bihar]. The one fact is that there was a severe drought which resulted in lower staple grain production. Maharashtra drought of 1970-1973 70,000 excess deaths, while none in Bihar according to [@dyson1992bihar]. Cullather: "My project was soon complicated by recorded observations and experiences that refused to conform to this story" [@@cullather2010hungry].
-
-* By "enabling environment" I mean the term of art appearing in the AR4D literature---synonymous with other catch phrases such as "the policy and institutional framework" or "policies, institutions, and markets". This refers broadly to the social, economic, institutional, financial, and political context in which a new agricultural technology (improved seed, techniques, tools, etc.) is released. / The "enabling environment" follows a peculiar trajectory through the AR4D discourse. On the one hand, there is a tendency to ignore it or to assume that it is trivially given. High level narratives of the green revolution, for example, typically attribute increases in cereal yields since 1961 to improvements in germplasm [@pingali2012green; @khush2001green].
-
-* (Motive of this article: within donor community, research institutions have earned a reputation for pursuing research projects that are of interest to the research community, but of limited relevance to smallholder.... If they insist on a false narrative, rather than recognizing the reality, they run the risk losing funding. In order to make a decision to invest in AR4D, donors must have a clear idea of what return they can expect. What did donors get out of their investments in AR4D? In order to have good foresight, we must have good hindsight.)
-
-## The green revolution narrative
-
-It may be of limited usefulness to talk of a single, monolithic green revolution narrative. Friends and critics alike have long acknowledged its shortcomings and weaknesses, albeit in varying degrees. An important and underappreciated part of the story of the green revolution has been its response to criticism, particularly as regards its pro-poorness.
-
-Nonetheless, most tellings of the green revolution consistently revolve around three central assertions or plot points:
-
-1) In 1960, the world was on the brink of a global Malthusian catastrophe.
+1) In 1960, much of the world stood on the brink of famine.
 
 2) There was a dramatic increase in the production of key staple crops which averted said catastrophe.
 
-3) The dramatic increase in production of key staple crops is mostly attributable to crop genetic improvement.
+3) The dramatic increase in production of key staple crops is exclusively (or almost exclusively) attributable to crop genetic improvement.
 
-(Implies a fourth:  4) The green revolution was the "big bang" of crop genetic improvements.)
+A fourth, ecological claim is sometimes added:
+
+4) The dramatic increase in yields has spared countless millions of hectares of forest and pristine wilderness from being brought into agricultural production.
+<!-- (Implies a fourth:  4) The green revolution was the "big bang" of crop genetic improvements.) -->
 
 In Khush's telling [@khush2001green], for example, we are told that 
 
@@ -97,11 +85,11 @@ Khush cites Paddock's Malthusian diatribe in support of this view:
 
 >"Ten years from now, parts of the underdeveloped world will be suffering from famine. In 15 years, the famines will be catastrophic, and revolutions and social turmoil and economic upheavals will sweep areas of Asia, Africa and Latin America" [Paddock (1967) in @khush2001green].
 
-Moving on to assertions 2 and 3, Khush then says:
+Moving on to plot points 2 and 3, Khush then says:
 
->"Fortunately, large-scale famines, and social and economic upheavals, were averted, thanks to the marked increase in cereal-grain yields in many developing countries that began in the late 1960s. This phenomenon---known as the 'green revolution'---was due largely to the widespread adoption of technology that was developed to generate genetically  improved  varieties  of crops with increased yields" [@khush2001green].
+>"Fortunately, large-scale famines, and social and economic upheavals, were averted, thanks to the marked increase in cereal-grain yields in many developing countries that began in the late 1960s [plot point 2]. This phenomenon---known as the 'green revolution'---was due largely to the widespread adoption of technology that was developed to generate genetically improved varieties of crops with increased yields [plot point 3]" [@khush2001green].
 
-This peer reviewed version of the story is then reflected in popular media versions. A 2016 BBC article entitled "IR8: The miracle rice that saved millions of lives", for example, tells us that
+Such accounts from the literature are then reflected in popular media versions. In 2016, a BBC article entitled "IR8: The miracle rice that saved millions of lives", told us:
 
 >"It is thought that IR8 saved many millions of lives and transformed the lives of hundreds of millions of people.
 
@@ -110,17 +98,22 @@ This peer reviewed version of the story is then reflected in popular media versi
 >"[Y]ou only needed to plot population growth against rice production to see that, within a few years, there would not be enough to go around.
 
 >"IR8 was so much better than traditional rice varieties that its use spread rapidly throughout Asia and output soared. Famine was averted.
+BBC News Dec. 1, 2016. https://www.bbc.com/news/world-asia-india-38156350
 
->"Most farmers benefited from the increases in productivity and the vast increases in output drove down prices, which benefited consumers" BBC News Dec. 1, 2016. https://www.bbc.com/news/world-asia-india-38156350
+<!-- >"Most farmers benefited from the increases in productivity and the vast increases in output drove down prices, which benefited consumers" -->
+Likewise with the other green revolution crop, wheat, one does not wander far before running into assertions such as the following:
 
-Another media account:
-Monkombu Sambasivan Swaminathan
-"In 1968, Swaminathan’s work caused the country’s wheat harvest to soar from 12 to 17 million tons". http://webarchive.loc.gov/all/20101013131843/http://fullcomment.nationalpost.com/2010/10/13/dan-gardner-the-nation-killing-famine-that-never-was/#ixzz6U9q3QwPR
+>"In 1968, Swaminathan's work caused [India's] wheat harvest to soar from 12 to 17 million tons" [Dan Gardner "The nation killing famine that never was" National Post 13/10/2010 https://dangardner.ca/mnt/volume_tor1_01/www/spark/dangardner.ca/web/article/beware-the-overconfident-expert]
 
+<!-- Monkombu Sambasivan Swaminathan -->
+<!-- "In 1968, Swaminathan’s work caused the country’s wheat harvest to soar from 12 to 17 million tons". http://webarchive.loc.gov/all/20101013131843/http://fullcomment.nationalpost.com/2010/10/13/dan-gardner-the-nation-killing-famine-that-never-was/#ixzz6U9q3QwPR -->
+For plot point 4, we turn to the father of the Green Revolution, Norman Borlaug:
 
-This is the caricature they paint in our minds:
+>"Had the global cereal yields of 1950 still prevailed in 1999, we would have needed nearly 1.8 billion ha of additional land of the same quality--instead of the 600 million that was used--to equal the current global harvest" [@borlaug2002green].
 
-```{r greenRevExpected, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
+The impression conveyed, then, is one of improved seed "causing" a tremendous increase in wheat and rice production, which saved a good portion of the world from starvation, and conserved countless hundreds of millions of hectares (\@ref(fig:greenRevNarrative)). There is no mincing of words over counterfactuals, attribution problems, or the policy and institutional context. These narrators of the green revolution clearly intend to draw a direct line of causation from research to impacts.
+
+```{r greenRevNarrative, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
 
 #"xkcd" %in% fonts()
 # system("mkdir ~/.fonts")
@@ -280,244 +273,151 @@ gg_xkcd_prod + (gg_xkcd_stocks / gg_xkcd_area) + plot_layout(widths = c(1.5, 1))
 
 ```
 
+These astonishing claims that make up the Green Revolution story are presented to us at face value, moreover, with scant reference to supporting studies or data.
 
+Since the authors of this narrative do not provide evidence in support of these claims, it is left to the outside observer to go collecting the data on their own. Fortunately, this has become really easy to do over the past decade. (Even in just the past five years, I remember a striking difference). The FAO data used in Figure ... of this article would have taken over 4 hours to download from FAOSTAT in 2003 (https://www.download-time.com/), and would not have fit into an excel spreadsheet. Would probably haver required access to a special university computer.
 
+```{r FAOSTATthenAndNow, fig.show = 'hold', out.width="49%", out.height="20%", fig.cap="FAOSTAT then and now.", fig.align='center'}
+knitr::include_graphics(c("post images/FAOSTAT query in 2004 b.png",
+                          "post images/FAOSTAT query 2020.png"))
 
-
-
-```{r greenRevCartoon, fig.show = "hold", fig.width = 11, fig.height=3, fig.align = "center", fig.cap = "...", echo = FALSE}
-
-# Comic strip
-
-mapping <- aes(x, y, scale, ratioxy, angleofspine, anglerighthumerus,
-               anglelefthumerus, anglerightradius, angleleftradius,
-               anglerightleg, angleleftleg, angleofneck,
-               color = Legend)
-#---------------------------------------------------------------------------
-# Panel 1
-ratioxy <- sqrt(2) * 1 / 2#diff(xrange) / diff(yrange)
-dataman <- data.frame(x = c(0.15, sqrt(2) - 0.15), y = c(0.5, 0.6),
-                      scale = c(0.1, 0.2),
-                      ratioxy = ratioxy,
-                      angleofspine = -pi / 2,
-                      anglerighthumerus = c(-pi / 6, -pi / 6),
-                      anglelefthumerus = c(pi + pi / 6, pi + pi / 6),
-                      anglerightradius = c(pi / 3, pi + pi / 3),
-                      angleleftradius = c(-pi / 3, pi + pi / 3),
-                      anglerightleg = 3 * pi / 2 - pi / 12,
-                      angleleftleg = 3 * pi / 2 + pi / 12,
-                      angleofneck = runif(1, 3*pi/2-pi/10, 3*pi/2+pi/10),
-                      Legend = c("Cartoon Scientist", "Cartoon Donor"))
-
-datalines <- data.frame(xbegin = c(0.15, sqrt(2) - 0.2),
-                        ybegin = c(0.57, 0.7),
-                        xend = c(0.15, sqrt(2) - 0.3),
-                        yend = c(0.62, 0.75))
-
-
-n <- length(unique(dataman$Legend))
-bag_of_colors <- randomcoloR::distinctColorPalette(k = 4 * n)
-color_vec <- sample(bag_of_colors, n)
-
-ymax <- 1
-#xmax <- ymax * ratioxy
-xmax <- ymax * sqrt(2)
-gg <- ggplot()
-gg <- gg + xlim(c(0, xmax)) + ylim(0, ymax)
-gg <- gg + annotation_custom(ggplotGrob(gg_xkcd_prod_comic),
-                          xmin = 0.4, xmax = 0.96, 
-                          ymin = 0.45, ymax = 1)
-gg <- gg + xkcdman(mapping, dataman)
-gg <- gg + annotate("text", x = 0.15, y = 0.8,
-                    label = "Our research\nhas saved\nmillions of lives.",
-                    family = "xkcd")
-gg <- gg + xkcdline(aes(x = xbegin,
-                        y = ybegin,
-                        xend = xend,
-                        yend = yend), datalines, xjitteramount = 0.12)
-gg <- gg + annotate("text", x = 1.15, y = 0.85,
-                    label = "Wow!\nFunding approved.",
-                    family = "xkcd")
-gg <- gg + scale_color_manual(values = color_vec)
-gg <- gg + labs(title = "The Metamorphosis of the Researcher",
-                x = "In funding renewal season: The Technocratic Determinist",
-                color = "Legend")
-gg <- gg + theme_bw()
-gg <- gg + theme(axis.title.y = element_blank(),
-                 axis.text = element_blank(),
-                 axis.ticks = element_blank(),
-                 panel.grid = element_blank(),
-                 legend.position = "none",
-                 text = element_text(family = "xkcd"))
-gg
-gg_comic_pane1 <- gg
-
-#---------------------------------------------------------------------------
-# Panel 2
-# Get lorenz attractor graphic
-parameters <- c(s = 10, b = 8/3)
-#r <- seq(0, 30, by = 0.05)
-r = 30
-state <- c(X = 0, Y = 1, Z = 1)
-times <- seq(0, 50, by = 0.01)
-library(deSolve)
-Lorenz <- function(t, state, parameters) {
-  with(as.list(c(state, parameters)), {
-    dX <- s * (Y - X)
-    dY <- X * (r - Z) - Y
-    dZ <- X * Y - b * Z
-    list(c(dX, dY, dZ))
-  })
-}
-
-out <- lapply(r,
-              function(x){
-                ode(y = state,
-                    times = times,
-                    func = Lorenz,
-                    parms = c(r = x, parameters),
-                    method = "euler")
-                }
-              )
-
-gg <- ggplot(data.frame(out[[1]]))
-gg <- gg + geom_path(aes(x = X, y = Z, colour = Y))
-#gg <- gg + ggtitle(paste0('Lorenz attractor r = ', r[1]))
-gg <- gg + ggtitle(paste0("Lorenz attractor"))
-gg <- gg + theme_bw()
-gg <- gg + theme(axis.text = element_blank(),
-                 axis.title = element_blank(),
-                 axis.ticks = element_blank(),
-                 panel.grid = element_blank(),
-                 plot.title = element_text(size = 8),
-                 text = element_text(family = "xkcd"),
-                 legend.position = "none")
-gg_chaos <- gg
-
-ratioxy <- sqrt(2) * 1 / 2
-dataman <- data.frame(x = c(0.15, sqrt(2) - 0.15), y = c(0.5, 0.6),
-                      scale = c(0.1, 0.2),
-                      ratioxy = ratioxy,
-                      angleofspine = -pi / 2,
-                      anglerighthumerus = c(-pi / 6, -pi / 6),
-                      anglelefthumerus = c(pi + pi / 6, pi + pi / 6),
-                      anglerightradius = c(pi / 3, pi + pi / 3),
-                      angleleftradius = c(-pi / 3, pi + pi / 3),
-                      anglerightleg = 3 * pi / 2 - pi / 12,
-                      angleleftleg = 3 * pi / 2 + pi / 12,
-                      angleofneck = runif(1, 3*pi/2-pi/10, 3*pi/2+pi/10),
-                      Legend = c("Cartoon Scientist", "Cartoon Donor"))
-
-datalines <- data.frame(xbegin = c(0.15, 0.25, sqrt(2) - 0.2),
-                        ybegin = c(0.57, 0.4, 0.7),
-                        xend = c(0.15, 0.3, sqrt(2) - 0.3),
-                        yend = c(0.62, 0.35, 0.75))
-
-
-
-ymax <- 1
-#xmax <- ymax * ratioxy
-xmax <- ymax * sqrt(2)
-gg <- ggplot()
-gg <- gg + xlim(c(0, xmax)) + ylim(0, ymax)
-gg <- gg + annotation_custom(ggplotGrob(gg_chaos),
-                          xmin = 0.42, xmax = 0.96, 
-                          ymin = 0.45, ymax = 1)
-gg <- gg + xkcdman(mapping, dataman)
-gg <- gg + annotate("text", x = 0.21, y = 0.8,
-                    label = "It's naive to presume\na direct line between\nresearch and impacts.\nWhat is 'research' anyway?",
-                    family = "xkcd")
-gg <- gg + xkcdline(aes(x = xbegin,
-                        y = ybegin,
-                        xend = xend,
-                        yend = yend), datalines, xjitteramount = 0.12)
-gg <- gg + annotate("text", x = 0.6, y = 0.3,
-                    label = "...Whose truth?\n...Extenuating circumstances...\n...Butterfly effect...\n...Habermas...Foucault...",
-                    family = "xkcd")
-
-gg <- gg + annotate("text", x = 1.15, y = 0.85,
-                    label = "Ahhh!",
-                    family = "xkcd")
-gg <- gg + scale_color_manual(values = color_vec)
-gg <- gg + labs(x = "In impact evaluation season: The Relativist Philosopher",
-                color = "Legend")
-gg <- gg + theme_bw()
-gg <- gg + theme(axis.title.y = element_blank(),
-                 axis.text = element_blank(),
-                 axis.ticks = element_blank(),
-                 panel.grid = element_blank(),
-                 text = element_text(family = "xkcd"))
-gg
-gg_comic_pane2 <- gg
-#---------------------------------------------------------------------------
-
-gg_comic_pane1 | gg_comic_pane2
-
-
+#In wayback machine query http://apps.fao.org/default.htm
+#query also http://faostat3.fao.org/
 ```
 
 
-early appraisals of the GR, good awareness of the equally as important role of the enabling environment: [@falcon1970green; @wharton1969green; @borlaug1969green; @pinstrup1985impact; @sen1970opportunities; @dalrymple1975measuring]
 
-GR didn't spread so fast in Latin America because of the semi-feudal land tenure system offered no incentives for the farmer to invest in their land [@jones1977green].
+## Re-examining plot point 1: The Malthusian pall
 
-unknown 1975 precursor to the Byerlee new agricultural paradigm paper, the ag sector as an engine of participative, equitable growth: [@singh1975factor] -- addresses the perils of mechanization, labor vs. capital intensive, as does Lipton 35 yrs later.
+Was there an impending global famine in the 1960s? Was population on a trajectory to outpace food production?
 
-Plan Puebla, issues of labor intensiveness vs. mechanization [@redclift1983production; @thiesenhusen1972green]
+There were certainly many loud "experts" proclaiming as much from the end of World War II up through the 1970s [@paddock1967famine; @ehrlich1971population; @osborn1949our; @vogt1948road]. Sensational speculations such as the following were typical:
 
-IFPRI cheerleading report on GR [@pinstrup1985impact].
+>"[T]he battle to feed all of humanity is over... In the 1970s and 1980s hundreds of millions of people will starve to death in spite of any crash programs embarked upon now" [@ehrlich1967paying].
+
+But is there any factual basis for such statements? The authors of these diatribes were not too concerned with vetting their statements, ...underpinned by a disdain for statistics--From Paddock's book:
+
+>"In college I took two courses on statistics. The first I almost understood. The second was almost incomprehensible, but [the professor] closed the course with a piece of advice I have applied profitably many times: 'When the statistics go against your reasoned judgment, throw the statistics out the window!'" [Paddock (1967) in @trumbo1969critFamine].
+
+If there were substance to these claims, then we should expect to see a trend of steadily declining food production and/or availability per capita, especially in former colonies such as India. Paddock has such a graph in his book "Famine 1975!" [Paddock (1967) in @trumbo1969critFamine].
+
+Even at the time, these Neo-Malthusian diatribes were roundly criticized as being built upon "suspect extrapolations and outright errors, prejudices, mysticism and reckless appeals to emotion" [Anonymous "Time" reviewer (1948) in @desrochers2009post]. Found an enthusiastic audience in Lyndon Johnson, who was eager to advance his Food for Peace program, and the fledgling USAID he had founded... the Foreign Assistance Program for FY 1968 passed the House by just 8 votes [@gaud1968green]....Under enormous pressure to make something of a sensation out of the 1967 harvest.  Johnson wanted to send a message to Congress "that there were people dying, that people were being hauled 
+away dead in trucks, and that they needed food" [@cullather2010hungry]. ...[@brass1986political]...FFP [@ahlberg2007machiavelli]... The "near famine" in Bihar...but then this doesn't serve as an argument in favor of GR because later there was a worse famine in Maharashtra when GR was in full swing [@dyson1992bihar]. Also, the Bihar drought was called "unprecedented" [@dyson1992bihar], but in fact there were similar droughts during the El Nino events of 1918 and 1900 [@parthasarathy1994all],   The 1966 Bihar famine of food crisis disputed [@brass1986political; @cullather2010hungry; @dyson1992bihar]. The one fact is that there was a severe drought which resulted in lower staple grain production. Maharashtra drought of 1970-1973 70,000 excess deaths, while none in Bihar according to [@dyson1992bihar]. Cullather: "My project was soon complicated by recorded observations and experiences that refused to conform to this story" [@cullather2010hungry]. The President's report [@president1967world]. Johnson announced a "War on Hunger" in a special address to Congress on Feb. 10, 1966, in which he ordered the report [@johnson1966WarHunger]. In his 1967 State of the Union Address, Johnson called this the second most imporant..."Next to the pursuit of peace, the really greatest challenge to the human family is the race between food supply and population increase. That race tonight is being lost." [@johnson1967StateUnion].
+
+#https://www.livemint.com/Politics/1BowYWLsVzTEy22b32FPMI/How-an-American-with-a-knack-for-math-saved-India-from-famin.html
+#"How an American with a knack for Math saved India from Famine" 2015 (referring to Lester Brown, foreign policy aid to Orville Freeman, Johnson's Secretary of Agriculture)
+Brown predicted a 10 million ton grain production shortfall for 1965-6. Article says the shortfall ended up being 18 million (only 77 million mt harvested vs. demand of 95 million--FAO says about 80 million). But this does not account for stocks.
+Lester's account: 10 million mt of wheat, 1/5 of the US wheat harvest (but just 8% of total US wheat supply (production + stocks)), shipped to India in 1965 (600 ships total, about twice a day, sailing from Galveston and New Orleans, the largest shipment ever), "saving it" from famine. In order to pull off this unprecedented logistical feat, Freeman drew on logistical experts in USDA who had formerly served in the Army Quartermaster Corps in WWII [@brown2013breaking]. FAO says total India wheat imports (from all countries) in 1965 were 6.6 million mt, 7.8 in 1966, 7.5 in 1967.
+
+South Asian grain stocks could have covered about 13 of the 15 million mt production shortfall; curiously, there was no draw down of these stocks during any of the crisis years (Figure USDA).
+
+Immediately following independence from Great Britain, up to the eve of the green revolution, India pursued a policy of industrialization, during which her agriculture fell into a state of neglect and disrepair. Even so, per capita grain production did not stagnate, but grew during this period, even when taking into consideration the disastrous weather in 1951 and 1965-6 [@hatti1977impact].
+
+As far back as 1951, President Truman viewed food aid as a "diplomatic weapon" against the spread of "Communism" [@mcmahon1987food].
+PL-480 passed in 1954, becomes "Food for Peace" in 1959 (all under Eisenhower), Kennedy then gave it a "philosophical and organizational overhaul" via executive order in the 1961 Foreign Assistance Act, by which USAID was created [@ahlberg2007machiavelli]
+
+PL-480 wheat shipments to India were about 2-4 million mt, except during the crisis years 1965-1967 when they surged to about 7.5 million mt per year. 
+
+
+another facet of the claims to address: the ag frontier had expanded to its fullest extent (Paddock says something like this). In fact US gov had some 60 million has in reserve, and was paying farmers to plant less area... FAO land use data.
+
+India rain series 1873-1993 [@parthasarathy1994all]
+
+Famines [@davis2002late]:
+1876-1879
+India: 6.1-10.3 million
+China: 9.5-13 million
+Brazil: 0.5-1 million
+
+1896-1902
+India: 6.1-19 million
+China: 10 million
+Brazil: no data
+
+1918 El Nino event + Spanish Flu [@giese20101918]:
+Drought in India and 18 million deaths
+
+1943-1945 Bengal famine
+India: 2 million (wikipedia)
 
 
 
+By 1878, a British statistician counted 31 serious famines in 120 years of British rule versus 17 famines in the previous two milennia [Walford (1878) in @davis2002late].
 
 
-
-Is this true?
-
-* On Claim 1 -The Malthusian pall- Per capita production rose steadily from 1945 to 1960, leading to record surplus stocks in the most developed countries [@fao1960stateFoodAg]. Nonetheless, a leveling off of per capita production from 1960 to 1964 prompted FAO Director General Binay Ranjan Sen to raise the spectre of "Malthusian correctives" entering into play if governments did not act to restore production to the 1945-1960 trendline [@fao1965stateFoodAg]. Bad weather led to disastrous harvests in 1965 and 1966,...and depletion of the grain surpluses...further exacerbated the picture....However, good weather returned in 1967 with a record harvest [@fao1968stateFoodAg].   don't want to spend a lot of time on this but...There is also the narrative of...not til British rule in 1860, introduction of commercial incentives, displacement of food crops...thereafter some 40 million deaths due to famine, often in the midst of abundance. [@sen1982poverty; @bhatia1967famines; @davis2002late]
-
-The Neo-Malthusian alarmists, the "Jeremiahs of geography, sociology, and economics" [Hanson (1949) in @desrochers2009post] ultimately built upon suspect extrapolations and outright errors..."errors, prejudices, mys-
-ticism and reckless appeals to emotion" [Anonymous "Time" reviewer (1948) in @desrochers2009post].
-
->"The time may come, to be sure, when the Malthusian theory will be revived, but it is not in our day, nor will it be in our century, for scientific thought almost completely overturned the theory and has relieved it of its strength in exciting the fears of economists or of philosophers that the world was 
-gradually but surely coming to that position where it could not supply its population with food, and that some method of checking population must 
-be the resort. The broadening of the area of supply through discovery and the taking up of vast tracts of land were the immediate means of depriving the 
-doctrine of its force, but later on intensive agriculture and the discoveries of science succeeded in relegating the theory to the past" [Wright (1904) in @desrochers2009post].
-
-Humanity could certainly heave a sigh of relief to know that the biophysical limit on our ability to feed ourselves is 2-5 times (more lax) than traditional varieties.
-
-Graphic of BBC calculation -- is it true that population growth was on track to outpace food production? If it were true, then we should see a steady decline in cereal production per capita. Do we see this? (India cereals graphic.)
-
-1955-1964
-
-A caption explains that the graphic "shows clearly how since about the middle of the decade there have been no further gains in production in relation to population, and thus no margin for better levels of living" [@fao1965stateFoodAg].
-
-<!-- "This graph compares the increase in agricultural, fishery and forest production intheworld,excluding China (Mainland), withthe growth of population duringthe secondpostwar decade.The combined production indexfor agriculture, fisheries and forestry is a newfeature of this year's report.It shows clearlyhow since about the middle of the decade therellave been no further gains in production inrelation to population, and thus no margin forbetter levels of living". -->
+However, amidst the bombast, there did emerge at least one fact based analysis [@brown1963man]....The FAO was also fact based, although they tended to take a pessimistic interpretation of the data...[fao1965]. Even a decade later, when the green revolution was in full swing, the FAO maintained its pessimistic tone about the world food outlook [fao1975]. 
 
 ```{r FAOreport1965cover, fig.show = 'hold', out.width="7cm", fig.cap="From FAO (1965).", fig.align='center'}
 knitr::include_graphics("post images/FAO_stateOfFoodAndAg1965_cover.png")
 ```
 
+This graphic shows that the increase in food production was holding steady with the increase in population. FAO took a darker view though, warning of "Malthusian correctives" in the event of a downturn [FAO1965]. Also worried about declining US wheat stocks...
 
-olden days FAOSTAT query 2004
-https://web.archive.org/web/20040202052701/http://apps.fao.org/default.htm
-https://web.archive.org/web/20040202055417/http://apps.fao.org/page/collections?subset=agriculture
+I was unable to reproduce this graphic, possibly because FAO periodically revises its figures.
 
 
+This is similar to the graphic given in Paddock's book, but without the spurious extrapolation of plunging per capita production tacked on to the end. However, the FAO Director General did warn 
+
+What do the data actually say?....
+
+If there were any substance to Neo-Malthusian scaremongering, then we should expect to see a trend of declining food production per capita, especially in former colonies like India. The data show the exact opposite. Food grain production per capita in India and Pakistan exhibits a trend of steady increase since the end of World War II up through the present 
+[@kurosaki1999agriculture].
+
+
+
+We now have the advantage of data,... Food grain production per capita fell steadily in India and Pakistan from 1901 up to World War II [@kurosaki1999agriculture], a period bookended by two of the worst famines in recorded history [@davis2002late].
+
+like Malthus' original _Essay on the Principle of Population_ 160 years earlier
+
+and the Bengal famine of 1943 in which 1-3 million starved; but then steadily   has been decreasing  []
+
+
+
+
+If this were true, then we would expect to see a trend of declining food production per capita from the 1950s through the 1960s, particularly in places like India. In its 1965 decadal review, the Food and Agricultural 
+
+
+
+
+The answer to this question is highly nuanced, and does not conform neatly to either the Malthusian viewpoint or that of Malthus' critics.
+The short answer is no. Food grain production per capita was increasing, not decreasing.
+
+The dire situation described by     Malthusian famines were impending and did come to pass--but not   that does not conform either to Malthusian 
+
+Malthus published his epoch making _Essay on the Principle of Population_ in 1798. In it, he reasoned that, if the popultion was growing exponentially, and agricultural production linearly, then the day was not far off when the world would no longer be able to feed itself, resulting in widespread famine.
+
+As it turned out, in what is now known as the "developed world", the facts diverged sharply from Malthus' ghastly forecasts. Food supply did not increase linearly, as he had surmised, but rather kept pace with the growing population. This was achieved partly through technological innovations, partly through expansion of the number of hectares under cultivation (and partly by imports from the colonies--more on that in a second). By the turn of the 20th century, most regarded Malthus' theory as debunked [@desrochers2009post]. In 1904, the President of the American Association for the Advancement of Science, Carroll D. Wright, pronounced the following eulogy:
+
+>"The time may come, to be sure, when the Malthusian theory will be revived, but it is not in our day, nor will it be in our century, for scientific thought almost completely overturned the theory and has relieved it of its strength in exciting the fears of economists or of philosophers that the world was gradually but surely coming to that position where it could not supply its population with food, and that some method of checking population must 
+be the resort. The broadening of the area of supply through discovery and the taking up of vast tracts of land were the immediate means of depriving the 
+doctrine of its force, but later on intensive agriculture and the discoveries of science succeeded in relegating the theory to the past" [@wright1904science].
+
+However, much of what is now known as the "developing world" was not so fortunate. Just a few years prior to Wright's remarks, some 628,000 had starved to death in India [@davis].
+
+The alarming claims of impending global famines are now recognized to have been based on speculation and anecdotal evidence .
+
+The Neo-Malthusian alarmists, the "Jeremiahs of geography, sociology, and economics" [Hanson (1949) in @desrochers2009post] ultimately built upon "suspect extrapolations and outright errors errors, prejudices, mysticism and reckless appeals to emotion" [Anonymous "Time" reviewer (1948) in @desrochers2009post].
+
+
+
+I am tempted to conclude that the scientists are fundamentally unaware of the difference between test plots and farm plots, between biophysical and economic yields.... But they demonstrate clearly in their writings that they are well aware of this distinction [Alston Attribution problem papers; Pingali CIMMYT yield gap paper "Farmer's maximize profit, not yields."; Leeuwis Klerx paper]. However, this is then still more problematic since it implies a double standard whereby the scientists claim an oversimplistic direct line between research and impacts when applying for funding, but then switch to the "it's complicated; there is no direct line" argument when donors ask them how they plan to repeat this success in the future. (xkcd attribution problem comic -- one pane showing the scientist taking all the credit for past success, then the next pane showing the scientist explaining how in the future "it's complicated")
+
+
+Johnson and the cold war motive for food aid...Public Law 480 passed in 1954, subsequently morphed into the Food for Peace Program, championed in particular by Kennedy and Johnson [@ahlberg2007machiavelli].
 
 ```{r faoGraph1965_revisted, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...world excluding mainland China", echo = FALSE}
 
-setwd("C:/Users/bensc/OneDrive/Documents")
-
 area_vec <- c("World", "Western Asia", "Southern Asia",
-              "South-eastern Asia", "Eastern Asia",
+              "South-Eastern Asia", "Eastern Asia",
               "South America", "Caribbean", "Central America",
               "Northern America", "Europe", "Australia and New Zealand",
               "China, mainland", "Western Africa", "Eastern Africa",
               "Southern Africa", "Middle Africa", "Northern Africa",
-              "Africa")
-
-df_raw <- read.csv("Data/FAO Data/Production_Crops_E_All_Data.csv", stringsAsFactors = F)
+              "Africa", "USSR")
+this_folder <- "C:/Users/bensc/OneDrive/Documents/Data/FAO Data/"
+this_file <- "Production_Crops_E_All_Data.csv"
+this_filepath <- paste0(this_folder, this_file)
+df_raw <- read.csv(this_filepath, stringsAsFactors = F)
 df_raw <- subset(df_raw, Item.Code != 2928)
 df_raw$Area.Code <- NULL
 df_raw$Item.Code <- NULL
@@ -539,6 +439,7 @@ item_vec <- c("Fruit Primary", "Cereals, Total", "Pulses, Total",
 element_vec <- c("Production", "Area harvested")
 df_crop <- df_raw
 #df_crop$Unit <- NULL
+df_crop$Area[grep("South-eastern", df_crop$Area)] <- "South-Eastern Asia"
 df_crop$Year <- as.integer(df_crop$Year)
 df_crop <- subset(df_crop, Item %in% item_vec &
                     Area %in% area_vec &
@@ -572,8 +473,9 @@ df_cropArea$Element <- NULL
 colnames(df_cropArea)[ncol(df_cropArea)] <- "Area harvested"
 #---------------------------------------------------------------------------
 # Now for animal products
-setwd("C:/Users/bensc/OneDrive/Documents")
-df_raw <- read.csv("Data/FAO Data/Production_LivestockPrimary_E_All_Data.csv", stringsAsFactors = F)
+this_file <- "Production_LivestockPrimary_E_All_Data.csv"
+this_filepath <- paste0(this_folder, this_file)
+df_raw <- read.csv(this_filepath, stringsAsFactors = F)
 #df_raw <- subset(df_raw, Item.Code != 2928)
 df_raw$Area.Code <- NULL
 df_raw$Item.Code <- NULL
@@ -588,8 +490,7 @@ df_raw <- gather_(df_raw, "Year", "Value", gathercols)
 #------------------------------
 #unique(df_raw$Item)
 #unique(df_raw$Item)[grep("milk", unique(df_raw$Item), ignore.case = T)]
-df_raw$Area[grep("South-Eastern Asia", df_raw$Area)] <- "South-eastern Asia"
-item_vec <- c("Meat, Poultry", "Milk, Total")
+item_vec <- c("Meat, Total", "Milk, Total")
 df_animal <- subset(df_raw, Item %in% item_vec &
                     Area %in% area_vec &
                     Element == "Production")
@@ -621,22 +522,32 @@ df_prodAll$Item <- "Food"
 df_prodAll <- df_prodAll[, c("Area", "Item", "Year", "Production")]
 df_prod <- rbind(df_prod, df_prodAll)
 #---------------------------------------------------------------------------
-setwd("C:/Users/bensc/OneDrive/Documents")
-df_raw <- read.csv("Data/FAO Data/FAO_pop_all_regions.csv", stringsAsFactors = F)
-#colnames(df_raw)
-df_raw <- df_raw[, c("Area", "Year", "Element", "Unit", "Value")]
-#unique(df_raw$Element)
-df_pop <- subset(df_raw, Element == "Total Population - Both sexes" &
-                   Area %in% area_vec)
+# this_file <- "FAO_pop_all_regions.csv"
+# this_filepath <- paste0(this_folder, this_file)
+# df_raw <- read.csv(this_filepath, stringsAsFactors = F)
+this_folder <- "Data/"
+this_file <- "Green revolution food supply.csv" # Use FAO_unify_foodBal_oldNew.R to put this file together.
+this_filepath <- paste0(this_folder, this_file)
+df_fbs <- read.csv(this_filepath, stringsAsFactors = F, header = F)
+df_fbs$V1 <- NULL
+colnames(df_fbs) <- df_fbs[1, ]
+df_fbs <- df_fbs[-1, ]
+df_fbs$Unit <- NULL
+df_fbs$Item[grep("Cereal", df_fbs$Item)] <- "Cereals"
+df_fbs$Item[grep("Grand Total", df_fbs$Item)] <- "Food"
+df_fbs$Value <- as.numeric(df_fbs$Value)
+#---
+df_pop <- subset(df_fbs, Item == "Population" &
+                    Area %in% area_vec)# &
+#                    Year %in% c(1961:last_yr))
 colnames(df_pop)[ncol(df_pop)] <- "Population"
-df_pop$Population <- df_pop$Population * 1000
 df_pop <- df_pop[, c("Area", "Year", "Population")]
+df_pop$Population <- 1000 * df_pop$Population # Convert to units of 1 person
+#colnames(df_raw)
 df_pop_worldExclChina <- subset(df_pop, Area %in% c("China, mainland",
                                                         "World"))
-#-----------------------------------------------------------------------------
 # Get pop. for world excluding mainland China
 df_pop_worldExclChina <- df_pop_worldExclChina %>% spread(Area, Population)
-
 df_pop_worldExclChina$`World exclud. mainland China` <- df_pop_worldExclChina$World - df_pop_worldExclChina$`China, mainland`
 df_pop_worldExclChina$`China, mainland` <- NULL
 df_pop_worldExclChina$World <- NULL
@@ -653,7 +564,7 @@ df_plot$Unit <- NULL
 
 df_plot <- df_plot %>% gather(Element, Value, Production:`Production / capita (metric tons)`)
 
-last_yr <- 1971
+last_yr <- 1966
 
 df_plot <- subset(df_plot, Item == "Food" &
                     Area %in% c("World excluding\nmainland China") &
@@ -664,21 +575,23 @@ df_plot <- subset(df_plot, Item == "Food" &
 df_plot <- df_plot %>% group_by(Item, Element) %>%
   mutate(Value = Value / Value[1] * 100) %>% as.data.frame()
 
-colnames(df_plot)[ncol(df_plot)] <- "Index (1961 = 100)"
+colnames(df_plot)[ncol(df_plot)] <- "Production / capita index (1961 = 100)"
 
 n <- length(unique(df_plot$Element))
 bag_of_colors <- randomcoloR::distinctColorPalette(k = 2 * n)
 color_vec <- sample(bag_of_colors, n)
 
+data_source <- "Source: Author's creation based on FAO crop, livestock, and population data. Food production is summed over metric tons of cereals, pulses, roots and tubers, fruits, oilcrops, meat, and milk."
 
-gg <- ggplot(df_plot, aes(x = Year, y = `Index (1961 = 100)`,
+gg <- ggplot(df_plot, aes(x = Year, y = `Production / capita index (1961 = 100)`,
                               group = Element, color = Element))
 gg <- gg + geom_line(lwd = 3)
 gg <- gg + geom_point(color = "white", size = 2)
 #gg <- gg + facet_wrap(~Area, scales = "free_y")
 gg <- gg + scale_color_manual(values = color_vec)
 gg <- gg + scale_x_continuous(breaks = seq(1961, last_yr, 1))
-gg <- gg + theme(legend.position = "top",
+gg <- gg + labs(title = "Production per capita, World excluding China", caption = data_source)
+gg <- gg + theme(legend.position = "bottom",
                  legend.title = element_blank(),
                  legend.spacing.x = unit(0.5, 'cm'),
                  axis.title.x = element_blank())
@@ -687,9 +600,637 @@ gg
 
 ```
 
+We can dispense with the separate population and production graphs...It is kind of pointless to include population and production curves if looking at production per capita...looking at cereals explicitly...
+
+```{r faoGraph1965cereals, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...world excluding mainland China", echo = FALSE}
+
+df_prodPcap$Area <- gsub("Southern", "South", df_prodPcap$Area)
+df_prodPcap$Area <- gsub("Northern", "North", df_prodPcap$Area)
+df_prodPcap$Area <- gsub("South-Eastern", "Southeast", df_prodPcap$Area)
+df_prodPcap$Area <- gsub("USSR", "Soviet Union", df_prodPcap$Area)
+df_prodPcap$Area <- gsub("Eastern", "East", df_prodPcap$Area)
+
+df_plot <- df_prodPcap
+df_plot$Unit <- NULL
+
+df_plot <- df_plot %>% gather(Element, Value, Production:`Production / capita (metric tons)`)
+
+last_yr <- 1966
+area_vec <- c("South Asia", "Southeast Asia", "South America", "Central America", "World", "Soviet Union", "East Asia")
+df_plot <- subset(df_plot, Item %in% c("Food", "Cereals, Total") &
+                    #Area %in% c("World", "China, mainland") &
+                    Area %in% area_vec &
+                    Year %in% c(1961:last_yr) &
+                    Element == "Production / capita (metric tons)")
+
+df_plot <- df_plot %>% group_by(Area, Item, Element) %>%
+  mutate(Value = Value / Value[1] * 100) %>% as.data.frame()
+
+colnames(df_plot)[ncol(df_plot)] <- "Production / capita index (1961 = 100)"
+
+df_plot$Item[grep("Cereals", df_plot$Item)] <- "Cereals"
+
+n <- length(unique(df_plot$Area))
+bag_of_colors <- randomcoloR::distinctColorPalette(k = 2 * n)
+color_vec <- sample(bag_of_colors, n)
+last_yr <- unique(df_plot$Year)[length(unique(df_plot$Year))]
+
+gg <- ggplot(df_plot, aes(x = Year, y = `Production / capita index (1961 = 100)`,
+                              group = Item, color = Item))
+gg <- gg + geom_line(lwd = 1.5)
+gg <- gg + geom_point(color = "white", size = 2)
+gg <- gg + facet_wrap(~Area, ncol = 3, scales = "free_y")
+gg <- gg + scale_color_manual(values = color_vec)
+gg <- gg + scale_x_continuous(breaks = seq(1961, last_yr, 1))
+gg <- gg + theme(legend.title = element_blank(),
+                 legend.spacing.x = unit(0.5, 'cm'),
+                 axis.title.x = element_blank(),
+                 axis.text.x = element_text(angle = 60, hjust = 1),
+                 legend.position = "bottom")
+gg <- shift_legend2(gg)
+gg <- ggplotify::as.ggplot(gg)
 
 
-```{r faoGraph1965_extended, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...world excluding mainland China", echo = FALSE}
+```
+
+
+weight per capita is mixing apples and organges...better to look at kcal / capita
+
+Definite increase, but not clear that there was ever really a decrease since 1961. To get a better sense, we would need to examine more years leading up to the green revolution harvests.
+
+```{r FAOCerealsKcalPcap, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
+
+df_fbs$Area <- gsub("Southern", "South", df_fbs$Area)
+df_fbs$Area <- gsub("Northern", "North", df_fbs$Area)
+df_fbs$Area <- gsub("South-Eastern", "Southeast", df_fbs$Area)
+df_fbs$Area <- gsub("USSR", "Soviet Union", df_fbs$Area)
+df_fbs$Area <- gsub("Eastern", "East", df_fbs$Area)
+
+
+item_vec <- c("Cereals", "Food")
+last_yr <- 1966
+df_plot <- subset(df_fbs, Area %in% area_vec &
+                    Item %in% item_vec &
+                    Element == "Food supply (kcal/capita/day)" &
+                    Year %in% c(1961:last_yr))
+
+df_plot <- df_plot %>% group_by(Area, Item) %>%
+  mutate(Value = Value / Value[1] * 100) %>% as.data.frame()
+
+colnames(df_plot)[ncol(df_plot)] <- "Kcal / capita supply index (1961 = 100)"
+
+n <- length(unique(df_plot$Item))
+bag_of_colors <- randomcoloR::distinctColorPalette(k = 2 * n)
+color_vec <- sample(bag_of_colors, n)
+df_plot$Year <- as.integer(df_plot$Year)
+
+df_plot$Area <- gsub("South-eastern", "Southeast", df_plot$Area)
+df_plot$Area <- gsub("Southern", "South", df_plot$Area)
+
+data_source <- "Source: Author's creation based on FAO kcal/capita/day food supply data."
+
+gg <- ggplot(df_plot, aes(x = Year,
+                          y = `Kcal / capita supply index (1961 = 100)`,
+                          group = Item, color = Item))
+gg <- gg + geom_line(lwd = 1.5)
+gg <- gg + geom_point(color = "white", size = 2)
+gg <- gg + facet_wrap(~Area, ncol = 3, scales = "free_y")
+gg <- gg + scale_color_manual(values = color_vec)
+#gg <- gg + scale_x_continuous(breaks = seq(1961, last_yr, 1))
+gg <- gg + labs(title = "Available Calories per Capita")
+gg <- gg + theme(legend.title = element_blank(),
+                 legend.spacing.x = unit(0.5, 'cm'),
+                 axis.title.x = element_blank(),
+                 axis.text.x = element_text(angle = 60, hjust = 1),
+                 legend.position = "bottom")
+gg <- shift_legend2(gg)
+gg <- ggplotify::as.ggplot(gg)
+
+
+```
+
+
+
+
+
+
+
+
+To get a better sense, we need to look at a longer time series leading up to the green revolution year of 1967. Despite the disastrous harvests of 1965 and 1966, the India data indicate a steady, even slightly upward, trend in the standard of living.
+
+
+
+```{r IndiaCereals, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
+
+#crop_vec <- c("Wheat", "Maize", "Rice", "Foodgrain", "Course Cereals")
+this_folder <- "C:/Users/bensc/OneDrive/Documents/Data/India Dept Ag Data/"
+setwd(this_folder)
+file_vec <- list.files(this_folder)
+list_df <- lapply(file_vec, read.csv, stringsAsFactors = F, header = F)
+
+this_df <- list_df[[1]]
+data_source <- this_df[nrow(this_df), 1]
+
+#this_df <- list_df[[4]]
+process_India_cerealData <- function(this_df){
+this_crop <- stringr::str_replace(this_df[1, 1], '.+Yield of (.+)', '\\1')
+ind_first <- grep("1950", this_df[, 1])
+ind_last <- grep("2010", this_df[, 1])
+ind_rm_top <- c(1:(ind_first - 1))
+ind_rm_bottom <- c((ind_last + 1):nrow(this_df))
+ind_rm <- c(ind_rm_top, ind_rm_bottom)
+this_df <- this_df[-ind_rm, c(1:5)]
+this_df[, 1] <- as.integer(gsub("-.*", "", this_df[, 1]))
+#this_df[, 1] <- this_df[, 1] + 1
+this_df <- as.data.frame(apply(this_df, 2, as.numeric))
+#colnames(this_df) <- this_df[1, ]
+colnames(this_df) <- c("Year", "Area (million hectares)", "Production (million metric tons)", "Yield (kg. / ha.)", "Area under irrigation (%)")
+this_df$Item <- this_crop
+this_df$`Production (million metric tons)` <- this_df$`Production (million metric tons)` * 10^6
+colnames(this_df)[3] <- "Production (metric tons)"
+return(this_df)
+}
+
+#df_test <- process_India_cerealData(list_df[[2]])
+list_df <- lapply(list_df, process_India_cerealData)
+#head(list_df[[1]])
+df_IndiaCereal <- as.data.frame(do.call(rbind, list_df))
+df_IndiaCereal$Item[grep("Rice", df_IndiaCereal$Item)] <- "Rice"
+df_IndiaCereal$Item <- gsub(" ", "", df_IndiaCereal$Item)
+df_IndiaCereal$Item[grep("Coarse", df_IndiaCereal$Item)] <- "Coarse grains"
+df_IndiaCereal$Item[grep("Foodgrains", df_IndiaCereal$Item)] <- "Food grains"
+df_IndiaCereal_prod <- df_IndiaCereal[, c("Year", "Production (metric tons)",
+                                          "Item")]
+
+#df_IndiaCereal_prod <- subset(df_IndiaCereal_prod, Item != "Food grains")
+
+df_IndiaCereal_prod <- df_IndiaCereal_prod %>% spread(Item, `Production (metric tons)`)
+df_IndiaCereal_prod$temp_sum <- rowSums(df_IndiaCereal_prod[, -c(1, 3)])
+df_IndiaCereal_prod$`Other food grains` <- df_IndiaCereal_prod$`Food grains` -
+  df_IndiaCereal_prod$temp_sum
+df_IndiaCereal_prod$temp_sum <- NULL
+colnames(df_IndiaCereal_prod)[3] <- "Total"
+df_IndiaCereal_prod <- df_IndiaCereal_prod %>% gather(Item, `Production (metric tons)`, `Coarse grains`:`Other food grains`)
+
+
+
+this_folder <- "C:/Users/bensc/OneDrive/Documents/Data/FAO Data/"
+this_file <- "FAO_pop_all.csv"
+this_filepath <- paste0(this_folder, this_file)
+df_raw <- read.csv(this_filepath, stringsAsFactors = F)
+df_raw <- df_raw[, c("Area", "Year", "Element", "Unit", "Value")]
+#unique(df_raw$Element)
+df_pop <- subset(df_raw, Element == "Total Population - Both sexes" &
+                   Area == "India")
+colnames(df_pop)[ncol(df_pop)] <- "Population"
+df_pop$Population <- df_pop$Population * 1000
+df_pop <- df_pop[, c("Year", "Population")]
+df_IndiaCereal_prodPcap <- merge(df_IndiaCereal_prod, df_pop, by = "Year")
+df_IndiaCereal_prodPcap$`Production / capita (metric tons)` <- df_IndiaCereal_prodPcap$`Production (metric tons)` / df_IndiaCereal_prodPcap$Population
+
+last_yr <- 1966
+
+df_plotTrend <- subset(df_IndiaCereal_prodPcap, Item == "Total" &
+                    Year <= last_yr)
+df_mod <- df_plotTrend[, c("Year", "Production / capita (metric tons)")]
+mod <- lm(`Production / capita (metric tons)` ~., df_mod)
+#summary(mod)
+b <- mod$coefficients[1]
+m <- mod$coefficients[2]
+
+df_plot <- subset(df_IndiaCereal_prodPcap, Item != "Total" &
+                    Year <= last_yr)
+
+df_plot <- df_plot %>% group_by(Item) %>%
+  mutate(mu_prodPcap = mean(`Production / capita (metric tons)`)) %>%
+  as.data.frame()
+
+df_plot$Item <-
+  factor(df_plot$Item,
+         levels = unique(df_plot$Item[order(df_plot$mu_prodPcap, df_plot$Item, decreasing = T)]),
+         ordered = T)
+
+
+n <- length(unique(df_plot$Item))
+bag_of_colors <- randomcoloR::distinctColorPalette(k = 2 * n)
+color_vec <- sample(bag_of_colors, n)
+
+data_source <- "Source: Author's creation using all India grain data from the Directorate of Economics and Statistics, India Department of Agriculture and Cooperation. Population data retrieved from FAOSTAT."
+
+gg <- ggplot()
+gg <- gg + geom_area(data = df_plot, aes(x = Year, y = `Production / capita (metric tons)`, fill = Item), position = "stack")
+#gg <- gg + geom_line(position = "stack")
+gg <- gg + scale_fill_manual(values = color_vec)
+gg <- gg + geom_line(data = df_plotTrend, aes(x = Year, y = `Production / capita (metric tons)`), lwd = 1.3)
+#gg <- gg + geom_vline(xintercept = 1967, lwd = 1.3, color = "green")
+gg <- gg + geom_abline(slope = m, intercept = b, lwd = 1.5, linetype = "dashed")
+gg <- gg + labs(title = "India cereal production per capita, 1950-1966", caption = data_source)
+gg <- gg + theme(axis.title.x = element_blank(),
+                 legend.position = "bottom",
+                 legend.title = element_blank())
+gg
+#Green line represents the first green revolution harvest of wheat and rice (1967)
+
+
+# df_plot <- df_IndiaCereal_prodPcap
+# df_plot <- df_plot %>% group_by(Item) %>%
+#   mutate(`Production / capita index (1951 = 100)` = `Production / capita (metric tons)` / `Production / capita (metric tons)`[1] * 100) %>% as.data.frame()
+# 
+# colnames(df_plot)[ncol(df_plot)] <- "Production / capita index (1951 = 100)"
+# 
+# n <- length(unique(df_plot$Item))
+# bag_of_colors <- randomcoloR::distinctColorPalette(k = 2 * n)
+# color_vec <- sample(bag_of_colors, n)
+
+# df_plot <- subset(df_plot, Item == "Food grains")
+# gg <- ggplot(df_plot, aes(x = Year,
+#                           y = `Production / capita index (1951 = 100)`,
+#                           group = Item, color = Item))
+# gg <- gg + geom_line(lwd = 1.5)
+# #gg <- gg + scale_color_manual(values = color_vec)
+# gg <- gg + theme(axis.title.x = element_blank(),
+#                  legend.position = "top",
+#                  legend.title = element_blank())
+# gg
+
+```
+
+
+
+
+```{r IndiaCerealsKurosaki, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
+this_dir <- "C:/Users/bensc/OneDrive/Documents/Data/"
+this_folder <- "Kurosaki India data 1901-2001/"
+this_file <- "Kurosaki India data 1901-2001.csv"
+this_filepath <- paste0(this_dir, this_folder, this_file)
+df_kurosaki <- read.csv(this_filepath, stringsAsFactors = F)
+colnames(df_kurosaki) <- gsub("\\.\\.", " (", colnames(df_kurosaki))
+colnames(df_kurosaki) <- gsub("\\.$", ")", colnames(df_kurosaki))
+colnames(df_kurosaki) <- gsub("\\.", " ", colnames(df_kurosaki))
+#---------------------------------------------------------------------------
+# Jowar = Sorghum
+# Ragi = Finger Millet
+# Bajra = Pearl Millet
+# Gram = a pulse, I think
+#---------------------------------------------------------------------------
+df_plot <- df_kurosaki[, c("Year", "Item", "Production (1000 metric tons)")]
+df_pop <- df_kurosaki[, c("Year", "Population (1000 persons)")]
+df_pop <- df_pop[-which(duplicated(df_pop$Year)), ]
+df_plot$Item[grep("Jowar|Ragi|Bajra|Barley", df_plot$Item)] <- "Coarse grains"
+df_plot <- subset(df_plot, Item %in% c("Coarse grains", "Maize", "Wheat", "Rice"))
+df_plot <- df_plot %>% group_by(Item, Year) %>%
+  summarise(`Production (1000 metric tons)` = sum(`Production (1000 metric tons)`)) %>%
+  as.data.frame()
+df_plot <- merge(df_plot, df_pop, by = "Year")
+df_plot$`Production per capita (metric tons)` <- 
+  df_plot$`Production (1000 metric tons)` / df_plot$`Population (1000 persons)`
+
+df_plot <- subset(df_plot, Year <= 1966)
+gg <- ggplot(df_plot, aes(x = Year,
+                          y = `Production per capita (metric tons)`,
+                          fill = Item))
+gg <- gg + geom_area(position = "stack")
+gg <- gg + theme(legend.title = element_blank(),
+                 axis.title.x = element_blank())
+gg
+
+
+
+```
+
+
+Another piece of the story that is sometimes mentioned is that world wheat stocks were rapidly dwindling.
+
+* Food grain stocks in the USSR, Central America, East Asia, and South Asia were rising. Overall world stocks were holding steady. In South Asia the increase was due to increased rice production, driven by investments in private tube wells and rural electrification (required to operate the well pumps)--due to World Bank convincing the government to adopt an irrigation policy based on private tube wells in 1965. Introduction of IR8 rode an already rising tide of production powered by government loans, subsidies, and rural electrufucation, and took credit for the whole tide [stone commentary on new histories of the GR, subramanian].
+
+```{r foodStocks, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
+this_folder <- "C:/Users/bensc/OneDrive/Documents/Data/USDA Data/"
+this_file <- "USDA Beginning Stocks 1960-2021.csv"
+this_filepath <- paste0(this_folder, this_file)
+df_stocks <- read.csv(this_filepath, stringsAsFactors = F, header = F)
+colnames(df_stocks) <- df_stocks[1, ]
+df_stocks <- df_stocks[-1, ]
+# Stocks are in units of 1000 mt
+df_stocks$`Unit Description` <- NULL
+df_stocks <- df_stocks %>% gather(Year, `Beginning Stocks`, `1960/1961`:`2020/2021`)
+df_stocks$Year <- as.integer(gsub(".*/", "", df_stocks$Year))
+df_stocks$`Beginning Stocks` <- as.numeric(gsub(",", "", df_stocks$`Beginning Stocks`))
+# Convert to units of million mt
+df_stocks$`Beginning Stocks` <- df_stocks$`Beginning Stocks` / 1000
+colnames(df_stocks)[ncol(df_stocks)] <- "Beginning Stocks (million metric tons)"
+df_stocks$Attribute <- NULL
+df_stocks$Commodity[grep("Sorghum|Rye|Millet|Corn|Barley|Oats", df_stocks$Commodity, ignore.case = T)] <- "Coarse grains"
+#df_stocks$Commodity[grep("Corn", df_stocks$Commodity, ignore.case = T)] <- "Maize"
+df_stocks$Country[grep("Europe", df_stocks$Country)] <- "Europe"
+df_stocks <- df_stocks %>% group_by(Country, Commodity, Year) %>%
+  summarise(`Beginning Stocks (million metric tons)` = sum(`Beginning Stocks (million metric tons)`, na.rm = T)) %>%
+  as.data.frame()
+df_stocks$Country[grep("Soviet Union", df_stocks$Country)] <- "Soviet Union"
+
+last_yr <- 1966
+year_vec <- c(1961:last_yr)
+area_vec <- c("World", "North America", "South Asia", "Central America",
+              "East Asia", "Southeast Asia", "Europe", "Soviet Union")
+df_plot <- subset(df_stocks, Country %in% area_vec &
+                    Year %in% year_vec)
+
+df_plot <- df_plot %>% group_by(Country, Commodity) %>%
+  mutate(mu_stocks = mean(`Beginning Stocks (million metric tons)`)) %>%
+  as.data.frame()
+
+df_plot$Commodity <-
+  factor(df_plot$Commodity,
+         levels = unique(df_plot$Commodity[order(df_plot$mu_stocks, df_plot$Commodity, decreasing = T)]),
+         ordered = T)
+
+n <- length(unique(df_plot$Commodity))
+bag_of_colors <- randomcoloR::distinctColorPalette(k = 2 * n)
+color_vec <- sample(bag_of_colors, n)
+
+data_source <- "Source: Author's creation based on USDA data."
+
+gg <- ggplot(df_plot, aes(x = Year,
+                          y = `Beginning Stocks (million metric tons)`,
+                          fill = Commodity))
+gg <- gg + geom_area(position = "stack")
+gg <- gg + scale_fill_manual(values = color_vec)
+gg <- gg + scale_x_continuous(breaks = 1961:last_yr)
+gg <- gg + facet_wrap(~Country, ncol = 3, scales = "free_y")
+gg <- gg + labs(title = "Cereal stocks just before the green revolution", caption = data_source)
+gg <- gg + theme(legend.title = element_blank(),
+                 axis.title.x = element_blank(),
+                 axis.text.x = element_text(angle = 60, hjust = 1))
+gg <- shift_legend2(gg)
+gg <- ggplotify::as.ggplot(gg)
+
+```
+
+But what about stocks as a percentage of consumption? FAO has stated that stocks should be above 15% of consumption in order to guarantee a minimum level of food security.
+
+There is this image of India being kept alive during the 1960s by boatloads of wheat from the US. At the global scale, there was a problem of overabundance not scarcity in the 1960s. North American grain stocks had diminished somewhat over the decade, but were nowhere near the "depletion" indicated by the 1965 FAO report (and keep in mind this decrease was deliberate, as the US government had placed tight restrictions on cultivated area precisely to reduce the burdensome surplus). N. Amer Wheat stocks were at nearly 200% N. Amer wheat consumption--more than enough to feed the entire population of India (at a demand of 0.2 mt grains/capita/yr). South Asia, meanwhile, increased their grain stocks from x% of domestic consumption in 1961 to 15%^[The percentage considered by FAO necessary for food security.] in 1966 (despite the failure of the monsoons in 1965-6) due largely to an increase in rice production, probably resulting from a massive increase in the number of private tube wells and rural electification (required to run them). India could have covered nearly all of the 1965 production shortfall by drawing on these stocks. Globally, grain stocks stood at roughly double the amount considered necessary to guarantee food security.
+
+```{r foodStockPerConsump, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
+
+item_vec <- c("Wheat and products",
+              "Rice (Milled Equivalent)",
+              "Sorghum and products",
+              "Barley and products",
+              "Millet and products",
+              "Maize and products",
+              "Oats")
+#----------------------------------------------------------------------------
+# Population is in units of 1000 persons
+# df_pop <- subset(df_fbs, Area %in% area_vec &
+#                     Item == "Population")# &
+# #                    Year %in% c(1961:last_yr))
+# colnames(df_pop)[ncol(df_pop)] <- "Population"
+# df_pop <- df_pop[, c("Area", "Year", "Population")]
+# df_pop$Population <- 1000 * df_pop$Population # Convert to units of 1 person
+#----------------------------------------------------------------------------
+# Domestic supply quantity is in 1000 metric tons
+df_consPcap <- subset(df_fbs, Area %in% area_vec &
+                      Item %in% item_vec &
+                        Element == "Domestic supply quantity")
+#                      Element == "Food supply quantity (kg/capita/yr)")# &
+#                      Year %in% c(1961:last_yr))
+# colnames(df_consPcap)[ncol(df_consPcap)] <- "Food supply quantity (kg/capita/yr)"
+# df_consPcap$Element <- NULL
+# df_cons <- merge(df_consPcap, df_pop, by = c("Area", "Year"))
+# df_cons$`Consumption (million metric tons)` <- df_cons$`Food supply quantity (kg/capita/yr)` * df_cons$Population / 10^3
+df_cons <- df_consPcap
+df_cons$Item[grep("Sorghum|Millet|Rye|Barley|Oats|Maize", df_cons$Item, ignore.case = T)] <- "Coarse grains"
+df_cons$Item[grep("Wheat", df_cons$Item, ignore.case = T)] <- "Wheat"
+#df_cons$Item[grep("Maize", df_cons$Item, ignore.case = T)] <- "Maize"
+df_cons$Item[grep("Rice", df_cons$Item, ignore.case = T)] <- "Rice, Milled"
+df_cons <- df_cons %>% group_by(Area, Item, Year) %>%
+  summarise(Value = sum(Value, na.rm = T) / 1000) %>% as.data.frame()
+colnames(df_cons)[ncol(df_cons)] <- "Domestic supply (million metric tons)"
+# df_cons <- df_cons %>% group_by(Area, Item, Year) %>%
+#   summarise(`Consumption (million metric tons)` = sum(`Consumption (million metric tons)`, na.rm = T)) %>% as.data.frame()
+#----------------------------------------------------------------------------
+colnames(df_cons)[1:2] <- c("Country", "Commodity")
+df_stocksPerCons <- merge(df_stocks, df_cons, by = c("Country", "Commodity", "Year"))
+
+# df_stocksPerCons <- df_stocksPerCons %>% group_by(Country, Year) %>%
+#   mutate(tot_consump = sum(`Domestic supply (million metric tons)`)) %>%
+#   as.data.frame()
+# df_stocksPerCons$`Stocks / Consumption (%)` <- 100 *
+#   df_stocksPerCons$`Beginning Stocks (million metric tons)` / 
+#   df_stocksPerCons$tot_consump
+
+df_stocksPerCons$`Stocks / Consumption (%)` <- 100 *
+  df_stocksPerCons$`Beginning Stocks (million metric tons)` /
+  df_stocksPerCons$`Domestic supply (million metric tons)`
+#----------------------------------------------------------------------------
+last_yr <- 1966
+df_plot <- subset(df_stocksPerCons, Year %in% c(1961:last_yr))
+
+# n <- length(unique(df_plot$Commodity))
+# bag_of_colors <- randomcoloR::distinctColorPalette(k = 2 * n)
+# color_vec <- sample(bag_of_colors, n)
+
+data_source <- "Source: Author's creation based on USDA beginning stocks and FAO domestic supply quantity data (from the Food Balance Sheets).\nFAO Domestic supply quantity = production + imports - exports + changes in stocks. This accounts for both raw and derived products (such as flour), as well as for non-food uses (feed, seed, and waste)."
+
+gg <- ggplot(df_plot, aes(x = Year,
+                          y = `Stocks / Consumption (%)`,
+                          group = Commodity, color = Commodity))
+gg <- gg + geom_line(lwd = 1.5)
+gg <- gg + geom_point(size = 2, color = "white")
+#gg <- gg + geom_area(position = "stack")
+gg <- gg + scale_color_manual(values = color_vec)
+gg <- gg + scale_x_continuous(breaks = 1961:last_yr)
+gg <- gg + facet_wrap(~Country, ncol = 3, scales = "free_y")
+gg <- gg + labs(title = "Cereal stocks-to-consumption ratio just before the green revolution", caption = data_source)
+gg <- gg + theme(legend.title = element_blank(),
+                 axis.title.x = element_blank(),
+                 axis.text.x = element_text(angle = 60, hjust = 1))
+gg <- shift_legend2(gg)
+gg <- ggplotify::as.ggplot(gg)
+
+
+
+# # FAO Stock Variations are in units of 1000 mt
+# df_FAOstocks <- subset(df_fbs, Area %in% area_vec &
+#                       Item %in% item_vec &
+#                       Element == "Stock Variation" &
+#                       Year %in% c(1961:last_yr))
+# df_FAOstocks$Item[grep("Sorghum|Millet|Maize|Rye|Barley", df_FAOstocks$Item, ignore.case = T)] <- "Maize and coarse grain variation"
+# df_FAOstocks$Item[grep("Wheat", df_FAOstocks$Item, ignore.case = T)] <- "Wheat variation"
+# df_FAOstocks$Value <- df_FAOstocks$Value / 1000 #convert to million mt
+# df_FAOstocks <- df_FAOstocks %>% group_by(Area, Item, Year) %>%
+#   summarise(Value = sum(Value, na.rm = T)) %>% as.data.frame()
+# # Stocks from State of Food and Ag reports are in million mt.
+# stocks1960_wheat <- (35.8 + 16.3)
+# stocks1960_rice <- (0.4)
+# stocks1960_coarseGrains <- (68 + 4.7)
+# # Source: FAO State of Food and Agriculture 1965, Annex Table 7 http://www.fao.org/3/ap653e/ap653e.pdf
+# df_FAOstocks <- df_FAOstocks %>% spread(Item, Value)
+# stockfn <- function(startStock, change_vec){
+#   stock_vec <- c()
+#   stock_vec[1] <- startStock + change_vec[1]
+#   for(i in 2:length(change_vec)){
+#     stock_vec[i] <- stock_vec[i - 1] + change_vec[i]
+#   }
+#   return(stock_vec)
+# }
+# df_FAOstocks$`Maize and coarse grains` <- stockfn(stocks1960_coarseGrains,
+#                                      df_FAOstocks$`Maize and coarse grain variation`)
+# df_FAOstocks$`Wheat` <- stockfn(stocks1960_wheat,
+#                              df_FAOstocks$`Wheat variation`)
+# df_FAOstocks <- df_FAOstocks[, c("Area", "Year", "Maize and coarse grains", "Wheat")]
+# df_FAOstocks <- df_FAOstocks %>% gather(Item, `Stocks (million metric tons)`,
+#                                   `Maize and coarse grains`:`Wheat`)
+# #--------------------------------------------------------------------------
+# df_FAOstocksPerCons <- merge(df_FAOstocks, df_cons, by = c("Area", "Year", "Item"))
+# 
+# df_FAOstocksPerCons$`Stocks / Consumption (%)` <- 100 * df_FAOstocksPerCons$`Stocks (million metric tons)` / df_FAOstocksPerCons$`Food supply (million metric tons)`
+
+```
+
+Self-sufficiency ratio
+
+* This SSR differs from the FAO definition [@clapp2017food]. Here I add stocks.
+* Europe worse off than South Asia!
+* For next section: World wheat SSR actually reached lowest point when gr was in full swing (mid-1970s). And Central America, first epicenter of gr, steadily declines throughout the gr years.
+* South Asia not self-sufficient in wheat, but is self-sufficient in rice and coarse grains. Compare against actual diet. Expect to see tiny % of diet going to wheat, most going to coarse grains and rice.
+
+```{r selfSuffRatio, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
+
+# Import, export, and production in units of 1000 metric tons
+element_vec <- c("Import Quantity", "Export Quantity", "Production")
+
+df_ssr <- subset(df_fbs, Area %in% area_vec &
+                   Item %in% item_vec &
+                   Element %in% element_vec)
+
+df_ssr$Item[grep("Sorghum|Millet|Rye|Barley|Oats|Maize", df_ssr$Item, ignore.case = T)] <- "Coarse grains"
+df_ssr$Item[grep("Wheat", df_ssr$Item, ignore.case = T)] <- "Wheat"
+df_ssr$Item[grep("Rice", df_ssr$Item, ignore.case = T)] <- "Rice, Milled"
+df_ssr <- df_ssr %>% group_by(Area, Element, Item, Year) %>%
+  summarise(Value = sum(Value, na.rm = T) / 1000) %>% as.data.frame()
+# (divided by 1000 to convert to million metric tons)
+df_ssr <- df_ssr %>% spread(Element, Value)
+
+colnames(df_ssr)[1:2] <- c("Country", "Commodity")
+df_ssr <- merge(df_stocks, df_ssr, by = c("Country", "Commodity", "Year"))
+
+df_ssr$ssr_numer <- df_ssr$`Beginning Stocks (million metric tons)` + df_ssr$Production
+df_ssr$ssr_denom <- df_ssr$ssr_numer + df_ssr$`Import Quantity` - df_ssr$`Export Quantity`
+
+df_ssr$`Self-sufficiency ratio` <- df_ssr$ssr_numer / df_ssr$ssr_denom
+
+last_yr <- 1966
+df_plot <- subset(df_ssr, Year <= last_yr)
+
+data_source <- "Source: Author's creation using USDA Beginning Stocks and FAO Production, Import, and Export data.\nSelf-sufficiency ratio = (Production + Stocks) / (Production + Stocks + Imports - Exports)"
+
+gg <- ggplot(df_plot, aes(x = Year,
+                          y = `Self-sufficiency ratio`,
+                          group = Commodity, color = Commodity))
+gg <- gg + geom_line(lwd = 1)
+gg <- gg + scale_color_manual(values = color_vec)
+gg <- gg + scale_x_continuous(breaks = 1961:last_yr)
+gg <- gg + facet_wrap(~Country, ncol = 3, scales = "free_y")
+gg <- gg + labs(title = "Cereal self-sufficiency ratios just before the green revolution", caption = data_source)
+gg <- gg + theme(legend.title = element_blank(),
+                 axis.title.x = element_blank(),
+                 axis.text.x = element_text(angle = 60, hjust = 1))
+gg <- shift_legend2(gg)
+gg <- ggplotify::as.ggplot(gg)
+
+
+```
+
+India diet: wheat unimportant, wheat made up about `r mu_wheat`% of cereal calorie intake, whereas rice made up `r mu_rice`% and `r mu_cGrain`.
+
+Pakistan cereal diet is predominantly wheat
+
+```{r dietSAsia, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
+
+item_vec <- c("Cereals", item_vec)
+area_vec <- c("India", "Pakistan")
+df_diet <- subset(df_fbs, Area %in% area_vec &
+                   Item %in% item_vec &
+                   Element == "Food supply (kcal/capita/day)")
+
+df_diet$Item[grep("Sorghum|Millet|Rye|Barley|Oats|Maize", df_diet$Item, ignore.case = T)] <- "Coarse grains"
+df_diet$Item[grep("Wheat", df_diet$Item, ignore.case = T)] <- "Wheat"
+df_diet$Item[grep("Rice", df_diet$Item, ignore.case = T)] <- "Rice, Milled"
+df_diet <- df_diet %>% group_by(Area, Element, Item, Year) %>%
+  summarise(Value = sum(Value, na.rm = T)) %>% as.data.frame()
+df_tot <- subset(df_diet, Item == "Cereals")
+colnames(df_tot)[ncol(df_tot)] <- "Total Cereals"
+df_tot$Element <- NULL
+df_tot$Item <- NULL
+df_diet <- subset(df_diet, Item != "Cereals")
+df_diet <- merge(df_diet, df_tot, by = c("Area", "Year"))
+df_diet$`Cereal diet share` <- df_diet$Value / df_diet$`Total Cereals`
+
+
+df_mu <- subset(df_diet[, c("Area", "Year", "Item", "Cereal diet share")],
+                Year %in% c(1961:1966) &
+                  Area == "India")
+
+df_mu <- df_mu %>% spread(Item, `Cereal diet share`)
+mu_vec <- colMeans(df_mu[, -c(1:2)])
+mu_rice <-  round(100 * mu_vec["Rice, Milled"], 1)
+mu_cGrains <-  round(100 * mu_vec["Coarse grains"], 1)
+mu_rice <-  round(100 * mu_vec["Wheat"], 1)
+
+
+last_yr <- 1966
+df_plot <- subset(df_diet, Year <= last_yr)
+colnames(df_plot)[5] <- "kcal / capita / day"
+
+data_source <- "Source: Author's creation using FAO Food Balance Sheet kcal/capita/day data."
+df_plot$Year <- as.integer(df_plot$Year)
+gg <- ggplot(df_plot, aes(x = Year,
+                          y = `kcal / capita / day`,
+                          fill = Item))
+gg <- gg + geom_area(position = "stack")
+gg <- gg + scale_fill_manual(values = color_vec)
+gg <- gg + scale_x_continuous(breaks = 1961:last_yr)
+gg <- gg + facet_wrap(~Area, ncol = 2)
+gg <- gg + labs(title = "South Asia cereal diet composition just before the green revolution", caption = data_source)
+gg <- gg + theme(legend.title = element_blank(),
+                 axis.title.x = element_blank(),
+                 axis.text.x = element_text(angle = 60, hjust = 1))
+gg
+
+
+```
+
+
+
+
+
+
+
+[@brown1963man]
+
+## Examining Claim 2: Did production increase after the introduction of green revolution wheat and rice?
+
+* After recovering briefly from 1968-1973, US, Europe, South Asia foodgrain stocks fell to their lowest point in the mid 70s. Mahrashtra famine. US stocks were even lower than in 1966. The FAO 1975 state of food and agriculture report once again sounded the alarms. But how could this be? This was in the midst of the Green Revolution.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r faoGraph1965Extended, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...world excluding mainland China", echo = FALSE}
 
 df_plot <- df_prodPcap
 df_plot$Unit <- NULL
@@ -697,7 +1238,7 @@ df_plot$Unit <- NULL
 df_plot <- df_plot %>% gather(Element, Value, Production:`Production / capita (metric tons)`)
 
 
-last_yr <- 2017
+last_yr <- 2000
 df_plot <- subset(df_plot, Item == "Food" &
                     Area %in% c("World excluding\nmainland China") &
                     Year %in% c(1961:last_yr))
@@ -732,64 +1273,10 @@ gg
 
 
 
-
-It is kind of pointless to include population and production curves if looking at production per capita...looking at cereals explicitly...
-
-```{r faoGraph1965_cereals, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...world excluding mainland China", echo = FALSE}
-
-df_plot <- df_prodPcap
-df_plot$Unit <- NULL
-
-df_plot <- df_plot %>% gather(Element, Value, Production:`Production / capita (metric tons)`)
-
-last_yr <- 2000
-area_vec <- c("Southern Asia", "South-eastern Asia", "South America", "Central America", "World")
-df_plot <- subset(df_plot, Item %in% c("Food", "Cereals, Total") &
-                    #Area %in% c("World", "China, mainland") &
-                    Area %in% area_vec &
-                    Year %in% c(1961:last_yr) &
-                    Element == "Production / capita (metric tons)")
-#df_plot <- df_plot %>% spread(Area, Value)
-#df_plot$Value <- df_plot$World - df_plot$`China, mainland`
-#df_plot$`China, mainland` <- NULL
-#df_plot$World <- NULL
-
-df_plot <- df_plot %>% group_by(Area, Item, Element) %>%
-  mutate(Value = Value / Value[1] * 100) %>% as.data.frame()
-
-colnames(df_plot)[ncol(df_plot)] <- "Index (1961 = 100)"
-
-n <- length(unique(df_plot$Area))
-bag_of_colors <- randomcoloR::distinctColorPalette(k = 2 * n)
-color_vec <- sample(bag_of_colors, n)
-last_yr <- unique(df_plot$Year)[length(unique(df_plot$Year))]
-
-gg <- ggplot(df_plot, aes(x = Year, y = `Index (1961 = 100)`,
-                              group = Item, color = Item))
-gg <- gg + geom_line(lwd = 1.5)
-#gg <- gg + geom_point(color = "white", size = 2)
-gg <- gg + facet_wrap(~Area, scales = "free_y")
-gg <- gg + scale_color_manual(values = color_vec)
-#gg <- gg + scale_x_continuous(breaks = seq(1961, last_yr, 1))
-gg <- gg + theme(legend.title = element_blank(),
-                 legend.spacing.x = unit(0.5, 'cm'),
-                 axis.title.x = element_blank(),
-                 axis.text.x = element_text(angle = 60, hjust = 1))
-gg <- shift_legend2(gg)
-gg <- ggplotify::as.ggplot(gg)
-
-
-```
-
-
-The FAO has since developed better ways to examine such trends, in particular the food balance sheets... as weight per capita is mixing apples and organges...kcal / capita
-
-Definite increase, but not clear that there was ever really a decrease since 1961. To get a better sense, we would need to examine more years leading up to the green revolution harvests.
-
-```{r FAOCerealsKcalPcap, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
+```{r FAOCerealsKcalPcapExtended, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
 
 this_file <- "Green revolution food supply.csv"
-this_filepath <- paste0(this_folder, this_file)
+this_filepath <- paste0("Data/", this_file)
 df_fbs <- read.csv(this_filepath, stringsAsFactors = F, header = F)
 df_fbs$V1 <- NULL
 colnames(df_fbs) <- df_fbs[1, ]
@@ -816,7 +1303,7 @@ df_fbs$Area[grep("South-Eastern Asia", df_fbs$Area)] <- "South-eastern Asia"
 # df_plot <- df_plot %>% gather(Element, Value, `kcal / capita / day`:`kcal / day`)
 #---
 item_vec <- c("Cereals", "Food")
-last_yr <- 2017
+last_yr <- 2000
 df_plot <- subset(df_fbs, Area %in% area_vec &
                     Item %in% item_vec &
                     Element == "Food supply (kcal/capita/day)" &
@@ -833,8 +1320,9 @@ color_vec <- sample(bag_of_colors, n)
 df_plot$Year <- as.integer(df_plot$Year)
 
 
-gg <- ggplot(df_plot, aes(x = Year, y = `Kcal / capita supply index (1961 = 100)`,
-                              group = Item, color = Item))
+gg <- ggplot(df_plot, aes(x = Year,
+                          y = `Kcal / capita supply index (1961 = 100)`,
+                          group = Item, color = Item))
 gg <- gg + geom_line(lwd = 1.5)
 #gg <- gg + geom_point(color = "white", size = 2)
 gg <- gg + facet_wrap(~Area)
@@ -869,15 +1357,7 @@ gg <- ggplotify::as.ggplot(gg)
 
 
 
-
-
-
-
-
-
-
-
-```{r IndiaCereals, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
+```{r IndiaCerealsExtended, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
 
 #crop_vec <- c("Wheat", "Maize", "Rice", "Foodgrain", "Course Cereals")
 this_folder <- "C:/Users/bensc/OneDrive/Documents/Data/India Dept Ag Data/"
@@ -999,13 +1479,96 @@ gg
 
 ```
 
-Another piece of the story that is sometimes mentioned is that world wheat stocks were rapidly dwindling.
+The short answer: Wheat and rice production increased dramatically, yes, but this cannot be attributed to the improved germplasm alone. And these increases did not increase the overall food grain supply.
+
+Green Revolution narrators tend to focus on the increases in production. As pointed out above, there were enormous political pressures to make a sensation of the first Green Revolution harvest in India. The drought years of 1965 and 1966 were followed by good weather in 1967. The green revolution crops performed well, but critics pointed out that just about every other crop also achieved a record harvest, with or without technology [@paddock1970green]. Gaud was quick to take credit [@gaud1968green]. ...[@brown1968agricultural]. The Food and Agricultural Organization acknowledged that the new high yielding varieties played some role, but concluded that the dramatic increase was mostly due to good weather [@fao1968stateFoodAg]. Nonetheless, in the following year yields remained high despite mediocre weather. Borlaug felt vindicated. "The skeptics are now silent", he said [@borlaug1969green]. Still a little early to judge, but subsequent years bore out his sense of vindication... wheat and rice yields continued to exceed their traditional counterparts by a wide margin, even in years with relatively poor or mediocre weather;
+
+Green revolution proponents like to focus on production. A doubling of production in just a few years is certainly a feat. But across longer time frames, changes in production are a poor metric of performance since it becomes difficult to tease apart how much of the increase is due to improved technology and how much due to the ever increasing number of farmers and area converted into agricultural land. Green revolution scientists are surely aware of this obvious consideration, and yet they can often be caught taking credit for virtually all of the increase in food grain production since the 1960s. Here again is Khush, for example:
+
+>"It took almost 10,000 years for food grain production to reach 1 billion tons, in 1960, and only 40 years to reach 2 billion tons, in 2000. This unprecedented increase, which has been named the 'green revolution', resulted from the creation of genetically improved crop varieties, combined with the application of improved agronomic practices" [@khush2001green].
+
+Over the same period, the world's population also doubled (from about 3 billion to 6 billion). The corresponding doubling of agricultural output is thus, prima facie, no more "unprecedented" than agriculture itself. Scientists must present us with compeling evidence of the extent to which this increase is greater than it would have been without their technological interventions. They may not simply assume this to be true.misleading
+
+India's and Pakistan's 1968 wheat crop 30% above its previous record. India's total 1968 foodgrain crops (100 million tons) were up 32% from the drought depressed levels of the previous year, and up 12% from the previous record [@brown1968agricultural].
+
+"Good weather has helped boost the harvest on the Indian Subcontinent this year, but increases above the previous record are largely the results of solid technological practice--more efficeint varieties, more fertilizers and better farm practices" [@brown1968agricultural].
+
+1968 wheat harvest in Pakistan was 7 million metric tons, up from the previous record of 4.6 mt (1965). An increase of 52% over the previous high. In India, wheat harvest was 18 mt compared to a previous record of 12.4 mt (1965), an increase of 46% [@borlaug1969green].
+
+>"Between 1966 and 2000, the population of densely populated low-income countries almost doubled, but food production increased by more than 125%" [@khush2001green].
+
+>"Estimated System-wide benefits ranged from nearly $14 billion to over $120 billion in net present value. The benefit-cost ratios suggest that investments in the CGIAR have paid for themselves by a wide margin. Even by the most conservative criterion, overall benefits attributable to CGIAR research were roughly double the costs of total investment in the System" [@renkow2010impacts].
+
+>"The overall benefits of CGIAR contributions to crop genetic improvement are estimated in billions of dollars—mostly because of the benefits from the improved three main staples [wheat, rice, and maize]" [@pingali2012green].
+
+-------------
 
 
-```{r IndiaCereals, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
+>"Between 1966 and 2000, the population of densely populated low-income countries almost doubled, but food production increased by more than 125%" [@khush2001green].
+
+value of ag production has trebled over 1961-2008 [@wik2008global].
 
 
-```
+
+* There is a real sense in which farmers were paid to produce more.
+
+
+## Claim 3 is about the enabling environment
+i.e. how much of the increase can be attributed to the technology, as opposed to was there an increase (not much, most is explained by the enabling environment)
+
+* The most rigorous study on the impacts of the green revolution to date [@evenson2003assessing] found that just 17% of the increase in production in the developing world from 1961-1980 could be attributed to improved germplasm. (Moreover,) Expansion of the agricultural frontier accounted for another 20% of the increase. This means that 63% of the increase must be explained by other factors. The authors of the study presume that inputs account for the residual. A strong case could be made that the residual 63% is attributable to the enabling environment, in particular the subsidies without which farmers would not have voluntarily adopted the higher yielding varieties.
+
+* The policy and institutional context is recognized as critical, but also thought of as a "battle". "Simultaneously, while introducing the new varieties, [the scientists] must win the battle at top government policy levels for attractive grain prices, while assuring availability at reasonable prices of such inputs as fertilizer, insecticides, and water (pumps, motors, etc.)" [@borlaug1969green]. (p. 2)
+
+* The confusion over labor productivity: rising mechanization (praised in [@borlaug1969green]) versus importance of labor intensiveness [@brown1968agricultural]. Although potentially complementary--machines needed to speed up seedbed preparation (for multiple cropping). But labor also still needed for weeding, fertilizer application, etc.
+
+
+* By "enabling environment" I mean the term of art appearing in the AR4D literature---synonymous with other catch phrases such as "the policy and institutional framework" or "policies, institutions, and markets". This refers broadly to the social, economic, institutional, financial, and political context in which a new agricultural technology (improved seed, techniques, tools, etc.) is released. / The "enabling environment" follows a peculiar trajectory through the AR4D discourse. On the one hand, there is a tendency to ignore it or to assume that it is trivially given. High level narratives of the green revolution, for example, typically attribute increases in cereal yields since 1961 to improvements in germplasm [@pingali2012green; @khush2001green].
+
+* (Motive of this article: within donor community, research institutions have earned a reputation for pursuing research projects that are of interest to the research community, but of limited relevance to smallholder.... If they insist on a false narrative, rather than recognizing the reality, they run the risk losing funding. In order to make a decision to invest in AR4D, donors must have a clear idea of what return they can expect. What did donors get out of their investments in AR4D? In order to have good foresight, we must have good hindsight.)
+
+## The green revolution narrative
+
+It may be of limited usefulness to talk of a single, monolithic green revolution narrative. Friends and critics alike have long acknowledged its shortcomings and weaknesses, albeit in varying degrees. An important and underappreciated part of the story of the green revolution has been its response to criticism, particularly as regards its pro-poorness.
+
+Nonetheless, 
+
+
+early appraisals of the GR, good awareness of the equally as important role of the enabling environment: [@falcon1970green; @wharton1969green; @borlaug1969green; @pinstrup1985impact; @sen1970opportunities; @dalrymple1975measuring]
+
+GR didn't spread so fast in Latin America because of the semi-feudal land tenure system offered no incentives for the farmer to invest in their land [@jones1977green].
+
+unknown 1975 precursor to the Byerlee new agricultural paradigm paper, the ag sector as an engine of participative, equitable growth: [@singh1975factor] -- addresses the perils of mechanization, labor vs. capital intensive, as does Lipton 35 yrs later.
+
+Plan Puebla, issues of labor intensiveness vs. mechanization [@redclift1983production; @thiesenhusen1972green]
+
+IFPRI cheerleading report on GR [@pinstrup1985impact].
+
+
+
+
+
+
+Is this true?
+
+* On Claim 1 -The Malthusian pall- Per capita production rose steadily from 1945 to 1960, leading to record surplus stocks in the most developed countries [@fao1960stateFoodAg]. Nonetheless, a leveling off of per capita production from 1960 to 1964 prompted FAO Director General Binay Ranjan Sen to raise the spectre of "Malthusian correctives" entering into play if governments did not act to restore production to the 1945-1960 trendline [@fao1965stateFoodAg]. Bad weather led to disastrous harvests in 1965 and 1966,...and depletion of the grain surpluses...further exacerbated the picture....However, good weather returned in 1967 with a record harvest [@fao1968stateFoodAg].   don't want to spend a lot of time on this but...There is also the narrative of...not til British rule in 1860, introduction of commercial incentives, displacement of food crops...thereafter some 40 million deaths due to famine, often in the midst of abundance. [@sen1982poverty; @bhatia1967famines; @davis2002late]
+
+
+
+Graphic of BBC calculation -- is it true that population growth was on track to outpace food production? If it were true, then we should see a steady decline in cereal production per capita. Do we see this? (India cereals graphic.)
+
+1955-1964
+
+A caption explains that the graphic "shows clearly how since about the middle of the decade there have been no further gains in production in relation to population, and thus no margin for better levels of living" [@fao1965stateFoodAg].
+
+<!-- "This graph compares the increase in agricultural, fishery and forest production intheworld,excluding China (Mainland), withthe growth of population duringthe secondpostwar decade.The combined production indexfor agriculture, fisheries and forestry is a newfeature of this year's report.It shows clearlyhow since about the middle of the decade therellave been no further gains in production inrelation to population, and thus no margin forbetter levels of living". -->
+
+
+<!-- olden days FAOSTAT query 2004 -->
+<!-- https://web.archive.org/web/20040202052701/http://apps.fao.org/default.htm -->
+<!-- https://web.archive.org/web/20040202055417/http://apps.fao.org/page/collections?subset=agriculture -->
+
+
 
 
 
@@ -1014,7 +1577,6 @@ Another piece of the story that is sometimes mentioned is that world wheat stock
 
 * On Claim 2: Was there a dramatic increase in production? Production is always increasing simply because the population, and hence the number of farmers, is always increasing. Unfortunately, this rather obvious consideration does not prevent proponents of the green revolution from taking credit for this secular growth. The abstract of Khush's paper cited above reads:
 
->"It took almost 10,000 years for food grain production to reach 1 billion tons, in 1960, and only 40 years to reach 2 billion tons, in 2000. This unprecedented increase, which has been named the 'green revolution', resulted from the creation of genetically improved crop varieties, combined with the application of improved agronomic practices" [@khush2001green].
 
 For any informed person, such a statement smacks of snake oil salesmanship, not scholarship. Agricultural production has always increased proportional to the number of hands farming and mouths to feed, i.e., the size of the population. Over the same period mentioned by Khush, the world's population also doubled (from about 3 billion to 6 billion). The corresponding doubling of agricultural output is thus, prima facie, no more "unprecedented" than agriculture itself. Proponents of the green revolution must demonstrate the extent to which the increase in production can be attributed to research, and what portion must be attributed to the increased number of farmers and of cultivated hectares. They may not simply lay claim to the whole thing without justification.
 
@@ -1077,18 +1639,6 @@ Philippines rice per capita... Subramanian notes that overall cereal production 
 --------------
 Claims to examine in the fao data:
 
->"Between 1966 and 2000, the population of densely populated low-income countries almost doubled, but food production increased by more than 125%" [@khush2001green].
-
->"Estimated System-wide benefits ranged from nearly $14 billion to over $120 billion in net present value. The benefit-cost ratios suggest that investments in the CGIAR have paid for themselves by a wide margin. Even by the most conservative criterion, overall benefits attributable to CGIAR research were roughly double the costs of total investment in the System" [@renkow2010impacts].
-
->"The overall benefits of CGIAR contributions to crop genetic improvement are estimated in billions of dollars—mostly because of the benefits from the improved three main staples [wheat, rice, and maize]" [@pingali2012green].
-
--------------
-
-
->"Between 1966 and 2000, the population of densely populated low-income countries almost doubled, but food production increased by more than 125%" [@khush2001green].
-
-value of ag production has trebled over 1961-2008 [@wik2008global].
 
 intensification-induced decline in cereal crop productivity, and small yield gap in the high potential areas (particularly for rice and wheat) [@pingali2001cereal].
 
@@ -1558,6 +2108,219 @@ The more closely the situation is examined, the more one is impressed by the odd
 The key issue is that, ever since the green revolution, low yields and ag development in general have been treated as purely biophysical problems. There is no appreciation whatsoever of the economic incentives that ultimately determine farm output.
 
 
+From the President's Science Advisory Committee World Food Problem report:
+(12 subpanels, total membership of 110 people [@blakeslee1968president])
+"To persuade farmers to accept the techniques and methods of modern agriculture is a formidable and complex undertaking . Farmers in traditional subsistence economies are understandably wary of assum ing new risks because they are so close to the margin of survival . If a farmer is to invest in the modern inputs of improved seeds , fertilizers , and pesticides that are essential to increasing the output of his land , these resources must be easily available to him , a system of farm credit must be established so that he can afford to purchase them , he must be instructed in the proper and economic utilization of these materials , he must be reassured that he will be compensated for possible losses in curred in the process of innovation , and , above all , he must be shown that the potential payoff is worth the risk . Land tenure policies should not be such that his landlord will profit and he will not . Government pricing policies should not favor the consumer at the expense of the producer.
+"All of these factors enter into the vital matter of providing in centives to the farmer to increase production for the market . Funda mentally , it appears that many nations are under - utilizing the power of the market economy....
+"To induce farmers to change , the potential payoff must be high - not 5 to 10 percent but 50 to 100 percent . Adoption of deep wells for supplemental irrigation in West Pakistan is an example . In five years , nearly 32 thousand private " tube " wells were installed , at a cost of $ 1 , 000 to $ 2 , 500 each , on farms no larger than 25 acres in the cotton and rice regions of the former Punjab . A private investment of $ 50 million was made by traditional farmers without government subsidy . Why ? The wells typically paid for themselves in two years . If the payoff is large enough , farmers will change" [@president1967world].
+
+The Subpanels on Water, Land, and Tropical Soils and Climate found that the supply of potentially arable land in Latin America and Africa was ample for any foreseeable needs. The supply of land in Asia were deemed to be small relative to food demand [@president1967world].
+
+The report advocates a holistic "systems approach" [@president1967world].
+
+Systems approach particularly evident in the findings of the Subpanel on Production Incentives for Farmers... Price policies must be designed to stimulate production, not just keep food prices down.
 
 
+
+
+
+
+
+
+```{r greenRevCartoon, fig.show = "hold", fig.width = 11, fig.height=3, fig.align = "center", fig.cap = "...", echo = FALSE}
+
+# Comic strip
+
+mapping <- aes(x, y, scale, ratioxy, angleofspine, anglerighthumerus,
+               anglelefthumerus, anglerightradius, angleleftradius,
+               anglerightleg, angleleftleg, angleofneck,
+               color = Legend)
+#---------------------------------------------------------------------------
+# Panel 1
+ratioxy <- sqrt(2) * 1 / 2#diff(xrange) / diff(yrange)
+dataman <- data.frame(x = c(0.15, sqrt(2) - 0.15), y = c(0.5, 0.6),
+                      scale = c(0.1, 0.2),
+                      ratioxy = ratioxy,
+                      angleofspine = -pi / 2,
+                      anglerighthumerus = c(-pi / 6, -pi / 6),
+                      anglelefthumerus = c(pi + pi / 6, pi + pi / 6),
+                      anglerightradius = c(pi / 3, pi + pi / 3),
+                      angleleftradius = c(-pi / 3, pi + pi / 3),
+                      anglerightleg = 3 * pi / 2 - pi / 12,
+                      angleleftleg = 3 * pi / 2 + pi / 12,
+                      angleofneck = runif(1, 3*pi/2-pi/10, 3*pi/2+pi/10),
+                      Legend = c("Cartoon Scientist", "Cartoon Donor"))
+
+datalines <- data.frame(xbegin = c(0.15, sqrt(2) - 0.2),
+                        ybegin = c(0.57, 0.7),
+                        xend = c(0.15, sqrt(2) - 0.3),
+                        yend = c(0.62, 0.75))
+
+
+n <- length(unique(dataman$Legend))
+bag_of_colors <- randomcoloR::distinctColorPalette(k = 4 * n)
+color_vec <- sample(bag_of_colors, n)
+
+ymax <- 1
+#xmax <- ymax * ratioxy
+xmax <- ymax * sqrt(2)
+gg <- ggplot()
+gg <- gg + xlim(c(0, xmax)) + ylim(0, ymax)
+gg <- gg + annotation_custom(ggplotGrob(gg_xkcd_prod_comic),
+                          xmin = 0.4, xmax = 0.96, 
+                          ymin = 0.45, ymax = 1)
+gg <- gg + xkcdman(mapping, dataman)
+gg <- gg + annotate("text", x = 0.15, y = 0.8,
+                    label = "Our research\nhas saved\nmillions of lives.",
+                    family = "xkcd")
+gg <- gg + xkcdline(aes(x = xbegin,
+                        y = ybegin,
+                        xend = xend,
+                        yend = yend), datalines, xjitteramount = 0.12)
+gg <- gg + annotate("text", x = 1.15, y = 0.85,
+                    label = "Wow!\nFunding approved.\n(Heh heh, your chart kinda looks\nlike a fuzzy caterpillar.)",
+                    family = "xkcd")
+gg <- gg + scale_color_manual(values = color_vec)
+gg <- gg + labs(title = "The Metamorphosis of the Researcher",
+                x = "In funding renewal season: The Technocratic Determinist",
+                color = "Legend")
+gg <- gg + theme_bw()
+gg <- gg + theme(axis.title.y = element_blank(),
+                 axis.text = element_blank(),
+                 axis.ticks = element_blank(),
+                 panel.grid = element_blank(),
+                 legend.position = "none",
+                 text = element_text(family = "xkcd"))
+gg
+gg_comic_pane1 <- gg
+
+#---------------------------------------------------------------------------
+# Panel 2
+# Get lorenz attractor graphic
+parameters <- c(s = 10, b = 8/3)
+#r <- seq(0, 30, by = 0.05)
+r = 30
+state <- c(X = 0, Y = 1, Z = 1)
+times <- seq(0, 50, by = 0.01)
+library(deSolve)
+Lorenz <- function(t, state, parameters) {
+  with(as.list(c(state, parameters)), {
+    dX <- s * (Y - X)
+    dY <- X * (r - Z) - Y
+    dZ <- X * Y - b * Z
+    list(c(dX, dY, dZ))
+  })
+}
+
+out <- lapply(r,
+              function(x){
+                ode(y = state,
+                    times = times,
+                    func = Lorenz,
+                    parms = c(r = x, parameters),
+                    method = "euler")
+                }
+              )
+
+gg <- ggplot(data.frame(out[[1]]))
+gg <- gg + geom_path(aes(x = X, y = Z, colour = Y))
+#gg <- gg + ggtitle(paste0('Lorenz attractor r = ', r[1]))
+gg <- gg + ggtitle(paste0("Lorenz attractor"))
+gg <- gg + theme_bw()
+gg <- gg + theme(axis.text = element_blank(),
+                 axis.title = element_blank(),
+                 axis.ticks = element_blank(),
+                 panel.grid = element_blank(),
+                 plot.title = element_text(size = 8),
+                 text = element_text(family = "xkcd"),
+                 legend.position = "none")
+gg_chaos <- gg
+
+ratioxy <- sqrt(2) * 1 / 2
+dataman <- data.frame(x = c(0.15, sqrt(2) - 0.15), y = c(0.5, 0.6),
+                      scale = c(0.1, 0.2),
+                      ratioxy = ratioxy,
+                      angleofspine = -pi / 2,
+                      anglerighthumerus = c(-pi / 6, -pi / 6),
+                      anglelefthumerus = c(pi + pi / 6, pi + pi / 6),
+                      anglerightradius = c(pi / 3, pi + pi / 3),
+                      angleleftradius = c(-pi / 3, pi + pi / 3),
+                      anglerightleg = 3 * pi / 2 - pi / 12,
+                      angleleftleg = 3 * pi / 2 + pi / 12,
+                      angleofneck = runif(1, 3*pi/2-pi/10, 3*pi/2+pi/10),
+                      Legend = c("Cartoon Scientist", "Cartoon Donor"))
+
+datalines <- data.frame(xbegin = c(0.15, 0.25, sqrt(2) - 0.2),
+                        ybegin = c(0.57, 0.4, 0.7),
+                        xend = c(0.15, 0.3, sqrt(2) - 0.3),
+                        yend = c(0.62, 0.35, 0.75))
+
+
+
+ymax <- 1
+#xmax <- ymax * ratioxy
+xmax <- ymax * sqrt(2)
+gg <- ggplot()
+gg <- gg + xlim(c(0, xmax)) + ylim(0, ymax)
+gg <- gg + annotation_custom(ggplotGrob(gg_chaos),
+                          xmin = 0.42, xmax = 0.96, 
+                          ymin = 0.45, ymax = 1)
+gg <- gg + xkcdman(mapping, dataman)
+gg <- gg + annotate("text", x = 0.21, y = 0.8,
+                    label = "It's naive to presume\na direct line between\nresearch and impacts.\nWhat is 'research' anyway?",
+                    family = "xkcd")
+gg <- gg + xkcdline(aes(x = xbegin,
+                        y = ybegin,
+                        xend = xend,
+                        yend = yend), datalines, xjitteramount = 0.12)
+gg <- gg + annotate("text", x = 0.6, y = 0.3,
+                    label = "...Whose truth?\n...Extenuating circumstances...\n...Butterfly effect...\n...Habermas...Foucault...",
+                    family = "xkcd")
+
+gg <- gg + annotate("text", x = 1.15, y = 0.85,
+                    label = "Ahhh!",
+                    family = "xkcd")
+gg <- gg + scale_color_manual(values = color_vec)
+gg <- gg + labs(x = "In impact evaluation season: The Relativist Philosopher",
+                color = "Legend")
+gg <- gg + theme_bw()
+gg <- gg + theme(axis.title.y = element_blank(),
+                 axis.text = element_blank(),
+                 axis.ticks = element_blank(),
+                 panel.grid = element_blank(),
+                 text = element_text(family = "xkcd"))
+gg
+gg_comic_pane2 <- gg
+#---------------------------------------------------------------------------
+
+gg_comic_pane1 | gg_comic_pane2
+
+
+```
+
+
+Borlaug 1970 nobel speech: "two opposing forces, the scientific power of food production and the bio-logic power of human reproduction"
+
+Johnson 1967 state of union: "Next to the pursuit of peace, the really greatest challenge to the human family is the race between food supply and population increase. That race tonight is being lost."
+
+Johnson speech continued: "The time for rhetoric has clearly passed. The time for concerted action is here and we must get on with the job.
+
+We believe that three principles must prevail if our policy is to succeed:
+
+First, the developing nations must give highest priority to food production, including the use of technology and the capital of private enterprise.
+
+Second, nations with food deficits must put more of their resources into voluntary family planning programs.
+
+And third, the developed nations must all assist other nations to avoid starvation in the short run and to move rapidly towards the ability to feed themselves.
+
+Every member of the world community now bears a direct responsibility to help bring our most basic human account into balance."
+
+
+
+
+http://www.fao.org/3/y3557e/y3557e08.htm
+Text box: "The scares that went away"
+In the 1960s and early 1970s it became commonplace to warn of impending famine in India and in South Asia as a whole. In the mid-1960s the region imported 10 million tonnes of cereals a year - 11 percent of its consumption - but even so its cereal use per person was low, only 146 kg per year.
+
+Thirty-three years on, the region's population had doubled and cereal use had risen to 163 kg per person per year. Yet thanks to the green revolution, imports were only a third of their mid-1960s levels, running at less than 2 percent of consumption. India had become a small net exporter in most years since the late 1970s.
 References
