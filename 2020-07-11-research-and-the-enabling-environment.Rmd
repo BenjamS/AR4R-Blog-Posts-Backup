@@ -252,9 +252,9 @@ gg <- gg + xkcdaxis(range(year_vec), range(prodPcap_GRev))
 #                     xmax = rect1_xmax,
 #                     ymax = rect1_ymax), df_plot, fill = NA)
 gg <- gg + annotate("text", x = rect1_xmin, y = rect1_ymin,
-                    label = "B.G.", family="xkcd")
+                    label = "B.G.R.", family="xkcd")
 gg <- gg + annotate("text", x = rect2_xmin, y = rect2_ymin,
-                    label = "A.G.", family="xkcd")
+                    label = "A.G.R.", family="xkcd")
 gg <- gg + theme(axis.text.y = element_blank(),
                  axis.text.x = element_blank(),
                  axis.ticks.x = element_blank(),
@@ -338,11 +338,11 @@ Brazil: no data
 Drought in India and 18 million deaths
 
 1943-1945 Bengal famine
-India: 2 million (wikipedia)
+India: 3 million [@sen1981ingredients]
 
 
 
-By 1878, a British statistician counted 31 serious famines in 120 years of British rule versus 17 famines in the previous two milennia [Walford (1878) in @davis2002late].
+Under East India Company rule (1770-1858), famines on the Indian subcontinent were "frequent and severe" [@dreze1991political]. By 1878, a British statistician counted 31 serious famines in 120 years of British rule (including East India Company rule) versus 17 famines in the previous two milennia [Walford (1878) in @davis2002late].
 
 
 However, amidst the bombast, there did emerge at least one fact based analysis [@brown1963man]....The FAO was also fact based, although they tended to take a pessimistic interpretation of the data...[fao1965]. Even a decade later, when the green revolution was in full swing, the FAO maintained its pessimistic tone about the world food outlook [fao1975]. 
@@ -757,10 +757,13 @@ list_df <- lapply(list_df, process_India_cerealData)
 df_IndiaCereal <- as.data.frame(do.call(rbind, list_df))
 df_IndiaCereal$Item[grep("Rice", df_IndiaCereal$Item)] <- "Rice"
 df_IndiaCereal$Item <- gsub(" ", "", df_IndiaCereal$Item)
-df_IndiaCereal$Item[grep("Coarse", df_IndiaCereal$Item)] <- "Coarse grains"
+df_IndiaCereal$Item[grep("Coarse|Maize", df_IndiaCereal$Item)] <- "Coarse grains"
 df_IndiaCereal$Item[grep("Foodgrains", df_IndiaCereal$Item)] <- "Food grains"
 df_IndiaCereal_prod <- df_IndiaCereal[, c("Year", "Production (metric tons)",
                                           "Item")]
+df_IndiaCereal_prod <- df_IndiaCereal_prod %>% group_by(Year, Item) %>%
+  summarise(`Production (metric tons)` = sum(`Production (metric tons)`)) %>%
+  as.data.frame()
 
 #df_IndiaCereal_prod <- subset(df_IndiaCereal_prod, Item != "Food grains")
 
@@ -855,6 +858,9 @@ gg
 
 ```
 
+Thanks to Kurosaki's painstaking efforts [-@kurosaki1999agriculture], we can look even farther back, prior to the end of British colonial rule. Figure ... tells a story of a declining standard of living during the last quarter century of British rule, and then quickly turning upwards at independence. It is worth noting that this upward turn occured at a time when the Indian Government prioritized industrial development over agriculture. If there ever was a time to worry about India's ability to feed itself, it was during this period. If the Neo-Malthusians had appeared and made their arguments in the 1930s, they would have been well supported by the data. Cereal production per capita was declining throughout the period, and culminated in a major famine that claimed 3 million lives [@sen1981ingredients].
+
+Thanks to Mangahas et al. [-@mangahas1966price], we may also look back assembled a cereal production dataset going back to 1910. Combining this with government population data, we can see that per capita production declined sharply during World War II, but subsequently began to rebound.
 
 
 
@@ -876,25 +882,84 @@ colnames(df_kurosaki) <- gsub("\\.", " ", colnames(df_kurosaki))
 df_plot <- df_kurosaki[, c("Year", "Item", "Production (1000 metric tons)")]
 df_pop <- df_kurosaki[, c("Year", "Population (1000 persons)")]
 df_pop <- df_pop[-which(duplicated(df_pop$Year)), ]
-df_plot$Item[grep("Jowar|Ragi|Bajra|Barley", df_plot$Item)] <- "Coarse grains"
-df_plot <- subset(df_plot, Item %in% c("Coarse grains", "Maize", "Wheat", "Rice"))
+df_plot$Item[grep("Jowar|Ragi|Bajra|Barley|Maize", df_plot$Item)] <- "Coarse grains"
+df_plot <- subset(df_plot, Item %in% c("Coarse grains", "Wheat", "Rice"))
 df_plot <- df_plot %>% group_by(Item, Year) %>%
   summarise(`Production (1000 metric tons)` = sum(`Production (1000 metric tons)`)) %>%
   as.data.frame()
 df_plot <- merge(df_plot, df_pop, by = "Year")
-df_plot$`Production per capita (metric tons)` <- 
+df_plot$`Production / capita (metric tons)` <- 
   df_plot$`Production (1000 metric tons)` / df_plot$`Population (1000 persons)`
 
 df_plot <- subset(df_plot, Year <= 1966)
+
+df_plot <- df_plot %>% group_by(Item) %>%
+  mutate(mu_prodPcap = mean(`Production / capita (metric tons)`)) %>%
+  as.data.frame()
+
+df_plot$Item <-
+  factor(df_plot$Item,
+         levels = unique(df_plot$Item[order(df_plot$mu_prodPcap, df_plot$Item, decreasing = T)]),
+         ordered = T)
+
+
+this_title <- "India cereal production per capita (1902-1966)"
+data_source <- "Source: Author's creation using Kurosaki's India cereal production dataset and population data from the Government of India.\nYears for which no population data were available are interpolated using a cubic spline approximation."
 gg <- ggplot(df_plot, aes(x = Year,
-                          y = `Production per capita (metric tons)`,
+                          y = `Production / capita (metric tons)`,
                           fill = Item))
 gg <- gg + geom_area(position = "stack")
+gg <- gg + scale_fill_manual(values = color_vec)
+gg <- gg + labs(title = this_title, caption = data_source)
 gg <- gg + theme(legend.title = element_blank(),
+                 legend.position = "bottom",
                  axis.title.x = element_blank())
 gg
+#gg_india <- gg
+
+#===========================================================================
+# Now for Philippines
+# Rice and maize data 1910-1963 from IRRI Technical Bulletin 9
+this_dir <- "C:/Users/bensc/OneDrive/Documents/Data/"
+this_folder <- "Philippines Rice and Corn Per Capita 1909-1963/"
+this_file <- "Philippines Rice and Maize Per Capita 1909-1963.csv"
+this_filepath <- paste0(this_dir, this_folder, this_file)
+df_irri <- read.csv(this_filepath, stringsAsFactors = F)
+colnames(df_irri)[ncol(df_irri)] <- "Production / capita (metric tons)"
+df_plot <- subset(df_irri[, c("Year", "Item", "Production / capita (metric tons)")], Year >= 1910)
 
 
+df_plot <- df_plot %>% group_by(Item) %>%
+  mutate(mu_prodPcap = mean(`Production / capita (metric tons)`)) %>%
+  as.data.frame()
+
+df_plot$Item <-
+  factor(df_plot$Item,
+         levels = unique(df_plot$Item[order(df_plot$mu_prodPcap, df_plot$Item, decreasing = T)]),
+         ordered = T)
+
+
+this_title <- "Philippines rice and maize production per capita (1910-1963)"
+data_source <- "Source: Author's creation using rice and corn production data found in IRRI Technical Bulletin No. 9 and population data from the Philippine government.\nYears for which no population data were available are interpolated using a cubic spline approximation."
+
+n <- length(unique(df_plot$Item))
+bag_of_colors <- randomcoloR::distinctColorPalette(k = 2 * n)
+color_vec <- sample(bag_of_colors, n)
+
+gg <- ggplot(df_plot, aes(x = Year,
+                          y = `Production / capita (metric tons)`,
+                          fill = Item))
+gg <- gg + geom_area(position = "stack")
+gg <- gg + labs(title = this_title, caption = data_source)
+gg <- gg + scale_fill_manual(values = color_vec)
+gg <- gg + theme(axis.title.x = element_blank(),
+                 legend.position = "bottom",
+            legend.title = element_blank())
+gg
+#gg_philipp <- gg
+
+# list_gg <- list(gg_india, gg_philipp)
+# wrap_plots(list_gg, ncol = 1, guides = "collect")
 
 ```
 
