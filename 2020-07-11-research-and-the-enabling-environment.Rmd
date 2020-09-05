@@ -113,6 +113,11 @@ For plot point 4, we turn to the father of the Green Revolution, Norman Borlaug:
 
 The impression conveyed, then, is one of improved seed "causing" a tremendous increase in wheat and rice production, which saved a good portion of the world from starvation, and conserved countless hundreds of millions of hectares (\@ref(fig:greenRevNarrative)). There is no mincing of words over counterfactuals, attribution problems, or the policy and institutional context. These narrators of the green revolution clearly intend to draw a direct line of causation from research to impacts.
 
+
+
+[CRITICAL FOR FINAL SECTION on what drives changes in production (a la Paarlberger's statement about increasing production of diamonds etc.):
+The decrease in grain stocks during the 1960s was due to a specific price policy with that specific aim. This ended with the Agricultural and Consumer Protection Act of 1973, after which stocks increased again. So, stocks never decreased due to a real physical incapacity of the world to feed itself. Cite "Langley et al USDA ERS cica 1984 Commodity Program Perspectives.pdf" in the USDA Data subfolder. Parallel to this, in India stocks and production fell because of a lack of price incentives in favor of industrialization. Also, use Ending Stocks, not Beginning Stocks.]
+
 ```{r greenRevNarrative, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
 
 #"xkcd" %in% fonts()
