@@ -111,7 +111,7 @@ For plot point 4, we turn to the father of the Green Revolution, Norman Borlaug:
 
 >"Had the global cereal yields of 1950 still prevailed in 1999, we would have needed nearly 1.8 billion ha of additional land of the same quality--instead of the 600 million that was used--to equal the current global harvest" [@borlaug2002green].
 
-The impression conveyed, then, is one of improved seed "causing" a tremendous increase in wheat and rice production, which saved a good portion of the world from starvation, and conserved countless hundreds of millions of hectares (\@ref(fig:greenRevNarrative)). There is no mincing of words over counterfactuals, attribution problems, or the policy and institutional context. These narrators of the green revolution clearly intend to draw a direct line of causation from research to impacts.
+The impression conveyed, then, is one of improved seed "causing" a tremendous increase in wheat and rice production, which saved a good portion of the world from starvation, and conserved countless hundreds of millions of hectares (\@ref(fig:greenRevNarrative)). There is no mincing of words over counterfactuals, attribution problems, or the role of policy and institutions. These narrators of the green revolution clearly intend to draw a direct line of causation from research to impacts.
 
 
 
@@ -292,22 +292,53 @@ knitr::include_graphics(c("post images/FAOSTAT query in 2004 b.png",
 
 
 
-## Re-examining plot point 1: The Malthusian pall
+## Re-examining plot point 1: The Malthusian pall?
 
-Was there an impending global famine in the 1960s? Was population on a trajectory to outpace food production?
+Was there an impending global famine in the 1960s? Was population on a 
+trajectory to outpace food production, as the BBC reporter said? If true, then we would expect to see declining food production per capita during the 1960s. Instead, what we see is food production keeping pace with population growth (Figure ...). Regardless of whether we look at the world as a whole or at specific "trouble spots"... Perhaps it is better to look at food availability per capita... What about stocks? 
 
-There were certainly many loud "experts" proclaiming as much from the end of World War II up through the 1970s [@paddock1967famine; @ehrlich1971population; @osborn1949our; @vogt1948road]. Sensational speculations such as the following were typical:
 
->"[T]he battle to feed all of humanity is over... In the 1970s and 1980s hundreds of millions of people will starve to death in spite of any crash programs embarked upon now" [@ehrlich1967paying].
+
+There were certainly many loud "experts" proclaiming as much. The books "Famine, 1975!" [@paddock1967famine] and "The Population Bomb" [@ehrlich1971population], in particular, caused quite a sensation. However, by today's standards, there is precious little in these books in the way of hard evidence that would support the Malthusian thesis. They are collections of emotionally charged anecdotes dressed up as grounds upon which to extrapolate the end of the world. The following account about a taxi ride through a Delhi slum, for example, is typical:
+
+>"The seats were hopping with fleas. The only functional gear was third. As we crawled through the city, we entered a crowded slum area. The temperature was well over 100, and the air was a haze of dust and smoke. The streets seemed alive with people. People eating, people washing, people sleeping. People visiting, arguing, and screaming. People thrusting their hands through the taxi window, begging. People defecating and urinating. People clinging to buses. People herding animals. People, people, people, people. As we moved slowly through the mob, hand horn squawking, the dust, noise, heat and cooking fires gave the scene a hellish aspect. Would we ever get to our hotel? All three of us were, frankly, frightened...since that night I have known the feel of overpopulation" [@ehrlich1971population].
+
+Such passages have not aged well. Apart from their sensational tone, they contain nothing that is particularly urgent or even endemic to the "developing world". "Hellish" scenes of slum life were on display a century earlier in the European capitals.^[See, for example, Marx's description of the English working class in Volume I of Das Kapital [-@marx1967capital], or Victor Hugo's portrayal of Parisian poverty in Les Miserables [-@hugo1992miserables].] Then comes the extrapolation. On the basis of his Delhi taxi rides and other "first hand evidence", Ehlrich concludes that
+
+>"the battle to feed all of humanity is over.... In the 1970s and 1980s hundreds of millions of people will starve to death in spite of any crash programs embarked upon now" [@ehrlich1967paying].
+
+As for data, 
 
 But is there any factual basis for such statements? The authors of these diatribes were not too concerned with vetting their statements, ...underpinned by a disdain for statistics--From Paddock's book:
 
 >"In college I took two courses on statistics. The first I almost understood. The second was almost incomprehensible, but [the professor] closed the course with a piece of advice I have applied profitably many times: 'When the statistics go against your reasoned judgment, throw the statistics out the window!'" [Paddock (1967) in @trumbo1969critFamine].
 
+These diatribes were themselves rooted in earlier books by...[@osborn1949our; @vogt1948road]. At that time, these Neo-Malthusian diatribes were roundly criticized as being built upon "suspect extrapolations and outright errors, prejudices, mysticism and reckless appeals to emotion" [Anonymous "Time" reviewer (1948) in @desrochers2009post]. The books by Ehlrich and Paddock were preceded by a very different kind of book..sharp contrast to this bombast, Brown [-@brown1963man] produced a dispassionate examination of the data. Brown found that per capita grain production had been growing steadily. He reached the same conclusions as Ehlrich and Paddock based on his assessment of arable land now known to be mistaken (11% as opposed to 25% [@fischer2001global]). 450 million hectares (1.1 billion acres) of uncultivated arable land---far from exhausted. Even this was an underestimate.
+
+
+Amidst the bombast, there were some fact based analyses [@brown1963man]. The FAO was also fact based, although they tended to take a pessimistic interpretation of the data...[fao1965]. Even a decade later, when the green revolution was in full swing, the FAO maintained its pessimistic tone about the world food outlook [fao1975]. 
+
+
+The Food and Agricultural Organization featured such a graphic on the cover of their 1965 State of Food and Agriculture report (Figure ...).
+
+```{r FAOreport1965cover, fig.show = 'hold', out.width="7cm", fig.cap="From FAO (1965).", fig.align='center'}
+knitr::include_graphics("post images/FAO_stateOfFoodAndAg1965_cover.png")
+```
+
+This graphic shows that the increase in food production was holding steady with the increase in population. FAO took a darker view though, warning of "Malthusian correctives" in the event of a downturn [FAO1965]. Also worried about declining US wheat stocks.
+
+
+Found an enthusiastic audience in Lyndon Johnson, who was eager to advance his Food for Peace program, and the fledgling USAID he had founded... the Foreign Assistance Program for FY 1968 passed the House by just 8 votes [@gaud1968green]....Under enormous pressure to make something of a sensation out of the 1967 harvest.  Johnson wanted to send a message to Congress "that there were people dying, that people were being hauled 
+away dead in trucks, and that they needed food" [@cullather2010hungry]. ...[@brass1986political]...FFP [@ahlberg2007machiavelli]... The "near famine" in Bihar...but then this doesn't serve as an argument in favor of GR because later there was a worse famine in Maharashtra when GR was in full swing [@dyson1992bihar]. As far back as 1951, President Truman viewed food aid as a "diplomatic weapon" against the spread of "Communism" [@mcmahon1987food].
+PL-480 passed in 1954, becomes "Food for Peace" in 1959 (all under Eisenhower), Kennedy then gave it a "philosophical and organizational overhaul" via executive order in the 1961 Foreign Assistance Act, by which USAID was created [@ahlberg2007machiavelli]
+
+
+
 If there were substance to these claims, then we should expect to see a trend of steadily declining food production and/or availability per capita, especially in former colonies such as India. Paddock has such a graph in his book "Famine 1975!" [Paddock (1967) in @trumbo1969critFamine].
 
-Even at the time, these Neo-Malthusian diatribes were roundly criticized as being built upon "suspect extrapolations and outright errors, prejudices, mysticism and reckless appeals to emotion" [Anonymous "Time" reviewer (1948) in @desrochers2009post]. Found an enthusiastic audience in Lyndon Johnson, who was eager to advance his Food for Peace program, and the fledgling USAID he had founded... the Foreign Assistance Program for FY 1968 passed the House by just 8 votes [@gaud1968green]....Under enormous pressure to make something of a sensation out of the 1967 harvest.  Johnson wanted to send a message to Congress "that there were people dying, that people were being hauled 
-away dead in trucks, and that they needed food" [@cullather2010hungry]. ...[@brass1986political]...FFP [@ahlberg2007machiavelli]... The "near famine" in Bihar...but then this doesn't serve as an argument in favor of GR because later there was a worse famine in Maharashtra when GR was in full swing [@dyson1992bihar]. Also, the Bihar drought was called "unprecedented" [@dyson1992bihar], but in fact there were similar droughts during the El Nino events of 1918 and 1900 [@parthasarathy1994all],   The 1966 Bihar famine of food crisis disputed [@brass1986political; @cullather2010hungry; @dyson1992bihar]. The one fact is that there was a severe drought which resulted in lower staple grain production. Maharashtra drought of 1970-1973 70,000 excess deaths, while none in Bihar according to [@dyson1992bihar]. Cullather: "My project was soon complicated by recorded observations and experiences that refused to conform to this story" [@cullather2010hungry]. The President's report [@president1967world]. Johnson announced a "War on Hunger" in a special address to Congress on Feb. 10, 1966, in which he ordered the report [@johnson1966WarHunger]. In his 1967 State of the Union Address, Johnson called this the second most imporant..."Next to the pursuit of peace, the really greatest challenge to the human family is the race between food supply and population increase. That race tonight is being lost." [@johnson1967StateUnion].
+
+
+Also, the Bihar drought was called "unprecedented" [@dyson1992bihar], but in fact there were similar droughts during the El Nino events of 1918 and 1900 [@parthasarathy1994all],   The 1966 Bihar famine of food crisis disputed [@brass1986political; @cullather2010hungry; @dyson1992bihar]. The one fact is that there was a severe drought which resulted in lower staple grain production. Maharashtra drought of 1970-1973 70,000 excess deaths, while none in Bihar according to [@dyson1992bihar]. Cullather: "My project was soon complicated by recorded observations and experiences that refused to conform to this story" [@cullather2010hungry]. The President's report [@president1967world]. Johnson announced a "War on Hunger" in a special address to Congress on Feb. 10, 1966, in which he ordered the report [@johnson1966WarHunger]. In his 1967 State of the Union Address, Johnson called this the second most imporant..."Next to the pursuit of peace, the really greatest challenge to the human family is the race between food supply and population increase. That race tonight is being lost." [@johnson1967StateUnion].
 
 #https://www.livemint.com/Politics/1BowYWLsVzTEy22b32FPMI/How-an-American-with-a-knack-for-math-saved-India-from-famin.html
 #"How an American with a knack for Math saved India from Famine" 2015 (referring to Lester Brown, foreign policy aid to Orville Freeman, Johnson's Secretary of Agriculture)
@@ -318,8 +349,6 @@ South Asian grain stocks could have covered about 13 of the 15 million mt produc
 
 Immediately following independence from Great Britain, up to the eve of the green revolution, India pursued a policy of industrialization, during which her agriculture fell into a state of neglect and disrepair. Even so, per capita grain production did not stagnate, but grew during this period, even when taking into consideration the disastrous weather in 1951 and 1965-6 [@hatti1977impact].
 
-As far back as 1951, President Truman viewed food aid as a "diplomatic weapon" against the spread of "Communism" [@mcmahon1987food].
-PL-480 passed in 1954, becomes "Food for Peace" in 1959 (all under Eisenhower), Kennedy then gave it a "philosophical and organizational overhaul" via executive order in the 1961 Foreign Assistance Act, by which USAID was created [@ahlberg2007machiavelli]
 
 PL-480 wheat shipments to India were about 2-4 million mt, except during the crisis years 1965-1967 when they surged to about 7.5 million mt per year. 
 
@@ -350,13 +379,6 @@ India: 3 million [@sen1981ingredients]
 Under East India Company rule (1770-1858), famines on the Indian subcontinent were "frequent and severe" [@dreze1991political]. By 1878, a British statistician counted 31 serious famines in 120 years of British rule (including East India Company rule) versus 17 famines in the previous two milennia [Walford (1878) in @davis2002late].
 
 
-However, amidst the bombast, there did emerge at least one fact based analysis [@brown1963man]....The FAO was also fact based, although they tended to take a pessimistic interpretation of the data...[fao1965]. Even a decade later, when the green revolution was in full swing, the FAO maintained its pessimistic tone about the world food outlook [fao1975]. 
-
-```{r FAOreport1965cover, fig.show = 'hold', out.width="7cm", fig.cap="From FAO (1965).", fig.align='center'}
-knitr::include_graphics("post images/FAO_stateOfFoodAndAg1965_cover.png")
-```
-
-This graphic shows that the increase in food production was holding steady with the increase in population. FAO took a darker view though, warning of "Malthusian correctives" in the event of a downturn [FAO1965]. Also worried about declining US wheat stocks...
 
 I was unable to reproduce this graphic, possibly because FAO periodically revises its figures.
 
@@ -375,8 +397,6 @@ We now have the advantage of data,... Food grain production per capita fell stea
 like Malthus' original _Essay on the Principle of Population_ 160 years earlier
 
 and the Bengal famine of 1943 in which 1-3 million starved; but then steadily   has been decreasing  []
-
-
 
 
 If this were true, then we would expect to see a trend of declining food production per capita from the 1950s through the 1960s, particularly in places like India. In its 1965 decadal review, the Food and Agricultural 
@@ -975,27 +995,47 @@ Another piece of the story that is sometimes mentioned is that world wheat stock
 
 ```{r foodStocks, fig.show = "hold", fig.width = 7, fig.height=4, fig.align="center", fig.cap="...", echo = FALSE}
 this_folder <- "C:/Users/bensc/OneDrive/Documents/Data/USDA Data/"
-this_file <- "USDA Beginning Stocks 1960-2021.csv"
+this_file <- "USDA Cereal Data 1961-2020.csv"  #"USDA Beginning Stocks 1960-2021.csv"
 this_filepath <- paste0(this_folder, this_file)
 df_stocks <- read.csv(this_filepath, stringsAsFactors = F, header = F)
 colnames(df_stocks) <- df_stocks[1, ]
-df_stocks <- df_stocks[-1, ]
-# Stocks are in units of 1000 mt
+usda_country_vec <- c("East Asia", "European Union - 28",
+                      "Former Soviet Union - 12",
+                      "North America", "South America",
+                      "South Asia", "Southeast Asia",
+                      #"Sub-Saharan Africa",
+                      "World", "Central America")
+usda_commodity_vec <- c("Barley", "Corn", "Millet", "Oats",
+                        "Rice, Milled", "Rye", "Sorghum", "Wheat")
+attribute_vec <- c("Ending Stocks", "Beginning Stocks")
+df_stocks <- subset(df_stocks, Attribute %in% attribute_vec &
+                      Country %in% usda_country_vec &
+                      Commodity %in% usda_commodity_vec)
+
 df_stocks$`Unit Description` <- NULL
-df_stocks <- df_stocks %>% gather(Year, `Beginning Stocks`, `1960/1961`:`2020/2021`)
+df_stocks <- df_stocks %>% gather(Year, Value, `1960/1961`:`2020/2021`)
 df_stocks$Year <- as.integer(gsub(".*/", "", df_stocks$Year))
-df_stocks$`Beginning Stocks` <- as.numeric(gsub(",", "", df_stocks$`Beginning Stocks`))
+df_stocks$Value <- as.numeric(gsub(",", "", df_stocks$Value))
 # Convert to units of million mt
-df_stocks$`Beginning Stocks` <- df_stocks$`Beginning Stocks` / 1000
-colnames(df_stocks)[ncol(df_stocks)] <- "Beginning Stocks (million metric tons)"
-df_stocks$Attribute <- NULL
+df_stocks$Value <- df_stocks$Value / 1000
 df_stocks$Commodity[grep("Sorghum|Rye|Millet|Corn|Barley|Oats", df_stocks$Commodity, ignore.case = T)] <- "Coarse grains"
 #df_stocks$Commodity[grep("Corn", df_stocks$Commodity, ignore.case = T)] <- "Maize"
-df_stocks$Country[grep("Europe", df_stocks$Country)] <- "Europe"
-df_stocks <- df_stocks %>% group_by(Country, Commodity, Year) %>%
-  summarise(`Beginning Stocks (million metric tons)` = sum(`Beginning Stocks (million metric tons)`, na.rm = T)) %>%
+df_stocks <- df_stocks %>% group_by(Country, Commodity, Attribute, Year) %>%
+  summarise(Value = sum(Value, na.rm = T)) %>%
   as.data.frame()
+
+df_stocks$Country[grep("Europe", df_stocks$Country)] <- "Europe"
 df_stocks$Country[grep("Soviet Union", df_stocks$Country)] <- "Soviet Union"
+
+df_begStocks <- subset(df_stocks, Attribute == "Beginning Stocks")
+df_stocks <- subset(df_stocks, Attribute == "Ending Stocks")
+colnames(df_stocks)[ncol(df_stocks)] <- "Ending Stocks (million metric tons)"
+colnames(df_begStocks)[ncol(df_begStocks)] <- "Beginning Stocks (million metric tons)"
+#df_stocks$Attribute <- NULL
+#df_stocks <- df_stocks[-1, ]
+# Stocks are in units of 1000 mt
+
+
 
 last_yr <- 1966
 year_vec <- c(1961:last_yr)
@@ -1005,7 +1045,7 @@ df_plot <- subset(df_stocks, Country %in% area_vec &
                     Year %in% year_vec)
 
 df_plot <- df_plot %>% group_by(Country, Commodity) %>%
-  mutate(mu_stocks = mean(`Beginning Stocks (million metric tons)`)) %>%
+  mutate(mu_stocks = mean(`Ending Stocks (million metric tons)`)) %>%
   as.data.frame()
 
 df_plot$Commodity <-
@@ -1020,7 +1060,7 @@ color_vec <- sample(bag_of_colors, n)
 data_source <- "Source: Author's creation based on USDA data."
 
 gg <- ggplot(df_plot, aes(x = Year,
-                          y = `Beginning Stocks (million metric tons)`,
+                          y = `Ending Stocks (million metric tons)`,
                           fill = Commodity))
 gg <- gg + geom_area(position = "stack")
 gg <- gg + scale_fill_manual(values = color_vec)
@@ -1089,7 +1129,7 @@ df_stocksPerCons <- merge(df_stocks, df_cons, by = c("Country", "Commodity", "Ye
 #   df_stocksPerCons$tot_consump
 
 df_stocksPerCons$`Stocks / Consumption (%)` <- 100 *
-  df_stocksPerCons$`Beginning Stocks (million metric tons)` /
+  df_stocksPerCons$`Ending Stocks (million metric tons)` /
   df_stocksPerCons$`Domestic supply (million metric tons)`
 #----------------------------------------------------------------------------
 last_yr <- 1966
@@ -1172,6 +1212,8 @@ element_vec <- c("Import Quantity", "Export Quantity", "Production")
 df_ssr <- subset(df_fbs, Area %in% area_vec &
                    Item %in% item_vec &
                    Element %in% element_vec)
+
+
 
 df_ssr$Item[grep("Sorghum|Millet|Rye|Barley|Oats|Maize", df_ssr$Item, ignore.case = T)] <- "Coarse grains"
 df_ssr$Item[grep("Wheat", df_ssr$Item, ignore.case = T)] <- "Wheat"
